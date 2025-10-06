@@ -43,7 +43,7 @@ function Test() {
     const [adaptations, setAdaptations] = useState([]);
     const [selectedAdaptationId, setSelectedAdaptationId] = useState("");
     const [appliedFilters, setAppliedFilters] = useState(null);
-    const [geojsonData, setGeojsonData] = useState({ country: null, district: null });
+    const [geojsonData, setGeojsonData] = useState(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState({
         region: true,
         dataType: false,
@@ -56,6 +56,7 @@ function Test() {
     });
     const [isLoading, setIsLoading] = useState(false);
     const [mapLoading, setMapLoading] = useState(false);
+
     const apiUrl = process.env.REACT_APP_API_URL;
 
     const toggleDrawer = () => {
@@ -126,8 +127,6 @@ function Test() {
         async (admin_level, admin_level_id) => {
             setIsLoading(true);
             try {
-                const newGeojsonData = { country: null, district: null };
-                // Fetch country or state GeoJSON
                 const geojsonRes = await fetch(`${apiUrl}/layers/geojson`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -139,28 +138,9 @@ function Test() {
                 if (!geojsonRes.ok) throw new Error(`GeoJSON error! Status: ${geojsonRes.status}`);
                 const geojsonData = await geojsonRes.json();
                 if (!geojsonData.success || !geojsonData.data) {
-                    throw new Error("No valid GeoJSON data returned for country/state");
+                    throw new Error("No valid GeoJSON data returned");
                 }
-                newGeojsonData.country = geojsonData.data;
-
-                // Fetch district GeoJSON only when admin_level is "country"
-                if (admin_level === "country" && admin_level_id) {
-                    const districtRes = await fetch(`${apiUrl}/layers/geojson/districts_c`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            admin_level: "country",
-                            admin_level_id,
-                        }),
-                    });
-                    if (!districtRes.ok) throw new Error(`District GeoJSON error! Status: ${districtRes.status}`);
-                    const districtData = await districtRes.json();
-                    if (districtData.success && districtData.data) {
-                        newGeojsonData.district = districtData.data;
-                    }
-                }
-
-                setGeojsonData(newGeojsonData);
+                setGeojsonData(geojsonData.data);
             } catch (err) {
                 console.error("Error fetching GeoJSON:", err);
                 Swal.fire({
@@ -168,7 +148,7 @@ function Test() {
                     title: "Error",
                     text: err.message || "Failed to load GeoJSON data.",
                 });
-                setGeojsonData({ country: null, district: null });
+                setGeojsonData(null);
             } finally {
                 setIsLoading(false);
             }
@@ -209,6 +189,7 @@ function Test() {
             let admin_level = "total";
             let admin_level_id = null;
             let showSelect = true;
+
             if (country) {
                 const countryName = country.toLowerCase().replace(/[-_]/g, " ");
                 const matchedCountry = countries.find(
@@ -285,9 +266,11 @@ function Test() {
                 acc[commodity.commodity_group].items.push(commodity);
                 return acc;
             }, {});
+
             Object.values(groupedCommodities).forEach((group) => {
                 group.items.sort((a, b) => a.commodity_id - b.commodity_id);
             });
+
             const filtered = groupOrder
                 .map((groupName) => groupedCommodities[groupName])
                 .flatMap((group) =>
@@ -295,7 +278,9 @@ function Test() {
                         selectedCommodityTypeId ? commodity.commodity_type_id === selectedCommodityTypeId : true
                     )
                 );
+
             setFilteredCommodities(filtered);
+
             if (filtered.length > 0 && (!selectedCommodityId || !filtered.some((c) => c.commodity_id === selectedCommodityId))) {
                 let index = +selectedCommodityTypeId === 1 ? 1 : 0;
                 setSelectedCommodityId(filtered[index]?.commodity_id || "");
@@ -310,7 +295,7 @@ function Test() {
             selectedDataSourceId &&
             selectedScenarioId &&
             selectedCommodityId &&
-            geojsonData.country &&
+            geojsonData &&
             !isLoading &&
             countries.length > 0 &&
             commodityTypes.length > 0 &&
@@ -328,6 +313,7 @@ function Test() {
             console.warn("Required data not fully loaded, skipping filter update.");
             return;
         }
+
         if (!selectedCommodityId) {
             Swal.fire({
                 icon: "error",
@@ -336,6 +322,7 @@ function Test() {
             });
             return;
         }
+
         // Ensure mutual exclusivity
         const selections = [selectedRiskId, selectedImpactId, selectedAdaptationId].filter(Boolean);
         if (selections.length > 1) {
@@ -350,10 +337,12 @@ function Test() {
             setSelectedAdaptationId("");
             return;
         }
+
         let layer_type = "commodity";
         let risk_id = null;
         let impact_id = null;
         let adaptation_id = null;
+
         if (selectedRiskId) {
             layer_type = "risk";
             risk_id = selectedRiskId;
@@ -364,8 +353,10 @@ function Test() {
             layer_type = "adaptation";
             adaptation_id = selectedAdaptationId;
         }
+
         const admin_level = selectedStateId !== 0 ? "state" : selectedCountryId !== 0 ? "country" : "total";
         const admin_level_id = selectedStateId !== 0 ? selectedStateId : selectedCountryId !== 0 ? selectedCountryId : null;
+
         const newFilters = {
             analysis_scope_id: selectedScopeId || null,
             visualization_scale_id: selectedScaleId || null,
@@ -379,11 +370,9 @@ function Test() {
             adaptation_id,
             admin_level,
             admin_level_id,
-            geojson: geojsonData.country?.geojson,
-            bbox: geojsonData.country?.bbox,
-            region: geojsonData.country?.region,
-            districtGeojson: geojsonData.district?.geojson,
-            districtBbox: geojsonData.district?.bbox,
+            geojson: geojsonData?.geojson,
+            bbox: geojsonData?.bbox,
+            region: geojsonData?.region,
             countries: countries || [],
             commodityTypes: commodityTypes || [],
             commodities: commodities || [],
@@ -398,6 +387,7 @@ function Test() {
             country_id: selectedCountryId,
             state_id: selectedStateId,
         };
+
         setAppliedFilters(newFilters);
     }, [
         selectedScopeId,
@@ -558,9 +548,11 @@ function Test() {
         }
         return acc;
     }, {});
+
     Object.values(groupedRisks).forEach((group) => {
         group.items.sort((a, b) => a.risk_id - b.risk_id);
     });
+
     const sortedGroupedRisks = Object.keys(groupedRisks)
         .sort((a, b) => parseInt(a) - parseInt(b))
         .reduce((acc, key) => {
@@ -570,11 +562,11 @@ function Test() {
 
     const groupedAdaptations = [];
     let currentGroup = null;
-    let currentItems = [];
-    adaptations.forEach((adaptation, index) => {
+    let currentItems = []; adaptations.forEach((adaptation, index) => {
         const isLast = index === adaptations.length - 1;
         const groupId = adaptation.group_id;
         const groupName = adaptation.group || adaptation.adaptation;
+
         if (groupId === null) {
             if (currentGroup !== null) {
                 groupedAdaptations.push({ groupId: currentGroup.groupId, name: currentGroup.name, items: currentItems });
@@ -598,6 +590,7 @@ function Test() {
                 currentItems.push(adaptation);
             }
         }
+
         if (isLast && currentGroup !== null) {
             groupedAdaptations.push({ groupId: currentGroup.groupId, name: currentGroup.name, items: currentItems });
         }
@@ -822,6 +815,7 @@ function Test() {
                                         </List>
                                     </Collapse>
                                 </List>
+
                                 <List
                                     className="listMenu"
                                     sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
@@ -843,6 +837,9 @@ function Test() {
                                         >
                                             <img src="/images/datatype.svg" alt="Data Type" />
                                         </ListItemIcon>
+                                        {/*<ListItemText
+                                            primary={<FormLabel style={{ textAlign: "left" }} className="formLabel">Data Type</FormLabel>}
+                                        />*/}
                                         <ListItemText
                                             primary={
                                                 <FormLabel style={{ textAlign: "left" }} className="formLabel">
@@ -891,6 +888,7 @@ function Test() {
                                         </List>
                                     </Collapse>
                                 </List>
+
                                 <List
                                     className="listMenu"
                                     sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
@@ -963,6 +961,7 @@ function Test() {
                                                     />
                                                 ))}
                                             </FormGroup>
+
                                             <Typography variant="subtitle2" sx={{ mt: 3, mb: 1 }} style={{ textAlign: "left" }}>
                                                 <FormLabel style={{ textAlign: "left" }} className="formLabel">Select visualization scale</FormLabel>
                                             </Typography>
@@ -1010,6 +1009,7 @@ function Test() {
                                         </List>
                                     </Collapse>
                                 </List>
+
                                 <List
                                     className="listMenu"
                                     sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
@@ -1048,9 +1048,11 @@ function Test() {
                                                     acc[commodity.commodity_group].items.push(commodity);
                                                     return acc;
                                                 }, {});
+
                                                 Object.values(groupedCommodities).forEach((group) => {
                                                     group.items.sort((a, b) => a.commodity_id - b.commodity_id);
                                                 });
+
                                                 return groupOrder.map((groupName) => {
                                                     const group = groupedCommodities[groupName];
                                                     const filteredItems = group.items.filter((commodity) =>
@@ -1109,6 +1111,7 @@ function Test() {
                                         </List>
                                     </Collapse>
                                 </List>
+
                                 <List
                                     className="listMenu"
                                     sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
@@ -1185,6 +1188,7 @@ function Test() {
                                         </List>
                                     </Collapse>
                                 </List>
+
                                 {selectedCommodityTypeId !== 2 && (
                                     <List
                                         className="listMenu"
@@ -1256,6 +1260,7 @@ function Test() {
                                         </Collapse>
                                     </List>
                                 )}
+
                                 <List
                                     className="listMenu"
                                     sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
