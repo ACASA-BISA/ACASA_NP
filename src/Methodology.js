@@ -78,14 +78,14 @@ const linkify = (text) => {
   return parts.flatMap((part, i) =>
     typeof part === "string"
       ? part.split(/(https?:\/\/[^\s]+)/g).map((subpart, j) =>
-          subpart.match(/^https?:\/\//) ? (
-            <a key={`${i}-${j}`} href={subpart} target="_blank" rel="noopener noreferrer" style={{ color: "#81c784" }}>
-              {subpart}
-            </a>
-          ) : (
-            subpart
-          )
+        subpart.match(/^https?:\/\//) ? (
+          <a key={`${i}-${j}`} href={subpart} target="_blank" rel="noopener noreferrer" style={{ color: "#81c784" }}>
+            {subpart}
+          </a>
+        ) : (
+          subpart
         )
+      )
       : part
   );
 };
