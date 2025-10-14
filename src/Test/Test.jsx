@@ -1019,7 +1019,7 @@ function Test() {
                                     <ListSubheader component="div" id="nested-list-subheader3"></ListSubheader>
                                     <ListItemButton
                                         onClick={() => handleSidebarToggle("commodity")}
-                                        disabled={isLoading || mapLoading}
+                                        disabled={isLoading || mapLoading || +selectedScopeId === 2}
                                     >
                                         <ListItemIcon
                                             sx={{
