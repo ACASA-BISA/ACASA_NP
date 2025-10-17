@@ -6,15 +6,12 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Swal from "sweetalert2";
 import MapViewer from "./MapViewer";
-
 const drawerWidth = 254;
-
 function Test() {
     useEffect(() => {
         document.documentElement.style.overflowX = "hidden";
         document.body.style.overflowX = "hidden";
     }, []);
-
     const { country } = useParams();
     const [open, setOpen] = useState(true);
     const [countries, setCountries] = useState([]);
@@ -57,7 +54,6 @@ function Test() {
     const [isLoading, setIsLoading] = useState(false);
     const [mapLoading, setMapLoading] = useState(false);
     const apiUrl = process.env.REACT_APP_API_URL;
-
     const toggleDrawer = () => {
         setOpen((prevOpen) => {
             const newOpen = !prevOpen;
@@ -76,7 +72,6 @@ function Test() {
             return newOpen;
         });
     };
-
     const handleSidebarToggle = (sidebar) => {
         setOpen(true);
         setIsSidebarOpen((prev) => {
@@ -94,7 +89,6 @@ function Test() {
             return newState;
         });
     };
-
     const fetchData = useCallback(
         async (endpoint, setter, params = "") => {
             setIsLoading(true);
@@ -121,7 +115,6 @@ function Test() {
         },
         [apiUrl]
     );
-
     const fetchGeojson = useCallback(
         async (admin_level, admin_level_id) => {
             setIsLoading(true);
@@ -142,7 +135,6 @@ function Test() {
                     throw new Error("No valid GeoJSON data returned for country/state");
                 }
                 newGeojsonData.country = geojsonData.data;
-
                 // Fetch district GeoJSON only when admin_level is "country"
                 if (admin_level === "country" && admin_level_id) {
                     const districtRes = await fetch(`${apiUrl}/layers/geojson/districts_c`, {
@@ -159,7 +151,6 @@ function Test() {
                         newGeojsonData.district = districtData.data;
                     }
                 }
-
                 setGeojsonData(newGeojsonData);
             } catch (err) {
                 console.error("Error fetching GeoJSON:", err);
@@ -175,7 +166,6 @@ function Test() {
         },
         [apiUrl]
     );
-
     useEffect(() => {
         fetchData("lkp/locations/countries", setCountries);
         fetchData("lkp/common/commodity_types", setCommodityTypes);
@@ -186,7 +176,6 @@ function Test() {
         fetchData("lkp/common/data_sources", setDataSources);
         fetchData("lkp/specific/impacts", setImpacts);
     }, [fetchData]);
-
     useEffect(() => {
         if (selectedCommodityId) {
             fetchData(
@@ -202,7 +191,17 @@ function Test() {
             setSelectedImpactId("");
         }
     }, [selectedCommodityId, selectedCommodityTypeId, fetchData]);
-
+    useEffect(() => {
+        if (selectedScopeId) {
+            if (+selectedScopeId === 2) {
+                fetchData(`lkp/specific/risks`, setRisks);
+            } else {
+                fetchData(`lkp/specific/risks?commodity_id=${selectedCommodityId}`, setRisks);
+            }
+        } else {
+            setRisks([]);
+        }
+    }, [selectedScopeId]);
     useEffect(() => {
         if (countries.length > 0) {
             let countryId = 0;
@@ -243,37 +242,31 @@ function Test() {
             fetchGeojson(admin_level, admin_level_id);
         }
     }, [countries, country, fetchGeojson]);
-
     useEffect(() => {
         if (commodityTypes.length > 0 && !selectedCommodityTypeId) {
             setSelectedCommodityTypeId(commodityTypes[0].commodity_type_id);
         }
     }, [commodityTypes, selectedCommodityTypeId]);
-
     useEffect(() => {
         if (analysisScopes.length > 0 && !selectedScopeId) {
             setSelectedScopeId(analysisScopes[0].scope_id);
         }
     }, [analysisScopes, selectedScopeId]);
-
     useEffect(() => {
         if (visualizationScales.length > 0 && !selectedScaleId) {
             setSelectedScaleId(visualizationScales[0].scale_id);
         }
     }, [visualizationScales, selectedScaleId]);
-
     useEffect(() => {
         if (dataSources.length > 0 && !selectedDataSourceId) {
             setSelectedDataSourceId(dataSources[0].data_source_id);
         }
     }, [dataSources, selectedDataSourceId]);
-
     useEffect(() => {
         if (climateScenarios.length > 0 && !selectedScenarioId) {
             setSelectedScenarioId(climateScenarios[climateScenarios.length - 1].scenario_id);
         }
     }, [climateScenarios, selectedScenarioId]);
-
     useEffect(() => {
         if (commodities.length > 0) {
             const groupOrder = [];
@@ -302,7 +295,6 @@ function Test() {
             }
         }
     }, [selectedCommodityTypeId, commodities, selectedCommodityId]);
-
     const areMandatoryFiltersSelected = () => {
         return (
             selectedScopeId &&
@@ -322,7 +314,6 @@ function Test() {
             impacts.length > 0
         );
     };
-
     const updateFilters = useCallback(() => {
         if (!areMandatoryFiltersSelected()) {
             console.warn("Required data not fully loaded, skipping filter update.");
@@ -366,6 +357,17 @@ function Test() {
         }
         const admin_level = selectedStateId !== 0 ? "state" : selectedCountryId !== 0 ? "country" : "total";
         const admin_level_id = selectedStateId !== 0 ? selectedStateId : selectedCountryId !== 0 ? selectedCountryId : null;
+        let sub_layer_name = '';
+        if (risk_id) {
+            const selectedRisk = risks.find(r => r.risk_id === risk_id);
+            sub_layer_name = selectedRisk ? selectedRisk.risk : '';
+        } else if (impact_id) {
+            const selectedImpact = impacts.find(i => i.impact_id === impact_id);
+            sub_layer_name = selectedImpact ? selectedImpact.impact : '';
+        } else if (adaptation_id) {
+            const selectedAdaptation = adaptations.find(a => a.adaptation_id === adaptation_id);
+            sub_layer_name = selectedAdaptation ? selectedAdaptation.adaptation : '';
+        }
         const newFilters = {
             analysis_scope_id: selectedScopeId || null,
             visualization_scale_id: selectedScaleId || null,
@@ -397,6 +399,7 @@ function Test() {
             risks: risks || [],
             country_id: selectedCountryId,
             state_id: selectedStateId,
+            sub_layer_name
         };
         setAppliedFilters(newFilters);
     }, [
@@ -425,7 +428,6 @@ function Test() {
         states,
         risks,
     ]);
-
     useEffect(() => {
         if (areMandatoryFiltersSelected() && !isLoading) {
             updateFilters();
@@ -446,7 +448,6 @@ function Test() {
         isLoading,
         updateFilters,
     ]);
-
     const getStates = async (countryId) => {
         setIsLoading(true);
         try {
@@ -470,7 +471,6 @@ function Test() {
             setIsLoading(false);
         }
     };
-
     const handleCountryChange = (event) => {
         const countryId = event.target.value;
         setSelectedCountryId(countryId);
@@ -485,7 +485,6 @@ function Test() {
             fetchGeojson("total", null);
         }
     };
-
     const handleStateChange = (event) => {
         const stateId = event.target.value;
         setSelectedStateId(stateId);
@@ -495,7 +494,6 @@ function Test() {
             fetchGeojson("country", selectedCountryId);
         }
     };
-
     const handleCommodityTypeChange = (event) => {
         const newCommodityTypeId = event.target.value;
         setSelectedCommodityTypeId(newCommodityTypeId);
@@ -504,7 +502,6 @@ function Test() {
         setSelectedImpactId("");
         setSelectedAdaptationId("");
     };
-
     const handleCommodityChange = (event) => {
         const newCommodityId = event.target.value;
         setSelectedCommodityId(newCommodityId);
@@ -512,41 +509,33 @@ function Test() {
         setSelectedImpactId("");
         setSelectedAdaptationId("");
     };
-
     const handleScopeChange = (event) => {
         setSelectedScopeId(event.target.value);
     };
-
     const handleScaleChange = (event) => {
         setSelectedScaleId(event.target.value);
     };
-
     const handleScenarioChange = (event) => {
         setSelectedScenarioId(event.target.value);
     };
-
     const handleDataSourceChange = (event) => {
         setSelectedDataSourceId(event.target.value);
     };
-
     const handleRiskChange = (riskId) => {
         setSelectedRiskId(prev => prev === riskId ? "" : riskId);
         setSelectedImpactId("");
         setSelectedAdaptationId("");
     };
-
     const handleImpactChange = (impactId) => {
         setSelectedImpactId(prev => prev === impactId ? "" : impactId);
         setSelectedRiskId("");
         setSelectedAdaptationId("");
     };
-
     const handleAdaptationChange = (adaptationId) => {
         setSelectedAdaptationId(prev => prev === adaptationId ? "" : adaptationId);
         setSelectedRiskId("");
         setSelectedImpactId("");
     };
-
     const groupedRisks = risks.reduce((acc, risk) => {
         if (risk.status === true) {
             if (risk.ipcc_id && risk.ipcc) {
@@ -567,7 +556,6 @@ function Test() {
             acc[key] = groupedRisks[key];
             return acc;
         }, {});
-
     const groupedAdaptations = [];
     let currentGroup = null;
     let currentItems = [];
@@ -602,7 +590,6 @@ function Test() {
             groupedAdaptations.push({ groupId: currentGroup.groupId, name: currentGroup.name, items: currentItems });
         }
     });
-
     const getListItemStyle = (category) => ({
         backgroundColor:
             (category === "risk" && selectedRiskId) ||
@@ -611,7 +598,6 @@ function Test() {
                 ? "#e3f2fd"
                 : "inherit",
     });
-
     return (
         <div>
             <Box sx={{ display: "flex", marginTop: "86px" }}>
@@ -1195,7 +1181,7 @@ function Test() {
                                         <ListSubheader component="div" id="nested-list-subheader6"></ListSubheader>
                                         <ListItemButton
                                             onClick={() => handleSidebarToggle("impact")}
-                                            disabled={isLoading || mapLoading || !selectedCommodityId}
+                                            disabled={isLoading || mapLoading || !selectedCommodityId || +selectedScopeId === 2}
                                             sx={getListItemStyle("impact")}
                                         >
                                             <ListItemIcon
@@ -1265,7 +1251,7 @@ function Test() {
                                     <ListSubheader component="div" id="nested-list-subheader7"></ListSubheader>
                                     <ListItemButton
                                         onClick={() => handleSidebarToggle("adaptation")}
-                                        disabled={isLoading || mapLoading || !selectedCommodityId}
+                                        disabled={isLoading || mapLoading || !selectedCommodityId || +selectedScopeId === 2}
                                         sx={getListItemStyle("adaptation")}
                                     >
                                         <ListItemIcon
@@ -1362,5 +1348,4 @@ function Test() {
         </div>
     );
 }
-
 export default Test;

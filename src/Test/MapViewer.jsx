@@ -1212,12 +1212,13 @@ function MapViewer({
       const scenarioName = scenario
         ? scenario.scenario?.replace(/\s+/g, "") || "UnknownScenario"
         : "NoScenarioSelected";
+      const sub_layer_name = memoizedFilters.sub_layer_name;
       const intensityName = selectedIntensityMetric.toLowerCase() === "intensity frequency" ? "IntensityFrequency" : "Intensity";
       const changeName = selectedChangeMetric.toLowerCase() === "absolute" ? "Absolute" : "Delta";
       const isBaseline = layerName === "Baseline (2000s)";
-      const year = isBaseline ? "" : (layerName === "2050s" ? "2050" : layerName === "2080s" ? "2080" : "UnknownYear");
+      const year = isBaseline ? "" : (layerName === "2050s" ? "2050" : layerName === "2080s" ? "2080" : "");
       // Construct filename
-      const fileName = `${countryName}_${commodityName}_${intensityName}_${changeName}_${scenarioName}${year ? `_${year}` : ""}.tif`;
+      const fileName = `${countryName}_${commodityName}_${sub_layer_name}_${intensityName}_${changeName}_${scenarioName}${year ? `_${year}` : ""}.tif`;
       const blob = new Blob([arrayBuffer], { type: "image/tiff" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -1263,12 +1264,13 @@ function MapViewer({
       const scenarioName = scenario
         ? scenario.scenario?.replace(/\s+/g, "") || "UnknownScenario"
         : "NoScenarioSelected";
+      const sub_layer_name = memoizedFilters.sub_layer_name;
       const intensityName = selectedIntensityMetric.toLowerCase() === "intensity frequency" ? "IntensityFrequency" : "Intensity";
       const changeName = selectedChangeMetric.toLowerCase() === "absolute" ? "Absolute" : "Delta";
       const isBaseline = layerName === "Baseline (2000s)";
-      const year = isBaseline ? "" : (layerName === "2050s" ? "2050" : layerName === "2080s" ? "2080" : tiffMetadata.year || "UnknownYear");
+      const year = isBaseline ? "" : (layerName === "2050s" ? "2050" : layerName === "2080s" ? "2080" : "");
       // Construct filename
-      const fileName = `${countryName}_${commodityName}_${intensityName}_${changeName}_${scenarioName}${year ? `_${year}` : ""}.csv`;
+      const fileName = `${countryName}_${commodityName}_${sub_layer_name}_${intensityName}_${changeName}_${scenarioName}${year ? `_${year}` : ""}.csv`;
       const payload = {
         layer_type: tiffMetadata.layer_type,
         country_id: breadcrumbData?.country_id || null,
@@ -1336,12 +1338,13 @@ function MapViewer({
       const scenarioName = scenario
         ? scenario.scenario?.replace(/\s+/g, "") || "UnknownScenario"
         : "NoScenarioSelected";
+      const sub_layer_name = memoizedFilters.sub_layer_name;
       const intensityName = selectedIntensityMetric.toLowerCase() === "intensity frequency" ? "IntensityFrequency" : "Intensity";
       const changeName = selectedChangeMetric.toLowerCase() === "absolute" ? "Absolute" : "Delta";
       const isBaseline = layerName === "Baseline (2000s)";
-      const year = isBaseline ? "" : (layerName === "2050s" ? "2050" : layerName === "2080s" ? "2080" : "UnknownYear");
+      const year = isBaseline ? "" : (layerName === "2050s" ? "2050" : layerName === "2080s" ? "2080" : "");
       // Construct filename
-      const fileName = `${countryName}_${commodityName}_${intensityName}_${changeName}_${scenarioName}${year ? `_${year}` : ""}.jpg`;
+      const fileName = `${countryName}_${commodityName}_${sub_layer_name}_${intensityName}_${changeName}_${scenarioName}${year ? `_${year}` : ""}.jpg`;
       const mapContainer = mapRefs.current[mapIndex];
       if (!mapContainer) throw new Error("Map container not found");
       if (mapInstances.current[mapIndex]) {
@@ -2212,7 +2215,7 @@ function MapViewer({
                     layerType={memoizedFilters?.layer_type}
                     mapIndex={index}
                     onDownloadGeoTIFF={() =>
-                      handleDownloadGeoTIFF(tiffData[index].downloadArrayBuffer, `${tiffData[index].metadata.layer_name}.tif`)
+                      handleDownloadGeoTIFF(tiffData[index].downloadArrayBuffer, tiffData[index].metadata.layer_name)
                     }
                     onDownloadTable={() => handleDownloadTable(tiffData[index].metadata.layer_name, tiffData[index].metadata)}
                     onDownloadImage={() => handleDownloadImage(tiffData[index].metadata.layer_name, index)}
