@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import MapLegend from "./MapLegend";
 import "./Test.css";
 import { debounce } from "lodash";
+
 // Leaflet control for Download (top-left, below zoom)
 L.Control.DownloadControl = L.Control.extend({
     options: {
@@ -24,6 +25,7 @@ L.Control.DownloadControl = L.Control.extend({
         container.style.pointerEvents = "auto";
         container.style.top = "65px";
         container.style.left = "0";
+
         const downloadButton = L.DomUtil.create("button", "", container);
         downloadButton.type = "button";
         downloadButton.title = "Download GeoTIFF Layer";
@@ -48,13 +50,16 @@ L.Control.DownloadControl = L.Control.extend({
             L.DomEvent.preventDefault(e);
             this.options.onDownload();
         });
+
         return container;
     },
     onRemove: function () { },
 });
+
 L.control.downloadControl = function (opts) {
     return new L.Control.DownloadControl(opts);
 };
+
 // Leaflet control for Zoom, Fullscreen, and Fit to Extent (top-right)
 L.Control.MapControls = L.Control.extend({
     options: {
@@ -69,12 +74,14 @@ L.Control.MapControls = L.Control.extend({
         container.style.display = "flex";
         container.style.flexDirection = "column";
         container.style.gap = "4px";
+
         const zoomContainer = L.DomUtil.create(
             "div",
-            "ol-zoom-compact ol-unselectable ol-control"
+            "ol-zoom-comp ol-unselectable ol-control"
         );
         zoomContainer.style.pointerEvents = "auto";
-        const zoomInButton = L.DomUtil.create("button", "ol-zoom-compact-in", zoomContainer);
+
+        const zoomInButton = L.DomUtil.create("button", "ol-zoom-comp-in", zoomContainer);
         zoomInButton.type = "button";
         zoomInButton.title = "Zoom in";
         zoomInButton.innerHTML = "+";
@@ -86,7 +93,8 @@ L.Control.MapControls = L.Control.extend({
         zoomInButton.style.fontSize = "18px";
         zoomInButton.style.textAlign = "center";
         zoomInButton.style.lineHeight = "26px";
-        const zoomOutButton = L.DomUtil.create("button", "ol-zoom-compact-out", zoomContainer);
+
+        const zoomOutButton = L.DomUtil.create("button", "ol-zoom-comp-out", zoomContainer);
         zoomOutButton.type = "button";
         zoomOutButton.title = "Zoom out";
         zoomOutButton.innerHTML = "–";
@@ -99,21 +107,25 @@ L.Control.MapControls = L.Control.extend({
         zoomOutButton.style.fontSize = "18px";
         zoomOutButton.style.textAlign = "center";
         zoomOutButton.style.lineHeight = "26px";
+
         L.DomEvent.on(zoomInButton, "click", (e) => {
             L.DomEvent.stopPropagation(e);
             L.DomEvent.preventDefault(e);
             map.zoomIn();
         });
+
         L.DomEvent.on(zoomOutButton, "click", (e) => {
             L.DomEvent.stopPropagation(e);
             L.DomEvent.preventDefault(e);
             map.zoomOut();
         });
+
         const fullscreenContainer = L.DomUtil.create(
             "div",
             "ol-fullscreeny ol-unselectable ol-control"
         );
         fullscreenContainer.style.pointerEvents = "auto";
+
         const fullscreenButton = L.DomUtil.create(
             "button",
             `ol-fullscreeny-${this.options.isFullscreen}`,
@@ -132,17 +144,20 @@ L.Control.MapControls = L.Control.extend({
         fullscreenButton.style.fontSize = "18px";
         fullscreenButton.style.textAlign = "center";
         fullscreenButton.style.lineHeight = "26px";
+
         L.DomEvent.on(fullscreenButton, "click", (e) => {
             L.DomEvent.stopPropagation(e);
             L.DomEvent.preventDefault(e);
             this.options.onFullscreen(fullscreenButton);
         });
+
         const fitExtentContainer = L.DomUtil.create(
             "div",
             "ol-zoomtoextenty ol-unselectable ol-control"
         );
         fitExtentContainer.style.pointerEvents = "auto";
         fitExtentContainer.style.top = "-1px";
+
         const fitExtentButton = L.DomUtil.create("button", "", fitExtentContainer);
         fitExtentButton.type = "button";
         fitExtentButton.title = "Fit to extent";
@@ -156,21 +171,26 @@ L.Control.MapControls = L.Control.extend({
         fitExtentButton.style.textAlign = "center";
         fitExtentButton.style.lineHeight = "26px";
         fitExtentButton.style.fontWeight = "bold";
+
         L.DomEvent.on(fitExtentButton, "click", (e) => {
             L.DomEvent.stopPropagation(e);
             L.DomEvent.preventDefault(e);
             this.options.onFitExtent();
         });
+
         container.appendChild(zoomContainer);
         container.appendChild(fullscreenContainer);
         container.appendChild(fitExtentContainer);
+
         return container;
     },
     onRemove: function () { },
 });
+
 L.control.mapControls = function (opts) {
     return new L.Control.MapControls(opts);
 };
+
 const DataGlance = () => {
     const theme = useTheme();
     const [countries, setCountries] = useState([]);
@@ -198,6 +218,7 @@ const DataGlance = () => {
     const [renderedMaps, setRenderedMaps] = useState(new Array(8).fill(false));
     const [isFullscreen, setIsFullscreen] = useState(new Array(8).fill(false));
     const [noGeoTiffAvailable, setNoGeoTiffAvailable] = useState(new Array(8).fill(false)); // New state for tracking no GeoTIFF
+
     const mapRefs = useRef(new Array(8).fill(null));
     const mapInstances = useRef(new Array(8).fill(null));
     const layerRefs = useRef(new Array(8).fill([]));
@@ -212,8 +233,10 @@ const DataGlance = () => {
     const lastFetchKeyRef = useRef(null);
     const geotiffPromiseCache = useRef(new Map());
     const controlsInitialized = useRef(new Array(8).fill(false));
+
     const apiUrl = process.env.REACT_APP_API_URL;
     const { country } = useParams();
+
     const breadcrumbData = useMemo(
         () => ({
             commodity: commodities.find((c) => c.commodity_id === selectedCommodityId)?.commodity || null,
@@ -231,286 +254,141 @@ const DataGlance = () => {
         }),
         [commodities, selectedCommodityId, selectedCountryId, selectedScenarioId, selectedVisualizationScaleId, selectedIntensityMetricId, selectedChangeMetricId, selectedAdaptationCropTabId, geojsonData]
     );
+
     const memoizedHazardData = useMemo(() => hazardData, [hazardData]);
     const memoizedGeojsonData = useMemo(() => geojsonData, [geojsonData]);
     const isAdaptationChangeRef = useRef(false);
+
     const getTileLayerUrl = () => {
         return theme.palette.mode === "dark"
             ? "http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"
             : "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}";
     };
-    const makeTiffCacheKey = useCallback(
-        (file, gridSequence, adaptationId) => {
-            const isBaseline = parseInt(selectedScenarioId) === 1;
-            const year = isBaseline ? "baseline" : selectedYear ?? "no-year";
-            return `${file.source_file}-${selectedCountryId || "total"}-${adaptationId ?? "no-adaptation"}-${selectedScenarioId}-${selectedVisualizationScaleId}-${year}`;
-        },
-        [
-            selectedCountryId,
-            selectedScenarioId,
-            selectedVisualizationScaleId,
-            selectedYear,
-        ]
-    );
-    const getBaselineLayerId = (hazardData) => {
-        // grid_sequence === 0 is always the reference map
-        const baselineGrid = hazardData?.raster_grids?.find(
-            (g) => g.grid_sequence === 0
-        );
-        if (!baselineGrid) return null;
-        // Crops → impact, Livestock → risk (you can extend this mapping)
-        const isLivestock = selectedCommodityId
-            ? commodities.find((c) => c.commodity_id === selectedCommodityId)
-                ?.commodity_group?.toLowerCase()
-                .includes("livestock")
-            : false;
-        return isLivestock ? baselineGrid.risk_layer_id : baselineGrid.layer_id;
-    };
-    const selectRasterFile = useCallback(
-        (grid, adaptationId) => {
-            const rasterFiles = grid.raster_files || [];
-            const isBaseline = parseInt(selectedScenarioId) === 1;
-            const expectedYear = isBaseline ? null : selectedYear;
-            // 1. sort → existing files first
-            const sorted = [...rasterFiles].sort((a, b) => {
-                if (a.exists && !b.exists) return -1;
-                if (!a.exists && b.exists) return 1;
-                return 0;
-            });
-            const targetAdaptationId = adaptationId ? parseInt(adaptationId) : 0;
-            return sorted.find((file) => {
-                const fileAdaptationId = parseInt(file.layer_id) || 0; // <-- correct field
-                const matchesScenario =
-                    !file.climate_scenario_id ||
-                    +file.climate_scenario_id === parseInt(selectedScenarioId);
-                const matchesYear =
-                    isBaseline || !file.year || +file.year === +expectedYear;
-                const matchesScale =
-                    !file.visualization_scale_id ||
-                    +file.visualization_scale_id === parseInt(selectedVisualizationScaleId);
-                const matchesAdaptation = fileAdaptationId === targetAdaptationId;
-                const exists = !!file.exists;
-                return exists && matchesScenario && matchesYear && matchesScale && matchesAdaptation;
-            });
-        },
-        [
-            selectedScenarioId,
-            selectedYear,
-            selectedVisualizationScaleId,
-        ]
-    );
-    const fetchGeoTiff = useCallback(
-        async (file, gridSequence, layerId, grid) => {
-            const adaptationId = file.adaptation_id || "";
-            const cacheKey = makeTiffCacheKey(file, gridSequence, adaptationId);
-            if (geotiffPromiseCache.current.has(cacheKey)) {
-                return geotiffPromiseCache.current.get(cacheKey);
+
+    const fetchTiffs = useCallback(
+        debounce(async (hazardData, geojsonData, countryId, commodityId, adaptationCropTabId, selectRasterFile, fetchGeoTiff) => {
+            if (isFetchingRef.current) {
+                return;
             }
-            const admin_level = selectedCountryId !== 0 ? "country" : "total";
-            const admin_level_id = selectedCountryId || null;
-            const promise = fetchWithRetry(`${apiUrl}/layers/geotiff`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    admin_level,
-                    admin_level_id,
-                    source_file: file.source_file,
-                    color_ramp: file.ramp,
-                }),
-            })
-                .then(async (geotiffRes) => {
-                    if (!geotiffRes.ok) {
-                        const responseData = await geotiffRes.json().catch(() => ({}));
-                        if (responseData.success === 0 && responseData.message?.includes("No data available")) {
-                            console.warn(`No GeoTIFF data available for ${file.source_file}`);
+
+            if (!hazardData || !hazardData.raster_grids || !geojsonData) {
+                return;
+            }
+
+            isFetchingRef.current = true;
+            setIsLoading(true);
+
+            try {
+                const sortedGrids = [...hazardData.raster_grids].sort(
+                    (a, b) => (a.grid_sequence || 0) - (b.grid_sequence || 0)
+                );
+
+                const fetchedSourceFiles = new Set();
+                const tiffPromises = sortedGrids.slice(0, 7).map(async (grid) => {
+                    // console.log(selectedAdaptations, selectedAdaptations)
+                    const adaptationId = grid.grid_sequence === 0 ? "" : selectedAdaptations[grid.grid_sequence] || "";
+                    const file = selectRasterFile(grid, adaptationId);
+                    if (!file || !file.exists) {
+                        console.warn(`No matching raster file for grid ${grid.grid_sequence_title || grid.grid_sequence}, adaptation ${adaptationId}`);
+                        setNoGeoTiffAvailable((prev) => {
+                            const newState = [...prev];
+                            newState[grid.grid_sequence] = true;
+                            return newState;
+                        });
+                        return null;
+                    }
+                    if (fetchedSourceFiles.has(file.source_file)) {
+                        return null;
+                    }
+                    const existingTiff = tiffData.find(
+                        (t) =>
+                            t.metadata.grid_sequence === grid.grid_sequence &&
+                            t.metadata.adaptation_id === (adaptationId || null) &&
+                            t.arrayBuffer &&
+                            t.arrayBuffer.byteLength > 0
+                    );
+                    if (existingTiff) {
+                        console.log(`Skipping fetch for grid_sequence ${grid.grid_sequence}: valid TIFF already exists`);
+                        return existingTiff;
+                    }
+                    fetchedSourceFiles.add(file.source_file);
+                    const cacheKey = `${file.source_file}-${countryId || "total"}-${grid.grid_sequence}-${adaptationId || "no-adaptation"}`;
+                    if (geotiffPromiseCache.current.has(cacheKey)) {
+                        console.log(`Using cached GeoTIFF for grid_sequence ${grid.grid_sequence}`);
+                        return geotiffPromiseCache.current.get(cacheKey);
+                    }
+                    return await fetchGeoTiff(
+                        { ...file, grid_sequence_title: grid.grid_sequence_title, adaptation_id: adaptationId },
+                        grid.grid_sequence,
+                        adaptationId || grid.impact_id || grid.adaptation_id,
+                        grid
+                    );
+                });
+
+                const tiffResults = await Promise.all(tiffPromises);
+                const validTiffResults = tiffResults
+                    .filter((result, idx) => {
+                        if (result === null || !result.arrayBuffer || result.arrayBuffer.byteLength === 0) {
+                            console.warn(`Invalid TIFF result for grid_sequence ${sortedGrids[idx]?.grid_sequence || "unknown"}`, {
+                                resultExists: !!result,
+                                arrayBufferExists: !!result?.arrayBuffer,
+                                byteLength: result?.arrayBuffer?.byteLength || 0,
+                            });
                             setNoGeoTiffAvailable((prev) => {
                                 const newState = [...prev];
-                                newState[gridSequence] = true;
+                                newState[sortedGrids[idx]?.grid_sequence || 0] = true;
                                 return newState;
                             });
-                            return null;
+                            return false;
                         }
-                        throw new Error(`Failed to fetch GeoTIFF: ${geotiffRes.status} ${geotiffRes.statusText}`);
-                    }
-                    const arrayBuffer = await geotiffRes.arrayBuffer();
-                    if (!arrayBuffer || arrayBuffer.byteLength === 0) {
-                        throw new Error(`Empty arrayBuffer for ${file.source_file}`);
-                    }
-                    const view = new DataView(arrayBuffer);
-                    const byteOrder = view.getUint16(0, false);
-                    if (byteOrder !== 0x4949 && byteOrder !== 0x4D4D) {
-                        throw new Error(`Invalid GeoTIFF byte order for ${file.source_file}: ${byteOrder.toString(16)}`);
-                    }
-                    const modifiedColorRamp = file.ramp.map((color) =>
-                        color.toLowerCase() === "#00ff00" ? "#7FFF00" : color
-                    );
-                    setNoGeoTiffAvailable((prev) => {
-                        const newState = [...prev];
-                        newState[gridSequence] = false;
-                        return newState;
-                    });
-                    console.log(grid.layer_id, { layerId });
-                    return {
-                        arrayBuffer,
-                        metadata: {
-                            source_file: file.source_file,
-                            color_ramp: modifiedColorRamp,
-                            layer_name: file.grid_sequence_title || `Grid ${gridSequence}`,
-                            grid_sequence: gridSequence,
-                            layer_id: grid.layer_id ?? layerId,
-                            layer_type: grid.layer_type,
-                            year: file.year || null,
-                            climate_scenario_id: file.climate_scenario_id || null,
-                            adaptation_id: file.adaptation_id || null,
-                        },
-                    };
-                })
-                .catch((err) => {
-                    console.error(`Error fetching GeoTIFF for ${file.source_file}:`, err);
-                    if (!err.message.includes("No data available")) {
-                        Swal.fire({
-                            icon: "error",
-                            title: "Error",
-                            text: `Failed to load GeoTIFF for ${file.grid_sequence_title || "grid"}`,
-                        });
-                    }
-                    geotiffPromiseCache.current.delete(cacheKey);
-                    return null;
-                });
-            geotiffPromiseCache.current.set(cacheKey, promise);
-            return promise;
-        },
-        [apiUrl, selectedCountryId, makeTiffCacheKey]
-    );
-    const fetchGeoTiffShared = useCallback(
-        async (file, gridSequence, adaptationId, grid) => {
-            if (!file || !file.exists) return null;
-            const cacheKey = makeTiffCacheKey(file, gridSequence, adaptationId);
-            if (geotiffPromiseCache.current.has(cacheKey)) {
-                return geotiffPromiseCache.current.get(cacheKey);
-            }
-            const promise = fetchGeoTiff(file, gridSequence, adaptationId || grid.layer_id, grid);
-            geotiffPromiseCache.current.set(cacheKey, promise);
-            return promise;
-        },
-        [fetchGeoTiff, makeTiffCacheKey]
-    );
-    const fetchTiffs = useCallback(
-        debounce(
-            async (
-                hazardData,
-                geojsonData,
-                countryId,
-                commodityId,
-                adaptationCropTabId,
-                selectedAdaptations
-            ) => {
-                if (isFetchingRef.current || !hazardData?.raster_grids || !geojsonData) return;
-                isFetchingRef.current = true;
-                setIsLoading(true);
-                setNoGeoTiffAvailable(new Array(8).fill(false));
-                setTiffData([]);
-                setRenderedMaps(new Array(8).fill(false));
-                try {
-                    const sortedGrids = [...hazardData.raster_grids]
-                        .sort((a, b) => (a, b) => (a.grid_sequence || 0) - (b.grid_sequence || 0))
-                        .slice(0, 7); // 0-6 → 7 maps
-                    const tiffResults = [];
-                    for (const grid of sortedGrids) {
-                        const gridSeq = grid.grid_sequence;
-                        const isBaselineGrid = gridSeq === 0;
-                        const adaptationId = isBaselineGrid
-                            ? undefined
-                            : selectedAdaptations[gridSeq] || "";
-                        let file = null;
-                        // ---------- 1. Baseline (grid 0) ----------
-                        if (isBaselineGrid) {
-                            file = selectRasterFile(grid); // no adaptationId
-                        }
-                        // ---------- 2. Adaptation (grid 1-6) ----------
-                        else {
-                            const pickerRes = await fetchWithRetry(
-                                `${apiUrl}/layers/tif_picker`,
-                                {
-                                    method: "POST",
-                                    headers: { "Content-Type": "application/json" },
-                                    body: JSON.stringify({
-                                        analysis_scope_id: 1,
-                                        visualization_scale_id: parseInt(selectedVisualizationScaleId) || 1,
-                                        commodity_id: parseInt(commodityId),
-                                        layer_type: "adaptation",
-                                        adaptation_id: parseInt(adaptationId),
-                                        adaptation_croptab_id: parseInt(adaptationCropTabId),
-                                    }),
-                                }
-                            );
-                            const pickerJson = await pickerRes.json();
-                            if (pickerJson.success && pickerJson.data?.raster_files) {
-                                file = selectRasterFile(pickerJson.data, adaptationId);
-                            }
-                        }
-                        // ---------- 3. No file at all → mark as unavailable ----------
-                        if (!file?.exists) {
-                            setNoGeoTiffAvailable((prev) => {
-                                const n = [...prev];
-                                n[gridSeq] = true;
-                                return n;
-                            });
-                            continue;
-                        }
-                        // ---------- 4. Fetch the GeoTIFF (shared cache) ----------
-                        const tiff = await fetchGeoTiffShared(
-                            { ...file, grid_sequence_title: grid.grid_sequence_title },
-                            gridSeq,
-                            adaptationId,
-                            grid
-                        );
-                        if (!tiff?.arrayBuffer) {
-                            setNoGeoTiffAvailable((prev) => {
-                                const n = [...prev];
-                                n[gridSeq] = true;
-                                return n;
-                            });
-                            continue;
-                        }
-                        // share the same arrayBuffer with every grid that uses the same adaptation
-                        const sharedMetadata = {
-                            ...tiff.metadata,
-                            grid_sequence: gridSeq,
-                            layer_name: grid.grid_sequence_title || `Grid ${gridSeq}`,
-                            layer_id: grid.layer_id,
-                            layer_type: grid.layer_type,
-                        };
-                        tiffResults.push({
-                            arrayBuffer: tiff.arrayBuffer.slice(0),
-                            metadata: sharedMetadata,
-                        });
                         setNoGeoTiffAvailable((prev) => {
-                            const n = [...prev];
-                            n[gridSeq] = false;
-                            return n;
+                            const newState = [...prev];
+                            newState[sortedGrids[idx]?.grid_sequence || 0] = false;
+                            return newState;
                         });
-                    }
-                    setTiffData(tiffResults);
+                        return true;
+                    })
+                    .map((result) => ({
+                        arrayBuffer: result.arrayBuffer.slice(0),
+                        metadata: { ...result.metadata },
+                    }));
+
+                if (validTiffResults.length === 0) {
+                    console.warn("No valid GeoTIFFs fetched");
+                    setTiffData([]);
                     setAllDataReady(true);
-                } catch (e) {
-                    console.error("fetchTiffs error:", e);
-                    Swal.fire({ icon: "error", title: "Error", text: "Failed to load map data." });
-                    setAllDataReady(true);
-                } finally {
-                    setIsLoading(false);
-                    isFetchingRef.current = false;
+                    setRenderedMaps(new Array(8).fill(false));
+                    setNoGeoTiffAvailable(new Array(8).fill(true));
+                    return;
                 }
-            },
-            500
-        ),
-        [
-            apiUrl,
-            selectedVisualizationScaleId,
-            selectRasterFile,
-            fetchGeoTiffShared,
-        ]
+
+                setTiffData((prev) => {
+                    const newTiffData = [...prev.filter((t) => !validTiffResults.some((v) => v.metadata.grid_sequence === t.metadata.grid_sequence))];
+                    newTiffData.push(...validTiffResults);
+                    console.log("Updated tiffData in fetchTiffs", newTiffData.map((t) => t.metadata.grid_sequence));
+                    return newTiffData;
+                });
+
+                setAllDataReady(true);
+            } catch (err) {
+                console.error("Error fetching TIFF data:", err);
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: err.message || "Failed to load map data.",
+                });
+                setTiffData([]);
+                setAllDataReady(true);
+                setRenderedMaps(new Array(8).fill(false));
+                setNoGeoTiffAvailable(new Array(8).fill(true));
+            } finally {
+                setIsLoading(false);
+                isFetchingRef.current = false;
+            }
+        }, 500),
+        [selectedScenarioId, selectedVisualizationScaleId, selectedIntensityMetricId, selectedChangeMetricId, selectedAdaptationCropTabId, selectedYear, selectedAdaptations]
     );
+
     useEffect(() => {
         const observer = new ResizeObserver((entries) => {
             entries.forEach((entry) => {
@@ -523,14 +401,17 @@ const DataGlance = () => {
                 }
             });
         });
+
         mapRefs.current.forEach((ref, index) => {
             if (ref) {
                 observer.observe(ref);
                 mapWidths.current[index] = ref.offsetWidth || 300;
             }
         });
+
         return () => observer.disconnect();
     }, []);
+
     const fetchWithRetry = async (url, options, retries = 3, backoff = 300) => {
         for (let i = 0; i < retries; i++) {
             try {
@@ -544,6 +425,7 @@ const DataGlance = () => {
             }
         }
     };
+
     const fetchData = useCallback(
         async (endpoint, params = "") => {
             setIsOptionLoading(true);
@@ -569,6 +451,7 @@ const DataGlance = () => {
         },
         [apiUrl]
     );
+
     const fetchGeojson = useCallback(
         async (admin_level, admin_level_id) => {
             if (isFetchingRef.current) {
@@ -606,6 +489,8 @@ const DataGlance = () => {
         },
         [apiUrl]
     );
+
+
     const fetchAdaptations = useCallback(
         async (commodityId) => {
             if (!commodityId) {
@@ -636,6 +521,7 @@ const DataGlance = () => {
         },
         [fetchData]
     );
+
     const setSelectedAdaptationsAsync = (updater) => {
         return new Promise((resolve) => {
             setSelectedAdaptations((prev) => {
@@ -645,6 +531,7 @@ const DataGlance = () => {
             });
         });
     };
+
     const fetchHazardData = useCallback(
         debounce(async (commodityId, adaptationCropTabId) => {
             if (!commodityId || !adaptationCropTabId) {
@@ -655,11 +542,15 @@ const DataGlance = () => {
             try {
                 // Fetch adaptations
                 const newSelectedAdaptations = await fetchAdaptations(commodityId);
+
                 // Wait for React state update to complete
                 await setSelectedAdaptationsAsync(newSelectedAdaptations);
+                console.log({ selectedAdaptations })
+
                 // ✅ Now state is guaranteed updated
                 const admin_level = selectedCountryId !== 0 ? "country" : "total";
                 const admin_level_id = selectedCountryId || null;
+
                 const response = await fetchWithRetry(`${apiUrl}/layers/adaptations_glance`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -670,21 +561,12 @@ const DataGlance = () => {
                         admin_level_id,
                     }),
                 });
+
                 const { success, data } = await response.json();
                 if (!success) throw new Error("API error: /layers/adaptations_glance");
+
                 lastFetchKeyRef.current = null;
                 setHazardData(data);
-                // Trigger fetchTiffs with updated selectedAdaptations
-                if (geojsonData) {
-                    fetchTiffs(
-                        data,
-                        geojsonData,
-                        selectedCountryId,
-                        commodityId,
-                        adaptationCropTabId,
-                        newSelectedAdaptations // ← Use the fresh value
-                    );
-                }
             } catch (err) {
                 console.error("Error fetching adaptations data:", err);
                 Swal.fire({
@@ -698,8 +580,168 @@ const DataGlance = () => {
                 isFetchingRef.current = false;
             }
         }, 500),
-        [apiUrl, selectedCountryId, fetchAdaptations, geojsonData, fetchTiffs]
+        [apiUrl, selectedCountryId, fetchAdaptations]
     );
+
+    const selectRasterFile = useCallback(
+        (data, adaptationId) => {
+            const rasterFiles = data.raster_files;
+            const isBaseline = parseInt(selectedScenarioId) === 1;
+            const expectedYear = isBaseline ? null : selectedYear;
+
+            const matchedFile = rasterFiles.find((file) => {
+                const grid_adaptation_id =
+                    data.layer_type === "adaptation" ? parseInt(data.layer_id) : parseInt(adaptationId);
+
+                const matchesIntensity = +file.intensity_metric_id === 2;
+
+                const matchesChange = +file.change_metric_id === 1;
+
+                const matchesScenario =
+                    (!selectedScenarioId || !('climate_scenario_id' in file)) ||
+                    +file.climate_scenario_id === parseInt(selectedScenarioId);
+
+                const matchesYear =
+                    isBaseline || !('year' in file) ||
+                    +file.year === +selectedYear;
+
+                const matchesScale =
+                    (!selectedVisualizationScaleId || !('visualization_scale_id' in file)) ||
+                    +file.visualization_scale_id === parseInt(selectedVisualizationScaleId);
+
+                const matchesAdaptation =
+                    (!adaptationId || grid_adaptation_id === parseInt(adaptationId));
+
+                if (file.exists) {
+                    console.log({
+                        file,
+                        adaptationId,
+                        grid_adaptation_id,
+                        selectedScenarioId,
+                        selectedVisualizationScaleId,
+                        expectedYear,
+                        matchesScenario,
+                        matchesYear,
+                        matchesScale,
+                        matchesAdaptation,
+                    });
+                }
+
+                return (
+                    matchesScenario &&
+                    matchesYear &&
+                    matchesScale &&
+                    matchesAdaptation &&
+                    matchesIntensity &&
+                    matchesChange
+                );
+            });
+
+            if (!matchedFile && rasterFiles.length > 0) {
+                console.warn("No matching raster file found, falling back to first available file");
+                return;
+            }
+
+            return matchedFile;
+        },
+        [
+            selectedScenarioId,
+            selectedIntensityMetricId,
+            selectedChangeMetricId,
+            selectedVisualizationScaleId,
+            selectedYear,
+            climateScenarios,
+        ]
+    );
+
+
+    const fetchGeoTiff = useCallback(
+        async (file, gridSequence, layerId, grid) => {
+            const cacheKey = `${file.source_file}-${selectedCountryId || "total"}-${gridSequence}-${file.adaptation_id || "no-adaptation"}`;
+            if (geotiffPromiseCache.current.has(cacheKey)) {
+                return geotiffPromiseCache.current.get(cacheKey);
+            }
+
+            const admin_level = selectedCountryId !== 0 ? "country" : "total";
+            const admin_level_id = selectedCountryId || null;
+            const promise = fetchWithRetry(`${apiUrl}/layers/geotiff`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    admin_level,
+                    admin_level_id,
+                    source_file: file.source_file,
+                    color_ramp: file.ramp,
+                }),
+            })
+                .then(async (geotiffRes) => {
+                    if (!geotiffRes.ok) {
+                        const responseData = await geotiffRes.json().catch(() => ({}));
+                        if (responseData.success === 0 && responseData.message?.includes("No data available")) {
+                            console.warn(`No GeoTIFF data available for ${file.source_file}`);
+                            setNoGeoTiffAvailable((prev) => {
+                                const newState = [...prev];
+                                newState[gridSequence] = true;
+                                return newState;
+                            });
+                            return null;
+                        }
+                        throw new Error(`Failed to fetch GeoTIFF: ${geotiffRes.status} ${geotiffRes.statusText}`);
+                    }
+                    const arrayBuffer = await geotiffRes.arrayBuffer();
+                    if (!arrayBuffer || arrayBuffer.byteLength === 0) {
+                        throw new Error(`Empty arrayBuffer for ${file.source_file}`);
+                    }
+
+                    const view = new DataView(arrayBuffer);
+                    const byteOrder = view.getUint16(0, false);
+                    if (byteOrder !== 0x4949 && byteOrder !== 0x4D4D) {
+                        throw new Error(`Invalid GeoTIFF byte order for ${file.source_file}: ${byteOrder.toString(16)}`);
+                    }
+
+                    const modifiedColorRamp = file.ramp.map((color) =>
+                        color.toLowerCase() === "#00ff00" ? "#7FFF00" : color
+                    );
+                    setNoGeoTiffAvailable((prev) => {
+                        const newState = [...prev];
+                        newState[gridSequence] = false;
+                        return newState;
+                    });
+                    console.log(grid.layer_id, { layerId })
+                    return {
+                        arrayBuffer,
+                        metadata: {
+                            source_file: file.source_file,
+                            color_ramp: modifiedColorRamp,
+                            layer_name: file.grid_sequence_title || `Grid ${gridSequence}`,
+                            grid_sequence: gridSequence,
+                            layer_id: grid.layer_id ?? layerId,
+                            layer_type: grid.layer_type,
+                            year: file.year || null,
+                            climate_scenario_id: file.climate_scenario_id || null,
+                            adaptation_id: file.adaptation_id || null,
+                        },
+                    };
+                })
+                .catch((err) => {
+                    console.error(`Error fetching GeoTIFF for ${file.source_file}:`, err);
+                    if (!err.message.includes("No data available")) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: `Failed to load GeoTIFF for ${file.grid_sequence_title || "grid"}`,
+                        });
+                    }
+                    geotiffPromiseCache.current.delete(cacheKey);
+                    return null;
+                });
+
+            geotiffPromiseCache.current.set(cacheKey, promise);
+            return promise;
+        },
+        [apiUrl, selectedCountryId]
+    );
+
     const handleDownloadGeoTIFF = useCallback((arrayBuffer, gridSequence) => {
         if (!arrayBuffer || arrayBuffer.byteLength === 0) {
             console.error("Cannot download GeoTIFF: arrayBuffer is empty or invalid", { gridSequence, byteLength: arrayBuffer?.byteLength });
@@ -710,6 +752,7 @@ const DataGlance = () => {
             });
             return;
         }
+
         try {
             const countryName = selectedCountryId === 0
                 ? "SouthAsia"
@@ -733,6 +776,7 @@ const DataGlance = () => {
             const adaptationCropTabName = selectedAdaptationCropTabId && adaptationCropTabs.length
                 ? adaptationCropTabs.find((t) => t.tab_id === selectedAdaptationCropTabId)?.tab_name?.replace(/\s+/g, "") || "UnknownTab"
                 : "NoTabSelected";
+
             let adaptationName;
             if (gridSequence === 0) {
                 adaptationName = "Reference";
@@ -742,10 +786,13 @@ const DataGlance = () => {
                     ? adaptations.find((a) => a.adaptation_id === adaptationId)?.adaptation?.replace(/\s+/g, "") || "UnknownAdaptation"
                     : "NoAdaptation";
             }
+
             let file_name = `${countryName}_${commodityName}_${intensityName}_${changeName}_${scaleName}_${scenarioName}_${adaptationCropTabName}_${adaptationName}${year ? `_${year}` : ""}`;
+
             const firstBytes = Array.from(new Uint8Array(arrayBuffer).slice(0, 8))
                 .map((b) => b.toString(16).padStart(2, "0"))
                 .join(" ");
+
             const blob = new Blob([arrayBuffer], { type: "image/tiff" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
@@ -764,6 +811,7 @@ const DataGlance = () => {
             });
         }
     }, [selectedCountryId, selectedCommodityId, selectedScenarioId, selectedVisualizationScaleId, selectedIntensityMetricId, selectedChangeMetricId, selectedYear, selectedAdaptationCropTabId, selectedAdaptations, countries, commodities, climateScenarios, visualizationScales, adaptations, adaptationCropTabs]);
+
     const cleanupMaps = useCallback(() => {
         mapInstances.current.forEach((map, index) => {
             if (map) {
@@ -803,6 +851,7 @@ const DataGlance = () => {
         setNoGeoTiffAvailable(new Array(8).fill(false));
         geotiffPromiseCache.current.clear();
     }, []);
+
     const updateFullscreenButton = useCallback((button, isFull) => {
         if (button) {
             button.innerHTML = isFull ? "⤡" : "⤢";
@@ -810,6 +859,7 @@ const DataGlance = () => {
             button.className = `ol-fullscreeny-${isFull}`;
         }
     }, []);
+
     useEffect(() => {
         mapInstances.current.forEach((map, index) => {
             if (map && tileLayerRefs.current[index] && mapRefs.current[index]) {
@@ -838,6 +888,7 @@ const DataGlance = () => {
                         }, 200);
                     }
                 }, 200);
+
                 if (geojsonLayerRefs.current[index]) {
                     geojsonLayerRefs.current[index].setStyle({
                         color: theme.palette.mode === "dark" ? "white" : "black",
@@ -850,6 +901,7 @@ const DataGlance = () => {
             }
         });
     }, [theme.palette.mode]);
+
     const updateGeoTiffLayer = useCallback(
         async (tiff, index) => {
             if (!mapInstances.current[index] || !mapRefs.current[index] || !tiff) {
@@ -860,17 +912,21 @@ const DataGlance = () => {
                 });
                 return;
             }
+
             const map = mapInstances.current[index];
+
             layerRefs.current[index].forEach((layer) => {
                 if (layer && map.hasLayer(layer)) {
                     map.removeLayer(layer);
                 }
             });
             layerRefs.current[index] = [];
+
             if (geojsonLayerRefs.current[index] && map.hasLayer(geojsonLayerRefs.current[index])) {
                 map.removeLayer(geojsonLayerRefs.current[index]);
                 geojsonLayerRefs.current[index] = null;
             }
+
             if (mapControlRefs.current[index]) {
                 map.removeControl(mapControlRefs.current[index]);
                 mapControlRefs.current[index] = null;
@@ -880,9 +936,11 @@ const DataGlance = () => {
                 downloadControlRefs.current[index] = null;
             }
             controlsInitialized.current[index] = false;
+
             const { arrayBuffer, metadata } = tiff;
-            const cacheKey = `${metadata.source_file}-${metadata.adaptation_id || "no-adaptation"}`;
+            const cacheKey = `${metadata.source_file}-${index}-${metadata.adaptation_id || "no-adaptation"}`;
             let georaster = georasterCache.current.get(cacheKey);
+
             if (!georaster) {
                 try {
                     if (!arrayBuffer || arrayBuffer.byteLength === 0) {
@@ -901,9 +959,10 @@ const DataGlance = () => {
                     return;
                 }
             }
+
             const geotiffLayer = new GeoRasterLayer({
                 georaster,
-                opacity: 0,
+                opacity: 0.8,
                 pixelValuesToColorFn: (values) => {
                     if (!values || values.length === 0) return "rgba(255, 255, 255, 0)";
                     if (values.length >= 4) {
@@ -925,9 +984,11 @@ const DataGlance = () => {
                 pane: "overlayPane",
                 noDataValue: georaster.noDataValue ?? null,
             });
+
             try {
                 geotiffLayer.addTo(map);
                 layerRefs.current[index].push(geotiffLayer);
+
                 if (memoizedGeojsonData?.geojson) {
                     const worldBounds = [
                         [
@@ -938,6 +999,7 @@ const DataGlance = () => {
                             [-90, -180],
                         ],
                     ];
+
                     const flipCoordinates = (coords) => {
                         if (!Array.isArray(coords)) return coords;
                         if (typeof coords[0] === "number" && typeof coords[1] === "number") {
@@ -945,6 +1007,7 @@ const DataGlance = () => {
                         }
                         return coords.map(flipCoordinates);
                     };
+
                     const geojsonCoords = memoizedGeojsonData.geojson.features
                         .filter(feature => feature.geometry && ["Polygon", "MultiPolygon"].includes(feature.geometry.type))
                         .map(feature => {
@@ -957,6 +1020,7 @@ const DataGlance = () => {
                             }
                         })
                         .filter(coords => coords.length > 0);
+
                     let maskPolygon;
                     if (geojsonCoords.length > 0) {
                         try {
@@ -995,6 +1059,7 @@ const DataGlance = () => {
                     maskPolygon.addTo(map);
                     layerRefs.current[index].push(maskPolygon);
                 }
+
                 if (memoizedGeojsonData?.geojson) {
                     const geojsonLayer = L.geoJSON(memoizedGeojsonData.geojson, {
                         style: {
@@ -1022,6 +1087,7 @@ const DataGlance = () => {
                         ]);
                     }
                 }
+
                 geotiffLayer.on("click", async (e) => {
                     const { lat, lng } = e.latlng;
                     try {
@@ -1039,8 +1105,8 @@ const DataGlance = () => {
                         });
                     }
                 });
+
                 geotiffLayer.on("load", () => {
-                    geotiffLayer.setOpacity(0.8);
                     map.invalidateSize();
                     setRenderedMaps((prev) => {
                         const newRenderedMaps = [...prev];
@@ -1048,6 +1114,7 @@ const DataGlance = () => {
                         return newRenderedMaps;
                     });
                 });
+
                 if (!controlsInitialized.current[index]) {
                     const downloadControl = L.control.downloadControl({
                         position: "topleft",
@@ -1098,6 +1165,7 @@ const DataGlance = () => {
                     });
                     downloadControl.addTo(map);
                     downloadControlRefs.current[index] = downloadControl;
+
                     const mapControl = L.control.mapControls({
                         position: "topright",
                         isFullscreen: isFullscreen[index] || false,
@@ -1133,8 +1201,10 @@ const DataGlance = () => {
                     });
                     mapControl.addTo(map);
                     mapControlRefs.current[index] = mapControl;
+
                     controlsInitialized.current[index] = true;
                 }
+
                 map.invalidateSize();
             } catch (err) {
                 console.error(`Failed to add layers to map ${index}:`, err);
@@ -1147,114 +1217,174 @@ const DataGlance = () => {
         },
         [memoizedGeojsonData, isFullscreen, updateFullscreenButton, handleDownloadGeoTIFF, theme.palette.mode, tiffData]
     );
+
     const handleAdaptationChange = useCallback(
         async (gridSequence, adaptationId) => {
-            const newSelectedAdaptations = [...selectedAdaptations];
-            newSelectedAdaptations[gridSequence] = adaptationId;
-            setSelectedAdaptations(newSelectedAdaptations);
-            if (!memoizedHazardData || !memoizedGeojsonData) return;
-            const grid = memoizedHazardData.raster_grids.find(g => g.grid_sequence === gridSequence);
-            if (!grid) return;
+            setSelectedAdaptations((prev) => {
+                const newAdaptations = [...prev];
+                newAdaptations[gridSequence] = adaptationId;
+                return newAdaptations;
+            });
+
+            if (!memoizedHazardData || !memoizedGeojsonData) {
+                console.warn("Cannot update adaptation: missing hazard or geojson data");
+                Swal.fire({
+                    icon: "warning",
+                    title: "Error",
+                    text: "Hazard or GeoJSON data is missing.",
+                });
+                setIsLoading(false);
+                return;
+            }
+
+            const grid = memoizedHazardData.raster_grids.find((g) => g.grid_sequence === gridSequence);
+            if (!grid) {
+                console.warn(`Grid not found for grid_sequence ${gridSequence}`);
+                Swal.fire({
+                    icon: "warning",
+                    title: "Error",
+                    text: `Grid data not found for sequence ${gridSequence}.`,
+                });
+                setIsLoading(false);
+                return;
+            }
+
             setIsLoading(true);
+
             try {
-                const pickerRes = await fetchWithRetry(
-                    `${apiUrl}/layers/tif_picker`,
-                    {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            analysis_scope_id: 1,
-                            visualization_scale_id: parseInt(selectedVisualizationScaleId) || 1,
-                            commodity_id: parseInt(selectedCommodityId),
-                            layer_type: "adaptation",
-                            adaptation_id: parseInt(adaptationId),
-                            adaptation_croptab_id: parseInt(selectedAdaptationCropTabId),
-                        }),
-                    }
-                );
-                const pickerJson = await pickerRes.json();
-                let file = null;
-                if (pickerJson.success && pickerJson.data?.raster_files) {
-                    file = selectRasterFile(pickerJson.data, adaptationId);
-                }
-                if (!file?.exists) {
-                    setNoGeoTiffAvailable(prev => {
+                const response = await fetchWithRetry(`${apiUrl}/layers/tif_picker`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        analysis_scope_id: 1,
+                        visualization_scale_id: parseInt(selectedVisualizationScaleId) || 1,
+                        commodity_id: parseInt(selectedCommodityId),
+                        layer_type: "adaptation",
+                        risk_id: null,
+                        impact_id: null,
+                        adaptation_id: parseInt(adaptationId),
+                        adaptation_croptab_id: parseInt(selectedAdaptationCropTabId),
+                    }),
+                });
+
+                const { success, data } = await response.json();
+                if (!success || !data || !data.raster_files) {
+                    console.warn(`No valid raster files from tif_picker for grid_sequence ${gridSequence}, adaptation ${adaptationId}`);
+                    setNoGeoTiffAvailable((prev) => {
                         const newState = [...prev];
                         newState[gridSequence] = true;
                         return newState;
                     });
+                    setIsLoading(false);
                     return;
                 }
-                const tiffResult = await fetchGeoTiffShared(
-                    { ...file, grid_sequence_title: grid.grid_sequence_title },
-                    gridSequence,
-                    adaptationId,
+
+                const file = selectRasterFile(data, adaptationId);
+                if (!file || !file.exists) {
+                    console.warn(`No valid raster file for grid_sequence ${gridSequence}, adaptation ${adaptationId}`);
+                    setNoGeoTiffAvailable((prev) => {
+                        const newState = [...prev];
+                        newState[gridSequence] = true;
+                        return newState;
+                    });
+                    setIsLoading(false);
+                    return;
+                }
+
+                const tiffResult = await fetchGeoTiff(
+                    { ...file, grid_sequence_title: grid.grid_sequence_title, adaptation_id: adaptationId },
+                    grid.grid_sequence,
+                    adaptationId || grid.impact_id || grid.adaptation_id,
                     grid
                 );
-                if (!tiffResult?.arrayBuffer) {
-                    setNoGeoTiffAvailable(prev => {
+
+                if (!tiffResult) {
+                    console.warn(`Failed to fetch GeoTIFF for grid_sequence ${gridSequence}, adaptation ${adaptationId}`);
+                    setNoGeoTiffAvailable((prev) => {
                         const newState = [...prev];
                         newState[gridSequence] = true;
                         return newState;
                     });
+                    setIsLoading(false);
                     return;
                 }
-                // Collect all grids to update
-                const otherGrids = memoizedHazardData.raster_grids.filter(
-                    g => g.grid_sequence !== gridSequence && newSelectedAdaptations[g.grid_sequence] === adaptationId
-                );
-                const gridsToUpdate = [grid, ...otherGrids];
-                const updatedTiffs = gridsToUpdate.map(g => {
-                    const metadata = {
-                        ...tiffResult.metadata,
-                        grid_sequence: g.grid_sequence,
-                        layer_name: g.grid_sequence_title || `Grid ${g.grid_sequence}`,
-                    };
-                    return { arrayBuffer: tiffResult.arrayBuffer.slice(0), metadata };
-                });
-                // Update tiffData in one go
-                setTiffData(prev => {
-                    const gridsToUpdateSeq = gridsToUpdate.map(g => g.grid_sequence);
-                    const filtered = prev.filter(t => !gridsToUpdateSeq.includes(t.metadata.grid_sequence));
-                    return [...filtered, ...updatedTiffs].sort((a, b) => a.metadata.grid_sequence - b.metadata.grid_sequence);
-                });
-                // Update noGeoTiffAvailable and render maps
-                setNoGeoTiffAvailable(prev => {
-                    const newState = [...prev];
-                    gridsToUpdate.forEach(g => {
-                        newState[g.grid_sequence] = false;
+
+                // Update tiffData and ensure the new data is included
+                setTiffData((prev) => {
+                    const newTiffData = prev.filter((t) => t.metadata.grid_sequence !== gridSequence);
+                    newTiffData.push({
+                        arrayBuffer: tiffResult.arrayBuffer.slice(0),
+                        metadata: { ...tiffResult.metadata },
                     });
-                    return newState;
+                    console.log(`Updated tiffData for grid_sequence ${gridSequence}`, newTiffData);
+                    return newTiffData;
                 });
-                // Update layers
-                gridsToUpdate.forEach(g => {
-                    const updatedTiff = updatedTiffs.find(ut => ut.metadata.grid_sequence === g.grid_sequence);
-                    updateGeoTiffLayer(updatedTiff, g.grid_sequence);
-                });
-                // Set rendered
-                setRenderedMaps(prev => {
-                    const newState = [...prev];
-                    gridsToUpdate.forEach(g => {
-                        newState[g.grid_sequence] = true;
+
+                // Clear the legend cache for this grid to force MapLegend to fetch new data
+                window.legendCache?.delete(JSON.stringify({
+                    layer_type: grid.layer_type,
+                    layer_id: tiffResult.metadata.layer_id,
+                    climate_scenario_id: tiffResult.metadata.climate_scenario_id,
+                    year: tiffResult.metadata.year,
+                    change_metric_id: breadcrumbData?.change_metric_id || 1,
+                    adaptation_id: tiffResult.metadata.adaptation_id,
+                    source_file: tiffResult.metadata.source_file,
+                }));
+
+                const mapIndex = gridSequence;
+                if (mapRefs.current[mapIndex] && mapInstances.current[mapIndex]) {
+                    await updateGeoTiffLayer(tiffResult, mapIndex);
+                } else {
+                    console.warn(`Map ref or instance missing for grid_sequence: ${gridSequence}, map index: ${mapIndex}`);
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Error",
+                        text: `Map instance not found for ${grid.grid_sequence_title || "grid"}`,
                     });
-                    return newState;
+                }
+
+                setRenderedMaps((prev) => {
+                    const newRenderedMaps = [...prev];
+                    newRenderedMaps[gridSequence] = true;
+                    return newRenderedMaps;
                 });
+
             } catch (err) {
-                console.error(err);
+                console.error(`Failed to update GeoTIFF for grid_sequence ${gridSequence}:`, err);
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: `Failed to load data for ${grid.grid_sequence_title || "grid"}`,
+                });
             } finally {
                 setIsLoading(false);
             }
         },
-        [memoizedHazardData, memoizedGeojsonData, updateGeoTiffLayer, fetchGeoTiffShared, selectRasterFile, selectedVisualizationScaleId, selectedCommodityId, selectedAdaptationCropTabId, apiUrl, selectedAdaptations]
+        [
+            memoizedHazardData,
+            memoizedGeojsonData,
+            selectedVisualizationScaleId,
+            selectedCommodityId,
+            selectedAdaptationCropTabId,
+            selectRasterFile,
+            fetchGeoTiff,
+            apiUrl,
+            fetchWithRetry,
+            updateGeoTiffLayer,
+            breadcrumbData,
+        ]
     );
+
     useEffect(() => {
         if (!countries.length) {
             return;
         }
+
         let countryId = 0;
         let admin_level = "total";
         let admin_level_id = null;
         let showSelect = true;
+
         if (country) {
             const countryName = country.toLowerCase().replace(/[-_]/g, " ");
             const matchedCountry = countries.find(
@@ -1275,31 +1405,23 @@ const DataGlance = () => {
                 });
             }
         }
+
         if (countryId !== selectedCountryId || showCountrySelect !== showSelect) {
             setSelectedCountryId(countryId);
             setShowCountrySelect(showSelect);
             cleanupMaps();
             fetchGeojson(admin_level, admin_level_id);
         }
+
         return () => {
             isFetchingRef.current = false;
         };
     }, [country, countries, fetchGeojson, cleanupMaps]);
-    useEffect(() => {
-        geotiffPromiseCache.current.clear();
-        georasterCache.current.clear();
-    }, [
-        selectedCountryId,
-        selectedCommodityId,
-        selectedScenarioId,
-        selectedVisualizationScaleId,
-        selectedYear,
-        selectedAdaptationCropTabId,
-        // Do NOT clear on selectedAdaptations change
-    ]);
+
     useEffect(() => {
         if (hasInitializedRef.current) return;
         hasInitializedRef.current = true;
+
         const initializeData = async () => {
             setIsLoading(true);
             try {
@@ -1310,16 +1432,18 @@ const DataGlance = () => {
                     fetchData("lkp/common/visualization_scales"),
                     fetchData("lkp/specific/adaptation_croptabs"),
                 ]);
+
                 setCountries(fetchedCountries);
                 setCommodities(fetchedCommodities);
                 setClimateScenarios(fetchedScenarios);
                 setVisualizationScales(fetchedScales);
                 setAdaptationCropTabs(fetchedAdaptationCropTabs);
+
                 let commodityId = "";
                 if (fetchedCommodities.length > 0) {
                     const activeCommodities = fetchedCommodities.filter((c) => c.status);
                     if (activeCommodities.length > 0) {
-                        commodityId = activeCommodities[0]?.commodity_id;
+                        commodityId = activeCommodities[1]?.commodity_id;
                         setSelectedCommodityId(commodityId);
                         await fetchAdaptations(commodityId); // This now sets selectedAdaptations internally
                     } else {
@@ -1338,18 +1462,22 @@ const DataGlance = () => {
                         text: "Failed to load commodities. Please try again later.",
                     });
                 }
+
                 if (fetchedScenarios.length > 0 && !selectedScenarioId) {
                     const scenarioId = fetchedScenarios[0]?.scenario_id || "";
                     setSelectedScenarioId(scenarioId);
                 }
+
                 if (fetchedScales.length > 0 && !selectedVisualizationScaleId) {
                     const scaleId = fetchedScales[0]?.scale_id || "";
                     setSelectedVisualizationScaleId(scaleId);
                 }
+
                 if (fetchedAdaptationCropTabs.length > 0 && !selectedAdaptationCropTabId) {
                     const tabId = fetchedAdaptationCropTabs[0]?.tab_id || "";
                     setSelectedAdaptationCropTabId(tabId);
                 }
+
                 if (!country) {
                     fetchGeojson("total", null);
                 }
@@ -1364,36 +1492,46 @@ const DataGlance = () => {
                 setIsLoading(false);
             }
         };
+
         initializeData();
     }, [fetchData, fetchGeojson, fetchAdaptations, country]);
+
     useEffect(() => {
         if (!hasInitializedRef.current || !selectedCommodityId || !selectedAdaptationCropTabId) {
             return;
         }
         fetchHazardData(selectedCommodityId, selectedAdaptationCropTabId);
     }, [selectedCommodityId, selectedAdaptationCropTabId, fetchHazardData]);
+
     useEffect(() => {
         if (!memoizedHazardData || !memoizedHazardData.raster_grids || !memoizedGeojsonData) {
             return;
         }
+
         const fetchKey = `${selectedCountryId}-${selectedCommodityId}-${selectedScenarioId}-${selectedVisualizationScaleId}-${selectedIntensityMetricId}-${selectedChangeMetricId}-${selectedAdaptationCropTabId}-${selectedYear}`;
+
         if (lastFetchKeyRef.current === fetchKey) {
             return;
         }
+
         setTiffData([]);
         setRenderedMaps(new Array(8).fill(false));
         setNoGeoTiffAvailable(new Array(8).fill(false));
         geotiffPromiseCache.current.clear();
         georasterCache.current.clear();
+
         fetchTiffs(
             memoizedHazardData,
             memoizedGeojsonData,
             selectedCountryId,
             selectedCommodityId,
             selectedAdaptationCropTabId,
-            selectedAdaptations
+            selectRasterFile,
+            fetchGeoTiff
         );
+
         lastFetchKeyRef.current = fetchKey;
+
         return () => {
             fetchTiffs.cancel();
         };
@@ -1408,20 +1546,25 @@ const DataGlance = () => {
         selectedIntensityMetricId,
         selectedChangeMetricId,
         selectedYear,
-        selectedAdaptations,
         fetchTiffs,
+        selectRasterFile,
+        fetchGeoTiff,
     ]);
+
     const renderMaps = useCallback(() => {
         if (!allDataReady) {
             return;
         }
+
         const sortedGrids = memoizedHazardData?.raster_grids
             ? [...memoizedHazardData.raster_grids].sort((a, b) => (a.grid_sequence || 0) - (b.grid_sequence || 0))
             : [];
+
         sortedGrids.slice(0, 7).forEach((grid) => {
             const gridSequence = grid.grid_sequence;
             const mapIndex = gridSequence === 0 ? 0 : gridSequence;
             const tiff = tiffData.find((t) => t.metadata.grid_sequence === gridSequence);
+
             if (!mapRefs.current[mapIndex] || mapInstances.current[mapIndex]) {
                 console.warn(`Skipping map initialization for index ${mapIndex}:`, {
                     mapRef: !!mapRefs.current[mapIndex],
@@ -1429,6 +1572,7 @@ const DataGlance = () => {
                 });
                 return;
             }
+
             const map = L.map(mapRefs.current[mapIndex], {
                 minZoom: 3,
                 maxZoom: 18,
@@ -1439,9 +1583,11 @@ const DataGlance = () => {
                 zoomSnap: 0.1,
                 zoomDelta: 0.1,
             });
+
             map.createPane("maskPane");
             map.getPane("maskPane").style.zIndex = 450;
             map.getPane("maskPane").style.pointerEvents = "none";
+
             const tileLayer = L.tileLayer(getTileLayerUrl(), {
                 attribution:
                     theme.palette.mode === "dark"
@@ -1459,6 +1605,7 @@ const DataGlance = () => {
             mapInstances.current[mapIndex] = map;
             tileLayerRefs.current[mapIndex] = tileLayer;
             layerRefs.current[mapIndex] = [];
+
             if (memoizedGeojsonData?.geojson) {
                 const geojsonLayer = L.geoJSON(memoizedGeojsonData.geojson, {
                     style: {
@@ -1486,6 +1633,7 @@ const DataGlance = () => {
                     ]);
                 }
             }
+
             if (memoizedGeojsonData?.geojson) {
                 const worldBounds = [
                     [
@@ -1496,6 +1644,7 @@ const DataGlance = () => {
                         [-90, -180],
                     ],
                 ];
+
                 const flipCoordinates = (coords) => {
                     if (!Array.isArray(coords)) return coords;
                     if (typeof coords[0] === "number" && typeof coords[1] === "number") {
@@ -1503,6 +1652,7 @@ const DataGlance = () => {
                     }
                     return coords.map(flipCoordinates);
                 };
+
                 const geojsonCoords = memoizedGeojsonData.geojson.features
                     .filter(feature => feature.geometry && ["Polygon", "MultiPolygon"].includes(feature.geometry.type))
                     .map(feature => {
@@ -1515,6 +1665,7 @@ const DataGlance = () => {
                         }
                     })
                     .filter(coords => coords.length > 0);
+
                 let maskPolygon;
                 if (geojsonCoords.length > 0) {
                     try {
@@ -1553,12 +1704,14 @@ const DataGlance = () => {
                 maskPolygon.addTo(map);
                 layerRefs.current[mapIndex].push(maskPolygon);
             }
+
             setTimeout(() => {
                 if (mapInstances.current[mapIndex]) {
                     mapInstances.current[mapIndex].invalidateSize();
                 }
             }, 100);
         });
+
         tiffData.forEach((tiff) => {
             const gridSequence = tiff.metadata.grid_sequence;
             const mapIndex = gridSequence === 0 ? 0 : gridSequence;
@@ -1569,11 +1722,13 @@ const DataGlance = () => {
             }
         });
     }, [allDataReady, tiffData, updateGeoTiffLayer, memoizedGeojsonData, theme.palette.mode]);
+
     useEffect(() => {
         if (allDataReady) {
             renderMaps();
         }
     }, [allDataReady, tiffData, renderMaps]);
+
     const handleCountryChange = useCallback(
         (event) => {
             const countryId = event.target.value;
@@ -1589,6 +1744,7 @@ const DataGlance = () => {
         },
         [fetchGeojson, cleanupMaps, selectedCountryId]
     );
+
     const handleCommodityChange = useCallback(
         (event) => {
             const commodityId = event.target.value;
@@ -1601,6 +1757,7 @@ const DataGlance = () => {
         },
         [selectedCommodityId, cleanupMaps]
     );
+
     const handleScenarioChange = useCallback(
         (event) => {
             const scenarioId = event.target.value;
@@ -1617,6 +1774,7 @@ const DataGlance = () => {
         },
         [selectedScenarioId, selectedYear, cleanupMaps]
     );
+
     const handleVisualizationScaleChange = useCallback(
         (event) => {
             const scaleId = event.target.value;
@@ -1628,6 +1786,7 @@ const DataGlance = () => {
         },
         [selectedVisualizationScaleId, cleanupMaps]
     );
+
     const handleSelectedYear = useCallback(
         (event) => {
             const year = event.target.value;
@@ -1639,6 +1798,7 @@ const DataGlance = () => {
         },
         [selectedYear, cleanupMaps]
     );
+
     const handleAdaptationCropTabChange = useCallback(
         (event) => {
             const tabId = event.target.value;
@@ -1651,22 +1811,14 @@ const DataGlance = () => {
         },
         [selectedAdaptationCropTabId, cleanupMaps]
     );
+
     useEffect(() => {
         document.documentElement.style.overflowX = "hidden";
         document.body.style.overflowX = "hidden";
     }, []);
+
     const box1 = React.useRef(null);
-    const canShowLegend = useCallback((tiff, gridSequence) => {
-        if (!tiff?.metadata) return false;
-        const isBaseline = parseInt(selectedScenarioId) === 1;
-        const hasYear = !!selectedYear;
-        // Baseline → year not required
-        if (isBaseline) return true;
-        // Future scenario → year must be selected
-        return hasYear;
-    }, [selectedScenarioId, selectedYear]);
-    const mainTiff = tiffData.find(t => t.metadata.grid_sequence === 0);
-    const showMainLegend = mainTiff && renderedMaps[0] && !noGeoTiffAvailable[0] && canShowLegend(mainTiff, 0);
+
     return (
         <Paper sx={{ overflow: "hidden", height: "100vh", backgroundColor: theme.palette.mode === "dark" ? "black" : "white" }}>
             <Grid container spacing={1} sx={{ marginTop: "74px", p: 1 }}>
@@ -1781,6 +1933,7 @@ const DataGlance = () => {
                                     )}
                                 </FormControl>
                             </Box>
+
                             {/* Commodity Box */}
                             <Box
                                 sx={{
@@ -1876,6 +2029,7 @@ const DataGlance = () => {
                                 </FormControl>
                             </Box>
                         </Box>
+
                         <Box sx={(theme) => ({
                             paddingX: "8px",
                             paddingY: "1.5px",
@@ -1889,6 +2043,7 @@ const DataGlance = () => {
                             backgroundColor: theme.palette.mode === "dark" ? "#2d3136" : "#F7F7F7",
                             border: "0px solid black",
                         })}>
+
                             <Box sx={{
                                 display: "flex",
                                 alignItems: "center",
@@ -1897,6 +2052,7 @@ const DataGlance = () => {
                                 marginRight: "5px",
                                 overflow: "hidden",
                                 flexWrap: "nowrap",
+                                overflow: "hidden",
                                 minWidth: 'auto'
                             }}>
                                 <Typography sx={{ fontSize: 13, fontWeight: "bold" }}>Scenario: </Typography>
@@ -1934,6 +2090,7 @@ const DataGlance = () => {
                                     </Select>
                                 </FormControl>
                             </Box>
+
                             <Box sx={{
                                 display: "flex",
                                 alignItems: "center",
@@ -1987,6 +2144,7 @@ const DataGlance = () => {
                                 </FormControl>
                             </Box>
                         </Box>
+
                         <Box sx={(theme) => ({
                             paddingX: "8px",
                             paddingY: "1.5px",
@@ -2289,7 +2447,7 @@ const DataGlance = () => {
                                             {tiff && renderedMaps[gridSequence] && !noGeoTiffAvailable[gridSequence] && (
                                                 // In the return statement of DataGlance, for each MapLegend
                                                 <MapLegend
-                                                    key={`${tiff?.metadata?.source_file}-${tiff?.metadata?.grid_sequence}-${tiff?.metadata?.adaptation_id || "no-adaptation"}-${selectedScenarioId}-${selectedYear}-${selectedVisualizationScaleId}-${selectedIntensityMetricId}-${selectedChangeMetricId}`}
+                                                    key={`${tiff?.metadata?.source_file}-${tiff?.metadata?.grid_sequence}-${tiff?.metadata?.adaptation_id || "no-adaptation"}-${Date.now()}`} // Added Date.now() for uniqueness
                                                     tiff={tiff}
                                                     breadcrumbData={breadcrumbData}
                                                     layerType={grid?.layer_type || "adaptation"}
@@ -2314,4 +2472,5 @@ const DataGlance = () => {
         </Paper>
     );
 };
+
 export default DataGlance;
