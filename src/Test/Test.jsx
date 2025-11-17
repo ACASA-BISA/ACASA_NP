@@ -138,7 +138,7 @@ function Test() {
                 }
                 newGeojsonData.country = geojsonData.data;
                 if (admin_level === "state" && admin_level_id) {
-                    const districtRes = await fetch(`${apiUrl}/layers/geojson/districts_s`, {
+                    const districtRes = await fetch(`${apiUrl}/layers/geojson/districts_c`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
@@ -697,7 +697,7 @@ function Test() {
                                                                 value={0}
                                                                 sx={{ fontSize: "13px", paddingY: "2px" }}
                                                             >
-                                                                State/Province
+                                                                Province
                                                             </MenuItem>
                                                             {states.map((a) => (
                                                                 <MenuItem

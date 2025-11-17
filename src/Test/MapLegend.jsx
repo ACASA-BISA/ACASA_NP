@@ -79,7 +79,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
     const value = Number(popu) || 0;
     if (value === 0) return "0";
 
-    const unit = checkcrop() ? "\u00A0ha" : ""; // or "\u00A0Kha" if you want thousands
+    const unit = checkcrop() ? "\u00A0ha" : ""; // or "\u00A0Kha" if we want thousands
 
     if (value < 1_000)
       return value.toLocaleString() + unit; // 0–999 ha

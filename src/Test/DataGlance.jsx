@@ -205,7 +205,7 @@ const DataGlance = () => {
     const [climateScenarios, setClimateScenarios] = useState([]);
     const [visualizationScales, setVisualizationScales] = useState([]);
     const [geojsonData, setGeojsonData] = useState(null);
-    const [selectedCountryId, setSelectedCountryId] = useState(0);
+    const [selectedCountryId, setSelectedCountryId] = useState(5); // Sri Lanka
     const [selectedCommodityId, setSelectedCommodityId] = useState("");
     const [selectedScenarioId, setSelectedScenarioId] = useState("");
     const [selectedVisualizationScaleId, setSelectedVisualizationScaleId] = useState("");
@@ -798,32 +798,36 @@ const DataGlance = () => {
             return;
         }
 
-        let countryId = 0;
-        let admin_level = "total";
-        let admin_level_id = null;
+        let countryId = 5;                    // DEFAULT = Sri Lanka
+        let admin_level = "country";          // Always start at country level
+        let admin_level_id = 5;
         let showSelect = true;
 
+        // If country comes from URL, override with that
         if (country) {
             const countryName = country.toLowerCase().replace(/[-_]/g, " ");
             const matchedCountry = countries.find(
                 (c) =>
-                    c.country.toLowerCase().replace(/\s+/g, "") === countryName.replace(/\s+/g, "") && c.status
+                    c.country.toLowerCase().replace(/\s+/g, "") === countryName.replace(/\s+/g, "") &&
+                    c.status
             );
+
             if (matchedCountry) {
                 countryId = matchedCountry.country_id;
                 admin_level = "country";
                 admin_level_id = matchedCountry.country_id;
                 showSelect = false;
             } else {
-                console.warn(`Country "${country}" not found or inactive, defaulting to South Asia`);
+                console.warn(`Country "${country}" not found or inactive. Defaulting to Sri Lanka.`);
                 Swal.fire({
                     icon: "warning",
                     title: "Invalid Country",
-                    text: `Country "${country}" not found or inactive. Defaulting to South Asia.`,
+                    text: `Country "${country}" not found or inactive. Defaulting to Sri Lanka.`,
                 });
             }
         }
 
+        // Only update state if needed
         if (countryId !== selectedCountryId || showCountrySelect !== showSelect) {
             setSelectedCountryId(countryId);
             setShowCountrySelect(showSelect);
@@ -911,7 +915,7 @@ const DataGlance = () => {
                 }
 
                 if (!country) {
-                    fetchGeojson("total", null);
+                    fetchGeojson("country", 5);
                 }
             } catch (err) {
                 console.error("Initialization error:", err);
@@ -1663,9 +1667,9 @@ const DataGlance = () => {
                                             })}
                                             disabled={isLoading || isOptionLoading}
                                         >
-                                            <MenuItem value={0} sx={{ fontSize: "12px", paddingY: "2px" }}>
+                                            {/*<MenuItem value={0} sx={{ fontSize: "12px", paddingY: "2px" }}>
                                                 South Asia
-                                            </MenuItem>
+                                            </MenuItem>*/}
                                             {countries.map((country) => (
                                                 <MenuItem
                                                     key={country.country_id}

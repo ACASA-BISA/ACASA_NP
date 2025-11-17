@@ -180,7 +180,7 @@ const DataGlance = () => {
     const [adaptationCropTabs, setAdaptationCropTabs] = useState([]);
     const [adaptations, setAdaptations] = useState([]);
     const [geojsonData, setGeojsonData] = useState(null);
-    const [selectedCountryId, setSelectedCountryId] = useState(0);
+    const [selectedCountryId, setSelectedCountryId] = useState(5); // Sri Lanka
     const [selectedCommodityId, setSelectedCommodityId] = useState("");
     const [selectedScenarioId, setSelectedScenarioId] = useState("");
     const [selectedVisualizationScaleId, setSelectedVisualizationScaleId] = useState("");
@@ -301,8 +301,8 @@ const DataGlance = () => {
     );
     const fetchGeoTiff = useCallback(
         async (file, gridSequence, layerId, grid) => {
-            const adaptationId = file.adaptation_id || "";
-            const cacheKey = makeTiffCacheKey(file, gridSequence, adaptationId);
+            const adaptationIdFromParam = layerId ?? file.adaptation_id ?? "";
+            const cacheKey = makeTiffCacheKey(file, gridSequence, adaptationIdFromParam);
             if (geotiffPromiseCache.current.has(cacheKey)) {
                 return geotiffPromiseCache.current.get(cacheKey);
             }
@@ -357,11 +357,11 @@ const DataGlance = () => {
                             color_ramp: modifiedColorRamp,
                             layer_name: file.grid_sequence_title || `Grid ${gridSequence}`,
                             grid_sequence: gridSequence,
-                            layer_id: grid.layer_id ?? layerId,
+                            layer_id: layerId ?? grid.layer_id ?? file.layer_id ?? null,
                             layer_type: grid.layer_type,
                             year: file.year || null,
                             climate_scenario_id: file.climate_scenario_id || null,
-                            adaptation_id: file.adaptation_id || null,
+                            adaptation_id: adaptationIdFromParam || null,
                         },
                     };
                 })
@@ -1251,10 +1251,11 @@ const DataGlance = () => {
         if (!countries.length) {
             return;
         }
-        let countryId = 0;
-        let admin_level = "total";
-        let admin_level_id = null;
-        let showSelect = true;
+        
+    let countryId = 5;                    // DEFAULT = Sri Lanka
+    let admin_level = "country";          // Always start at country level
+    let admin_level_id = 5;
+    let showSelect = true;
         if (country) {
             const countryName = country.toLowerCase().replace(/[-_]/g, " ");
             const matchedCountry = countries.find(
@@ -1351,7 +1352,7 @@ const DataGlance = () => {
                     setSelectedAdaptationCropTabId(tabId);
                 }
                 if (!country) {
-                    fetchGeojson("total", null);
+                    fetchGeojson("country", 5);
                 }
             } catch (err) {
                 console.error("Initialization error:", err);
@@ -1744,9 +1745,9 @@ const DataGlance = () => {
                                             })}
                                             disabled={isLoading || isOptionLoading}
                                         >
-                                            <MenuItem value={0} sx={{ fontSize: "12px", paddingY: "2px" }}>
+                                            {/*<MenuItem value={0} sx={{ fontSize: "12px", paddingY: "2px" }}>
                                                 South Asia
-                                            </MenuItem>
+                                            </MenuItem>*/}
                                             {countries.map((country) => (
                                                 <MenuItem
                                                     key={country.country_id}

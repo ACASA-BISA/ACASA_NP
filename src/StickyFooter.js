@@ -141,7 +141,7 @@ export default function StickyFooter() {
               </Button>
             </Stack>
           </Box>
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Box sx={{ display: "flex", flexDirection: "row" }}>
           <Box sx={{ width: { xs: "100%", sm: "40%" }, margin: 6 }}>
             <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: "#ffffff" }}>
               Contact NRMC
@@ -156,7 +156,7 @@ export default function StickyFooter() {
                   </TableCell>
                   <TableCell align="left">
                     <Typography variant="subtitle1" sx={{ color: "#ffffff", fontWeight: "bold" }} ml={2}>
-                      Dr Pramod Aggarwal
+                      A.G.Chandrapala
                     </Typography>
                   </TableCell>
                 </TableRow>
@@ -168,7 +168,7 @@ export default function StickyFooter() {
                   </TableCell>
                   <TableCell align="left">
                     <Typography variant="subtitle1" sx={{ color: "#ffffff", fontWeight: "bold" }} ml={2}>
-                      Borlaug Institute for South Asia (BISA)
+                      National Resources Management Centre (NRMC)
                     </Typography>
                   </TableCell>
                 </TableRow>
@@ -176,29 +176,24 @@ export default function StickyFooter() {
                   <TableCell align="left"></TableCell>
                   <TableCell align="left">
                     <Typography variant="subtitle1" sx={{ color: "#ffffff" }} ml={2}>
-                      International Maize and Wheat Improvement Center
+                       Department of Agriculture
                     </Typography>
                   </TableCell>
                 </TableRow>
                 <TableRow key="3" sx={{ "& td": { border: 0 } }}>
                   <TableCell align="left"></TableCell>
-                  <TableCell align="left">
-                    <Typography variant="subtitle1" sx={{ color: "#ffffff" }} ml={2}>
-                      CIMMYT, CG Block B, NASC, DPS Marg, Pusa,
-                    </Typography>
-                  </TableCell>
                 </TableRow>
                 <TableRow key="4" sx={{ "& td": { border: 0 } }}>
                   <TableCell align="left"></TableCell>
                   <TableCell align="left">
                     <Typography variant="subtitle1" sx={{ color: "#ffffff" }} ml={2}>
-                      New Delhi - 110012, India
+                      Peradeniya - 20400, Sri Lanka
                     </Typography>
                   </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
-            <Divider
+            {/*<Divider
               sx={{
                 bgcolor: "#252525",
                 borderBottomWidth: 2,
@@ -229,7 +224,7 @@ export default function StickyFooter() {
                   </TableCell>
                 </TableRow>
               </TableBody>
-            </Table>
+            </Table>*/}
             <Divider
               sx={{
                 bgcolor: "#252525",
@@ -248,8 +243,8 @@ export default function StickyFooter() {
                   </TableCell>
                   <TableCell align="left">
                     <Typography variant="subtitle1" sx={{ color: "#fece2f" }} ml={2}>
-                      <Link color="inherit" href="mailto:acasa@cgiar.org">
-                        acasa@cgiar.org
+                      <Link color="inherit" href="mailto:nrmcperadeniyadoa@gmail.com">
+                        nrmcperadeniyadoa@gmail.com
                       </Link>
                     </Typography>
                   </TableCell>
@@ -259,7 +254,7 @@ export default function StickyFooter() {
           </Box>
           <Box sx={{ width: { xs: "100%", sm: "40%" }, margin: 6 }}>
             <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: "#ffffff" }}>
-              Contact Us
+              Contact BISA
             </Typography>
             <Table size="small" aria-label="a dense table" padding="none">
               <TableBody>

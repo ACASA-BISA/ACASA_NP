@@ -148,7 +148,7 @@ export default function AboutUs() {
                   fontSize: "16px",
                 })}
               >
-                <Link href="ACASA Brochure_01.9.25_Single page HR.pdf" underline="none" color="#4b9e44" target="_blank">
+                <Link href="SL-ACASA Brochure_03112025.pdf" underline="none" color="#4b9e44" target="_blank">
                   ACASA Brochure
                 </Link>
               </Typography>
@@ -1055,7 +1055,7 @@ export default function AboutUs() {
               }}
               gap="1vw"
             >
-              <Paper
+              {/*<Paper
                 sx={(theme) => ({
                   m: 1,
                   ml: 0,
@@ -1186,7 +1186,7 @@ export default function AboutUs() {
                     Soil Scientist, National Agricultural Environment Research Centre, NARC, Nepal
                   </Typography>
                 </Box>
-              </Paper>
+              </Paper>*/}
               <Paper
                 sx={(theme) => ({
                   m: 1,

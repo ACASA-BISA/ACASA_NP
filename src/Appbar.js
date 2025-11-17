@@ -253,6 +253,24 @@ function ResponsiveAppBar({ validCountries }) {
                 <Avatar variant="square" alt="Remy Sharp" src={"Home_imgs/Sri Lanka Logos/NRMC.png"} sx={{ width: "auto", height: "50px" }} />
               </ImgButton>
             </Box>
+            <Box sx={{ display: "flex", flexGrow: 0, flexDirection: "column" }}>
+              <Button
+                size="small"
+                color="inherit"
+                key="Acasa"
+                component="a"
+                href="https://acasa-bisa.org/#/home"
+                target="_blank"
+                sx={{ padding: 0 }}
+              >
+                <Avatar
+                  variant="square"
+                  alt="Remy Sharp"
+                  src={mode === "dark" ? "Home_imgs/Acasa Logo white1.png" : "Home_imgs/Acasa1.png"}
+                  sx={{ width: "auto", height: "60px" }}
+                />
+              </Button>
+            </Box>
             <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
               <ToggleButtonGroup value={flag} exclusive onChange={(e, newValue) => handleNavigation(newValue)}>
                 {pages.map((page, index) => (
