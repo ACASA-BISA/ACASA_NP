@@ -87,8 +87,8 @@ const itemData = [
   { img: "buff4.jpg", title: "Kitchen" },
   { img: "buff5.jpg", title: "Blinds" },
   { img: "buff6.jpg", title: "Chairs" },
-  { img: "buff7.JPG", title: "Laptop" },
-  { img: "buff8.JPG", title: "Doors" },
+  { img: "buff7.jpg", title: "Laptop" },
+  { img: "buff8.jpg", title: "Doors" },
   { img: "buff9.jpg", title: "Coffee" },
 ];
 
