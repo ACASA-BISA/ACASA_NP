@@ -14,7 +14,7 @@ import PartnersContributors from "./Partners";
 
 const logoStyle = {
   width: "auto",
-  height: "8vh",
+  height: "10vh",
   paddingLeft: "16px",
   marginTop: "16px",
   marginBottom: "16px",
@@ -68,9 +68,9 @@ export default function AboutUs() {
             <Typography
               sx={(theme) => ({
                 color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                fontWeight: "bold",
+                fontWeight: "700",
                 fontSize: "34px",
-                fontFamily: "revert",
+                fontFamily: "Poppins",
               })}
             >
               About ACASA
@@ -95,8 +95,8 @@ export default function AboutUs() {
               <Typography
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                  fontSize: "16px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                   marginTop: 2,
                 })}
               >
@@ -105,8 +105,8 @@ export default function AboutUs() {
               {/*<Typography
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                  fontSize: "16px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                   marginTop: 2,
                 })}
               >
@@ -120,10 +120,10 @@ export default function AboutUs() {
               <Typography
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                  fontSize: "16px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                   marginTop: 2,
-                  fontWeight: "bold",
+                  fontWeight: "500",
                 })}
               >
                 Read more about us:
@@ -131,8 +131,8 @@ export default function AboutUs() {
               {/*<Typography
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                  fontFamily: "revert",
-                  fontSize: "16px",
+                  fontFamily: "Poppins",
+                  fontSize: "18px",
                 })}
               >
                 <Link href="https://www.cimmyt.org/projects/atlas-of-climate-adaptation-in-south-asian-agriculture-acasa/" underline="none" color="#4b9e44" target="_blank">
@@ -142,8 +142,8 @@ export default function AboutUs() {
               <Typography
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                  fontFamily: "revert",
-                  fontSize: "16px",
+                  fontFamily: "Poppins",
+                  fontSize: "18px",
                 })}
               >
                 <Link href={`${process.env.PUBLIC_URL}/SL-ACASA Brochure_03112025.pdf`} underline="none" color="#4b9e44" target="_blank">
@@ -157,15 +157,16 @@ export default function AboutUs() {
                 flexDirection: "column",
                 width: { xs: "100%", sm: "30%" },
                 marginTop: 2,
-                marginLeft: "6%",
+                marginLeft: "3%",
               }}
             >
               <Typography
                 variant="h5"
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                  fontWeight: "bold",
-                  fontFamily: "revert",
+                  fontWeight: "600",
+                  fontFamily: "Poppins",
+                  fontSize:'24px',
                 })}
               >
                 Workstreams
@@ -183,8 +184,8 @@ export default function AboutUs() {
                     <Typography
                       sx={(theme) => ({
                         color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                        fontSize: "14px",
-                        fontFamily: "revert",
+                        fontSize: "18px",
+                        fontFamily: "Poppins",
                         margin: 2,
                         marginRight: 3,
                       })}
@@ -207,8 +208,8 @@ export default function AboutUs() {
                     <Typography
                       sx={(theme) => ({
                         color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                        fontSize: "14px",
-                        fontFamily: "revert",
+                        fontSize: "18px",
+                        fontFamily: "Poppins",
                         margin: 2,
                         marginRight: 3,
                       })}
@@ -231,8 +232,8 @@ export default function AboutUs() {
                     <Typography
                       sx={(theme) => ({
                         color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                        fontSize: "14px",
-                        fontFamily: "revert",
+                        fontSize: "18px",
+                        fontFamily: "Poppins",
                         margin: 2,
                         marginRight: 3,
                       })}
@@ -255,8 +256,8 @@ export default function AboutUs() {
                     <Typography
                       sx={(theme) => ({
                         color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                        fontSize: "14px",
-                        fontFamily: "revert",
+                        fontSize: "18px",
+                        fontFamily: "Poppins",
                         margin: 2,
                         marginRight: 3,
                       })}
@@ -283,9 +284,9 @@ export default function AboutUs() {
             <Typography
               sx={(theme) => ({
                 color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
-                fontWeight: "bold",
-                fontSize: "30px",
-                fontFamily: "revert",
+                fontWeight: "700",
+                fontSize: "32px",
+                fontFamily: "Poppins",
               })}
             >
               ACASA Development Partners
@@ -294,8 +295,8 @@ export default function AboutUs() {
               variant="h5"
               sx={(theme) => ({
                 color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
-                fontWeight: "bold",
-                fontFamily: "revert",
+                fontWeight: "500",
+                fontFamily: "Poppins",
                 marginTop: 2,
                 marginBottom: 2,
               })}
@@ -333,8 +334,8 @@ export default function AboutUs() {
                       <Typography
                         sx={(theme) => ({
                           color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                          fontSize: "16px",
-                          fontFamily: "revert",
+                          fontSize: "18px",
+                          fontFamily: "Poppins",
                           margin: 2,
                           marginRight: 3,
                           marginLeft: 3,
@@ -371,8 +372,8 @@ export default function AboutUs() {
                       <Typography
                         sx={(theme) => ({
                           color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                          fontSize: "16px",
-                          fontFamily: "revert",
+                          fontSize: "18px",
+                          fontFamily: "Poppins",
                           margin: 2,
                           marginRight: 3,
                           marginLeft: 3,
@@ -409,8 +410,8 @@ export default function AboutUs() {
                       <Typography
                         sx={(theme) => ({
                           color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                          fontSize: "16px",
-                          fontFamily: "revert",
+                          fontSize: "18px",
+                          fontFamily: "Poppins",
                           margin: 2,
                           marginRight: 3,
                           marginLeft: 3,
@@ -433,7 +434,7 @@ export default function AboutUs() {
                       "m": 1,
                       "ml": 0,
                       "width": "21vw",
-                      "height": 200,
+                      "minHeight": 245,
                       "transition": "0.3s cubic-bezier(.47,1.64,.41,.8)",
                       "&:hover": {
                         boxShadow: theme.palette.mode === "dark" ? "0 4px 15px 0 rgba(255, 255, 255, 0.08)" : "0 4px 20px 0 rgba(0,0,0,0.12)",
@@ -447,8 +448,8 @@ export default function AboutUs() {
                       <Typography
                         sx={(theme) => ({
                           color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                          fontSize: "16px",
-                          fontFamily: "revert",
+                          fontSize: "18px",
+                          fontFamily: "Poppins",
                           margin: 2,
                           marginRight: 3,
                           marginLeft: 3,
@@ -468,8 +469,9 @@ export default function AboutUs() {
               variant="h5"
               sx={(theme) => ({
                 color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
-                fontWeight: "bold",
-                fontFamily: "revert",
+                fontWeight: "600",
+                fontFamily: "Poppins",
+                fontSize:'24px',
                 marginTop: 2,
                 marginBottom: 2,
               })}
@@ -490,7 +492,7 @@ export default function AboutUs() {
                     "m": 1,
                     "ml": 0,
                     "width": "21vw",
-                    "height": 200,
+                    "minHeight": 245,
                     "transition": "0.3s cubic-bezier(.47,1.64,.41,.8)",
                     "&:hover": {
                       boxShadow: theme.palette.mode === "dark" ? "0 4px 15px 0 rgba(255, 255, 255, 0.08)" : "0 4px 20px 0 rgba(0,0,0,0.12)",
@@ -510,8 +512,8 @@ export default function AboutUs() {
                     <Typography
                       sx={(theme) => ({
                         color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                        fontSize: "16px",
-                        fontFamily: "revert",
+                        fontSize: "18px",
+                        fontFamily: "Poppins",
                         margin: 2,
                         marginRight: 3,
                         marginLeft: 3,
@@ -528,7 +530,7 @@ export default function AboutUs() {
                     "m": 1,
                     "ml": 0,
                     "width": "21vw",
-                    "height": 200,
+                    "minHeight": 245,
                     "transition": "0.3s cubic-bezier(.47,1.64,.41,.8)",
                     "&:hover": {
                       boxShadow: theme.palette.mode === "dark" ? "0 4px 15px 0 rgba(255, 255, 255, 0.08)" : "0 4px 20px 0 rgba(0,0,0,0.12)",
@@ -548,8 +550,8 @@ export default function AboutUs() {
                     <Typography
                       sx={(theme) => ({
                         color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                        fontSize: "16px",
-                        fontFamily: "revert",
+                        fontSize: "18px",
+                        fontFamily: "Poppins",
                         margin: 2,
                         marginRight: 3,
                         marginLeft: 3,
@@ -566,7 +568,7 @@ export default function AboutUs() {
                     "m": 1,
                     "ml": 0,
                     "width": "21vw",
-                    "height": 200,
+                    "minHeight": 245,
                     "transition": "0.3s cubic-bezier(.47,1.64,.41,.8)",
                     "&:hover": {
                       boxShadow: theme.palette.mode === "dark" ? "0 4px 15px 0 rgba(255, 255, 255, 0.08)" : "0 4px 20px 0 rgba(0,0,0,0.12)",
@@ -587,8 +589,8 @@ export default function AboutUs() {
                     <Typography
                       sx={(theme) => ({
                         color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                        fontSize: "16px",
-                        fontFamily: "revert",
+                        fontSize: "18px",
+                        fontFamily: "Poppins",
                         margin: 2,
                         marginRight: 3,
                         marginLeft: 3,
@@ -605,8 +607,8 @@ export default function AboutUs() {
                 variant="h5"
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
-                  fontWeight: "bold",
-                  fontFamily: "revert",
+                  fontWeight: "500",
+                  fontFamily: "Poppins",
                   marginTop: 2,
                   marginBottom: 2,
                 })}
@@ -643,9 +645,9 @@ export default function AboutUs() {
             <Typography
               sx={(theme) => ({
                 color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
-                fontWeight: "bold",
+                fontWeight: "600",
                 fontSize: "25px",
-                fontFamily: "revert",
+                fontFamily: "Poppins",
               })}
             >
               ACASA advisory panel
@@ -654,7 +656,7 @@ export default function AboutUs() {
               sx={(theme) => ({
                 color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                 fontSize: "15px",
-                fontFamily: "revert",
+                fontFamily: "Poppins",
                 marginTop: 2,
                 marginBottom: 2,
               })}
@@ -691,8 +693,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -702,8 +704,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -735,8 +737,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -746,8 +748,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -779,8 +781,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -790,8 +792,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -823,8 +825,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -834,8 +836,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -876,8 +878,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -887,8 +889,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -920,8 +922,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -931,8 +933,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -964,8 +966,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -975,8 +977,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -1008,8 +1010,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -1019,8 +1021,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -1035,9 +1037,9 @@ export default function AboutUs() {
             <Typography
               sx={(theme) => ({
                 color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
-                fontWeight: "bold",
+                fontWeight: "600",
                 fontSize: "25px",
-                fontFamily: "revert",
+                fontFamily: "Poppins",
                 marginTop: 2,
                 marginBottom: 2,
               })}
@@ -1073,8 +1075,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -1084,8 +1086,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -1117,8 +1119,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -1128,8 +1130,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -1161,8 +1163,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -1172,8 +1174,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -1205,8 +1207,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -1216,8 +1218,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -1249,8 +1251,8 @@ export default function AboutUs() {
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
                       fontSize: "15px",
-                      fontWeight: "bold",
-                      fontFamily: "revert",
+                      fontWeight: "500",
+                      fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
                     })}
@@ -1260,8 +1262,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "14px",
-                      fontFamily: "revert",
+                      fontSize: "18px",
+                      fontFamily: "Poppins",
                       margin: 0,
                       marginRight: 3,
                       marginLeft: 3,
@@ -1276,9 +1278,9 @@ export default function AboutUs() {
             <Typography
               sx={(theme) => ({
                 color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
-                fontWeight: "bold",
-                fontSize: "25px",
-                fontFamily: "revert",
+                fontWeight: "600",
+                fontSize: "24px",
+                fontFamily: "Poppins",
                 marginTop: 2,
                 marginBottom: 2,
               })}
@@ -1297,9 +1299,9 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
-                  fontWeight: "bold",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
+                  fontWeight: "500",
                 })}
               >
                 1. Pramod Aggarwal, Project Leader, ACASA; Regional Program Leader
@@ -1308,8 +1310,8 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                 })}
               >
                 2. Paresh Shirsath, Senior Scientist, Climate Adaptation
@@ -1318,8 +1320,8 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                 })}
               >
                 3. Prasun Gangopadhyay, Research Lead, Digital Agriculture
@@ -1328,8 +1330,8 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                 })}
               >
                 4. Sanjoy Bandopadhyay, Sr. Agronomist & Climate Adaptation Expert
@@ -1338,8 +1340,8 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                 })}
               >
                 5. Anasuya Barik, Data Analyst
@@ -1348,8 +1350,8 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                 })}
               >
                 6. Aniket Deo, Bioeconomic Modeler
@@ -1358,8 +1360,8 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                 })}
               >
                 7. Kaushik Bora, Agricultural Economist
@@ -1368,8 +1370,8 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                 })}
               >
                 8. Riya Gupta, Communication Officer
@@ -1378,8 +1380,8 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                 })}
               >
                 9. Saumya Singh, Data Analyst & Software Developer
@@ -1388,8 +1390,8 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                 })}
               >
                 10. Uttam Puri Goswami, Data Analyst
@@ -1398,8 +1400,8 @@ export default function AboutUs() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
                   fontWeight: "normal",
-                  fontSize: "14px",
-                  fontFamily: "revert",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
                 })}
               >
                 11. Purvanii Pragya, WebGIS Developer
