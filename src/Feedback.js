@@ -81,15 +81,15 @@ const ContentBox = styled(Box)(({ theme }) => ({
 
 // Array of image data for the image list
 const itemData = [
-  { img: "buff1.jpg", title: "buffalo" },
-  { img: "buff2.jpg", title: "Tea" },
-  { img: "buff3.jpg", title: "Sink" },
-  { img: "buff4.jpg", title: "Kitchen" },
-  { img: "buff5.jpg", title: "Blinds" },
-  { img: "buff6.jpg", title: "Chairs" },
-  { img: "buff7.jpg", title: "Laptop" },
-  { img: "buff8.jpg", title: "Doors" },
-  { img: "buff9.jpg", title: "Coffee" },
+  { img: `${process.env.PUBLIC_URL}/buff1.jpg`, title: "buffalo" },
+  { img: `${process.env.PUBLIC_URL}/buff2.jpg`, title: "Tea" },
+  { img: `${process.env.PUBLIC_URL}/buff3.jpg`, title: "Sink" },
+  { img: `${process.env.PUBLIC_URL}/buff4.jpg`, title: "Kitchen" },
+  { img: `${process.env.PUBLIC_URL}/buff5.jpg`, title: "Blinds" },
+  { img: `${process.env.PUBLIC_URL}/buff6.jpg`, title: "Chairs" },
+  { img: `${process.env.PUBLIC_URL}/buff7.jpg`, title: "Laptop" },
+  { img: `${process.env.PUBLIC_URL}/buff8.jpg`, title: "Doors" },
+  { img: `${process.env.PUBLIC_URL}/buff9.jpg`, title: "Coffee" },
 ];
 
 // Functional component to render a masonry image list

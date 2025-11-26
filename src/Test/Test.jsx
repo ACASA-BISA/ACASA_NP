@@ -137,21 +137,21 @@ function Test() {
                     throw new Error("No valid GeoJSON data returned for country/state");
                 }
                 newGeojsonData.country = geojsonData.data;
-                if (admin_level === "state" && admin_level_id) {
-                    const districtRes = await fetch(`${apiUrl}/layers/geojson/districts_c`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            admin_level: "state",
-                            admin_level_id,
-                        }),
-                    });
-                    if (!districtRes.ok) throw new Error(`District GeoJSON error! Status: ${districtRes.status}`);
-                    const districtData = await districtRes.json();
-                    if (districtData.success && districtData.data) {
-                        newGeojsonData.district = districtData.data;
-                    }
-                }
+                // if (admin_level === "state" && admin_level_id) {
+                //     const districtRes = await fetch(`${apiUrl}/layers/geojson/districts_c`, {
+                //         method: "POST",
+                //         headers: { "Content-Type": "application/json" },
+                //         body: JSON.stringify({
+                //             admin_level: "state",
+                //             admin_level_id,
+                //         }),
+                //     });
+                //     if (!districtRes.ok) throw new Error(`District GeoJSON error! Status: ${districtRes.status}`);
+                //     const districtData = await districtRes.json();
+                //     if (districtData.success && districtData.data) {
+                //         newGeojsonData.district = districtData.data;
+                //     }
+                // }
                 setGeojsonData(newGeojsonData);
             } catch (err) {
                 console.error("Error fetching GeoJSON:", err);

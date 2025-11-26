@@ -1,6 +1,9 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import TranslateIcon from "@mui/icons-material/Translate";
+import { IconButton, Menu, MenuItem } from "@mui/material";
+import StyledTooltip from "./StyledTooltip";
 
 const languages = [
   { code: "en", label: "English", flag: "🇬🇧" },
@@ -25,6 +28,21 @@ const Translate = () => {
   const isMounted = useRef(false);
   const queuedLanguage = useRef(null);
   const isApplyingLanguage = useRef(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleOpenLanguageMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseLanguageMenu = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLanguageSelect = (code) => {
+    applyLanguage(code);    // your existing logic
+    handleCloseLanguageMenu();
+  };
 
   const googleTranslateElementInit = useCallback(() => {
     if (window.googleTranslateInitialized) {
@@ -349,6 +367,15 @@ const Translate = () => {
         .goog-te-gadget-icon, .goog-te-banner-frame, .VIpgJd-ZVi9od-l4eHX-hSRGPd {
           display: none !important;
         }
+          .goog-te-combo {
+          display: none !important;
+        }
+        .skiptranslate {
+          display: none !important;
+        }
+        #google_translate_element {
+          display: none !important;
+        }
       `;
       document.head.appendChild(style);
       // console.log("Applied custom UI to .goog-te-combo");
@@ -461,8 +488,25 @@ const Translate = () => {
     }
   }, [isTranslateLoaded, language, findGoogleTranslateSelector, modifyTranslateWidget]);
 
+
+
   return (
     <Box sx={{ mx: 1 }}>
+      <>
+        <IconButton onClick={handleOpenLanguageMenu}>
+          <StyledTooltip title="Translate">
+            <TranslateIcon sx={{ fontSize: 28 }} />
+          </StyledTooltip>
+        </IconButton>
+
+        <Menu anchorEl={anchorEl} open={open} onClose={handleCloseLanguageMenu}>
+          {languages.map((lang) => (
+            <MenuItem key={lang.code} onClick={() => handleLanguageSelect(lang.code)}>
+              {lang.flag} {lang.label}
+            </MenuItem>
+          ))}
+        </Menu>
+      </>
       {scriptError && (
         <Typography
           color="error"

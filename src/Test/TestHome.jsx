@@ -66,22 +66,22 @@ Improve climate adaptive capacity of agricultural systems
 // 🔹 Your resources with dynamic images
 const resources = [
     {
+        title: "Women farmers, climate, resilience",
+        description:
+            "Finding resilience in the rains of Nawalapitiya, Kandy",
+        image: `${process.env.PUBLIC_URL}/Blog-14.jpeg`,
+    },
+    {
+        title: "Digital agriculture, remote sensing",
+        description:
+            "Driving agricultural transformation through digital innovation",
+        image: `${process.env.PUBLIC_URL}/Blog-15.jpg`,
+    },
+    {
         title: "Maize, Agribusiness",
         description:
             "Building Capabilities of Medium and Large-Scale Sri Lankan Maize Growers in Agricultural Risk Management",
         image: `${process.env.PUBLIC_URL}/Blog-10.jpg`, // place inside public/images/
-    },
-    {
-        title: "Capacity building, women",
-        description:
-            "ACASA for empowering women-led social entrepreneurs in Nepal: Building climate-resilient forage for a sustainable livestock ecosystem",
-        image: `${process.env.PUBLIC_URL}/Blog-11.jpg`,
-    },
-    {
-        title: "Adaptation, local-level planning",
-        description:
-            "Strengthening the model of “Adaptation Clinic” through data-driven local level adaptation planning in Bangladesh",
-        image: `${process.env.PUBLIC_URL}/Blog-13.jpg`,
     },
 ];
 var items = [

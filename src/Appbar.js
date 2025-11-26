@@ -11,12 +11,16 @@ import { styled } from "@mui/material/styles";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { ThemeContext } from "./ThemeContext";
-import { Tooltip, tooltipClasses } from "@mui/material";
+import { IconButton } from "@mui/material";
 import NightlightOutlinedIcon from "@mui/icons-material/NightlightOutlined";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import FeedbackOutlinedIcon from '@mui/icons-material/FeedbackOutlined';
 import Translate from "./Translate";
 import LightTooltip from "./LightTooltip";
+import StyledTooltip from "./StyledTooltip";
 import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
+import { Style } from "@mui/icons-material";
 
 const pages = ["Home", "Explore Data", "Data at a glance", /*"Data Access",*/ "Use Cases", "Resources", "About Us"];
 const pageid = ["home", "dashboard", "dataglance", /*"access",*/ "usecases", "resources", "about"];
@@ -47,21 +51,6 @@ const ToggleThumb = styled("div")(({ mode }) => ({
   position: "absolute",
   left: mode === "dark" ? "32px" : "2px",
   transition: "left 0.3s ease, background-color 0.3s ease",
-}));
-
-const StyledTooltip = styled(({ className, ...props }) => <Tooltip {...props} classes={{ popper: className }} />)(({ theme }) => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: theme.palette.mode === "dark" ? "#61c258" : "#4ba046",
-    color: theme.palette.mode === "dark" ? "#000" : "#fff",
-    fontSize: "0.875rem",
-    fontWeight: 600,
-    borderRadius: "6px",
-    padding: "6px 10px",
-    boxShadow: theme.palette.mode === "dark" ? "0px 4px 12px rgba(97, 194, 88, 0.6)" : "0px 4px 12px rgba(75, 160, 70, 0.6)",
-  },
-  [`& .${tooltipClasses.arrow}`]: {
-    color: theme.palette.mode === "dark" ? "#61c258" : "#4ba046",
-  },
 }));
 
 const MyButton = styled(ToggleButton)(({ theme }) => ({
@@ -220,13 +209,20 @@ function ResponsiveAppBar({ validCountries }) {
           boxShadow: (theme) => (theme.palette.mode === "dark" ? "0px 0px 4px #222" : "0px 0px 4px #aaa"),
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", paddingTop: isSkipTranslateHidden ? "0px" : "14px" }}>
-          <Toolbar disableGutters sx={{ width: "100%" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: isSkipTranslateHidden ? "12px" : "14px" }}>
+          <Toolbar disableGutters sx={{ width: "100%", alignItems: "center" }}>
             <Box sx={{ display: "flex", flexGrow: 0, flexDirection: "column" }}>
-              <Button size="small" href="" color="inherit" key="Acasa" onClick={() => handleNavigation("home")}>
-                <Link to={getHref("home")} style={{ textDecoration: "none", color: "inherit" }}>
-                  <Avatar variant="square" alt="Remy Sharp" src={`${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka Logos/Agri Logo_New copy.png`} sx={{ width: "auto", height: "60px" }} />
-                </Link>
+              <Button
+                size="small"
+                color="inherit"
+                key="DeptAgri"
+                component="a"
+                href="https://doa.gov.lk/home-page/"
+                target="_blank"
+                sx={{ padding: 0 }}
+              >
+                <Avatar variant="square" alt="Remy Sharp" src={`${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka Logos/Agri Logo_New copy.png`} sx={{ width: "auto", height: "60px" }} />
+
               </Button>
             </Box>
             <Box
@@ -249,9 +245,17 @@ function ResponsiveAppBar({ validCountries }) {
                 flexDirection: "column",
               }}
             >
-              <ImgButton size="small" color="inherit" key="NRMC">
+              <Button
+                size="small"
+                color="inherit"
+                key="NRMC"
+                component="a"
+                href="https://doa.gov.lk/nrmc-home/"
+                target="_blank"
+                sx={{ padding: 0 }}
+              >
                 <Avatar variant="square" alt="Remy Sharp" src={`${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka Logos/NRMC.png`} sx={{ width: "auto", height: "50px" }} />
-              </ImgButton>
+              </Button>
             </Box>
             <Box sx={{ display: "flex", flexGrow: 0, flexDirection: "column" }}>
               <Button
@@ -393,23 +397,22 @@ function ResponsiveAppBar({ validCountries }) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "flex-end",
-                maxWidth: 400,
-                gap: 1,
+                maxWidth: 450,
+                gap: 0.5,
               }}
             >
-              <Button
-                onClick={handleFeedbackNavigation}
-                sx={{
-                  px: 1.5,
-                  ml: 1,
-                  border: "1px solid #aaa",
-                  textTransform: "none",
-                  minWidth: 80,
-                }}
-              >
-                <Typography sx={{ fontSize: "14px", fontFamily: "Karla" }}>Feedback</Typography>
-              </Button>
-
+              <StyledTooltip title="Feedback" arrow>
+                <IconButton
+                  onClick={handleFeedbackNavigation}
+                >
+                  <FeedbackOutlinedIcon
+                    sx={{
+                      fontSize: 28, // increase icon size
+                      color: mode === "dark" ? "#fff" : "#000"
+                    }}
+                  />
+                </IconButton>
+              </StyledTooltip>
               <StyledTooltip title={mode === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"} arrow enterDelay={100}>
                 <ToggleContainer mode={mode} onClick={toggleTheme}>
                   <ToggleThumb mode={mode}>
@@ -423,6 +426,9 @@ function ResponsiveAppBar({ validCountries }) {
               </StyledTooltip>
 
               <Translate />
+              <ImgButton size="small" href="https://bisa.org/" target="_blank" color="inherit" key="Bisa">
+                <Avatar variant="square" alt="Remy Sharp" src={mode === "dark" ? `${process.env.PUBLIC_URL}/BISA Logo in white color.png` : `${process.env.PUBLIC_URL}/BISA Logo in color.png`} sx={{ width: "auto", height: "50px" }} />
+              </ImgButton>
             </Box>
           </Toolbar>
         </Box>

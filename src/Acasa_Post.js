@@ -30,7 +30,7 @@ const data = [
     "Finding resilience in the rains of Nawalapitiya, Kandy",
     "Riya Gupta, Communications Officer, BISA",
     "https://bisa.org/finding-resilience-in-the-rains-of-nawalapitiya-kandy/",
-    ["Women farmers", "climate", "resilience"]
+    ["Women farmers,", "climate,", "resilience"]
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-15.jpg`,
@@ -38,7 +38,7 @@ const data = [
     "Driving agricultural transformation through digital innovation",
     "Prasun Gangopadhyay, Borlaug Institute for South Asia (BISA)",
     "https://bisa.org/driving-agricultural-transformation-through-digital-innovation/",
-    ["Digital agriculture", "remote sensing"]
+    ["Digital agriculture,", "remote sensing"]
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-10.jpg`,

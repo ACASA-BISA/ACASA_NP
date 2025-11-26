@@ -1268,7 +1268,7 @@ export default function AboutUs() {
                       mb: 2,
                     })}
                   >
-                    Research Officer, NRMC, Department of Agriculture, Sri Lanka
+                    Director, NRMC, Department of Agriculture, Sri Lanka
                   </Typography>
                 </Box>
               </Paper>
