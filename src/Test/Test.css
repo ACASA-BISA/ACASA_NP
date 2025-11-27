@@ -270,7 +270,7 @@ span.searchIcon {
     margin: 0;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 14px;
     line-height: 1.5;
     letter-spacing: 0.00938em;
     display: block;
@@ -406,7 +406,7 @@ body {
 }
 
 .label-list {
-    font-family: Poppins !important;
+    font-family: "Poppins" !important;
     font-size: 13px !important;
     font-style: normal;
     font-weight: 500 !important;
@@ -422,6 +422,7 @@ body {
     padding: 0 !important;
     position: relative !important;
     text-align: left !important;
+    font-family: 'Poppins';
 }
 
 .css-1criyxn-MuiList-root {

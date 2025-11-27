@@ -1681,9 +1681,10 @@ const DataGlance = () => {
                                 alignContent: "center",
                                 justifyContent: "center",
                                 alignItems: "center",
+                                fontFamily: "Poppins",
                             })}
                         >
-                            <Typography sx={{ fontSize: 14, fontWeight: "900", fontFamily: "Jura" }}>
+                            <Typography sx={{ fontSize: 14, fontWeight: "500", fontFamily: "Poppins" }}>
                                 Adaptations at a Glance
                             </Typography>
                         </Box>
@@ -1700,6 +1701,7 @@ const DataGlance = () => {
                                 overflow: "hidden",
                                 backgroundColor: theme.palette.mode === "dark" ? "#2d3136" : "#F7F7F7",
                                 border: "0px solid black",
+                                fontFamily: "Poppins",
                             })}
                         >
                             <Box
@@ -1711,10 +1713,11 @@ const DataGlance = () => {
                                     marginRight: "5px",
                                     overflow: "hidden",
                                     flexWrap: "nowrap",
-                                    minWidth: 'auto'
+                                    minWidth: 'auto',
+                                    fontFamily: "Poppins",
                                 }}
                             >
-                                <Typography sx={{ fontSize: 13, fontWeight: "bold", whiteSpace: "nowrap" }}>
+                                <Typography sx={{ fontSize: 13, fontWeight: "500", whiteSpace: "nowrap", fontFamily: "Poppins", }}>
                                     Location:
                                 </Typography>
                                 <FormControl fullWidth>
@@ -1735,6 +1738,7 @@ const DataGlance = () => {
                                             sx={(theme) => ({
                                                 fontSize: "12px",
                                                 height: "24px",
+                                                fontFamily: "Poppins",
                                                 backgroundColor:
                                                     theme.palette.mode === "dark"
                                                         ? "rgba(60, 75, 60, 1)"
@@ -1760,6 +1764,7 @@ const DataGlance = () => {
                                                         textOverflow: "ellipsis",
                                                         whiteSpace: "nowrap",
                                                         maxWidth: "90px",
+                                                        fontFamily: "Poppins",
                                                     }}
                                                 >
                                                     {country.country}
@@ -1774,6 +1779,7 @@ const DataGlance = () => {
                                                 overflow: "hidden",
                                                 textOverflow: "ellipsis",
                                                 whiteSpace: "nowrap",
+                                                fontFamily: "Poppins",
                                             }}
                                         >
                                             {countries.find((c) => c.country_id === selectedCountryId)?.country ||
@@ -1793,9 +1799,10 @@ const DataGlance = () => {
                                     overflow: "hidden",
                                     flexWrap: "nowrap",
                                     minWidth: "auto",
+                                    fontFamily: "Poppins",
                                 }}
                             >
-                                <Typography sx={{ fontSize: 13, fontWeight: "bold" }}>Commodity: </Typography>
+                                <Typography sx={{ fontSize: 13, fontWeight: "500", fontFamily: "Poppins", }}>Commodity: </Typography>
                                 <FormControl fullWidth>
                                     <Select
                                         disableUnderline
@@ -1813,6 +1820,7 @@ const DataGlance = () => {
                                         sx={(theme) => ({
                                             fontSize: "12px",
                                             height: "24px",
+                                            fontFamily: "Poppins",
                                             backgroundColor:
                                                 theme.palette.mode === "dark"
                                                     ? "rgba(60, 75, 60, 1)"
@@ -1843,7 +1851,8 @@ const DataGlance = () => {
                                                     disabled
                                                     sx={{
                                                         fontSize: "12px",
-                                                        fontWeight: "bold",
+                                                        fontWeight: "500",
+                                                        fontFamily: "Poppins",
                                                         backgroundColor: (theme) =>
                                                             theme.palette.mode === "dark" ? "#4a4a4a" : "#e0e0e0",
                                                         paddingY: "2px",
@@ -1867,6 +1876,7 @@ const DataGlance = () => {
                                                                 textOverflow: "ellipsis",
                                                                 whiteSpace: "nowrap",
                                                                 maxWidth: "90px",
+                                                                fontFamily: "Poppins",
                                                             }}
                                                         >
                                                             {commodity.commodity}
@@ -1889,6 +1899,7 @@ const DataGlance = () => {
                             overflow: "hidden",
                             backgroundColor: theme.palette.mode === "dark" ? "#2d3136" : "#F7F7F7",
                             border: "0px solid black",
+                            fontFamily: "Poppins",
                         })}>
                             <Box sx={{
                                 display: "flex",
@@ -1898,9 +1909,10 @@ const DataGlance = () => {
                                 marginRight: "5px",
                                 overflow: "hidden",
                                 flexWrap: "nowrap",
-                                minWidth: 'auto'
+                                minWidth: 'auto',
+                                fontFamily: "Poppins",
                             }}>
-                                <Typography sx={{ fontSize: 13, fontWeight: "bold" }}>Scenario: </Typography>
+                                <Typography sx={{ fontSize: 13, fontWeight: "500", fontFamily: "Poppins", }}>Scenario: </Typography>
                                 <FormControl fullWidth>
                                     <Select
                                         disableUnderline
@@ -1918,6 +1930,7 @@ const DataGlance = () => {
                                         sx={(theme) => ({
                                             fontSize: "12px",
                                             height: "24px",
+                                            fontFamily: "Poppins",
                                             backgroundColor: theme.palette.mode === "dark" ? "rgba(60, 75, 60, 1)" : "rgba(235, 247, 233, 1)",
                                         })}
                                         disabled={isLoading || isOptionLoading}
@@ -1927,7 +1940,7 @@ const DataGlance = () => {
                                                 key={scenario.scenario_id}
                                                 value={scenario.scenario_id}
                                                 disabled={!scenario.status}
-                                                sx={{ fontSize: "12px", paddingY: "2px" }}
+                                                sx={{ fontSize: "12px", paddingY: "2px", fontFamily: "Poppins", }}
                                             >
                                                 {scenario.scenario}
                                             </MenuItem>
@@ -1944,9 +1957,10 @@ const DataGlance = () => {
                                 overflow: "hidden",
                                 flexWrap: "nowrap",
                                 overflow: "hidden",
-                                minWidth: 'auto'
+                                minWidth: 'auto',
+                                fontFamily: "Poppins",
                             }}>
-                                <Typography sx={{ fontSize: 13, fontWeight: "bold" }}>Scales: </Typography>
+                                <Typography sx={{ fontSize: 13, fontWeight: "500", fontFamily: "Poppins", }}>Scales: </Typography>
                                 <FormControl fullWidth>
                                     <Select
                                         disableUnderline
@@ -1964,12 +1978,13 @@ const DataGlance = () => {
                                         sx={(theme) => ({
                                             fontSize: "12px",
                                             height: "24px",
+                                            fontFamily: "Poppins",
                                             backgroundColor: theme.palette.mode === "dark" ? "rgba(60, 75, 60, 1)" : "rgba(235, 247, 233, 1)",
                                         })}
                                         disabled={isLoading || isOptionLoading || visualizationScales.length === 0}
                                     >
                                         {visualizationScales.length === 0 ? (
-                                            <MenuItem value="" sx={{ fontSize: "12px", paddingY: "2px" }}>
+                                            <MenuItem value="" sx={{ fontSize: "12px", paddingY: "2px", fontFamily: "Poppins", }}>
                                                 No scales available
                                             </MenuItem>
                                         ) : (
@@ -1978,7 +1993,7 @@ const DataGlance = () => {
                                                     key={scale.scale_id}
                                                     value={scale.scale_id}
                                                     disabled={!scale.status}
-                                                    sx={{ fontSize: "12px", paddingY: "2px" }}
+                                                    sx={{ fontSize: "12px", paddingY: "2px", fontFamily: "Poppins", }}
                                                 >
                                                     {scale.scale}
                                                 </MenuItem>
@@ -2000,6 +2015,7 @@ const DataGlance = () => {
                             overflow: "hidden",
                             backgroundColor: theme.palette.mode === "dark" ? "#2d3136" : "#F7F7F7",
                             border: "0px solid black",
+                            fontFamily: "Poppins",
                         })}
                         >
                             <Box sx={{
@@ -2011,7 +2027,8 @@ const DataGlance = () => {
                                 overflow: "hidden",
                                 flexWrap: "nowrap",
                                 overflow: "hidden",
-                                minWidth: 'auto'
+                                minWidth: 'auto',
+                                fontFamily: "Poppins",
                             }}>
                                 {parseInt(selectedScenarioId) !== 1 && (
                                     <Box sx={{
@@ -2023,9 +2040,10 @@ const DataGlance = () => {
                                         overflow: "hidden",
                                         flexWrap: "nowrap",
                                         overflow: "hidden",
-                                        minWidth: 'auto'
+                                        minWidth: 'auto',
+                                        fontFamily: "Poppins",
                                     }}>
-                                        <Typography sx={{ fontSize: 13, fontWeight: "bold" }}>Year: </Typography>
+                                        <Typography sx={{ fontSize: 13, fontWeight: "500", fontFamily: "Poppins", }}>Year: </Typography>
                                         <FormControl fullWidth>
                                             <Select
                                                 disableUnderline
@@ -2040,14 +2058,15 @@ const DataGlance = () => {
                                                 sx={(theme) => ({
                                                     fontSize: "12px",
                                                     height: "24px",
+                                                    fontFamily: "Poppins",
                                                     backgroundColor: theme.palette.mode === "dark" ? "rgba(60, 75, 60, 1)" : "rgba(235, 247, 233, 1)",
                                                 })}
                                                 disabled={isLoading || isOptionLoading}
                                             >
-                                                <MenuItem value={2050} sx={{ fontSize: "12px", paddingY: "2px" }}>
+                                                <MenuItem value={2050} sx={{ fontSize: "12px", paddingY: "2px", fontFamily: "Poppins",  }}>
                                                     2050
                                                 </MenuItem>
-                                                <MenuItem value={2080} sx={{ fontSize: "12px", paddingY: "2px" }}>
+                                                <MenuItem value={2080} sx={{ fontSize: "12px", paddingY: "2px", fontFamily: "Poppins", }}>
                                                     2080
                                                 </MenuItem>
                                             </Select>
@@ -2066,6 +2085,7 @@ const DataGlance = () => {
                                     overflow: "hidden",
                                     backgroundColor: theme.palette.mode === "dark" ? "#2d3136" : "#F7F7F7",
                                     border: "0px solid black",
+                                    fontFamily: "Poppins",
                                 })}
                                 >
                                     <Box sx={{
@@ -2076,9 +2096,10 @@ const DataGlance = () => {
                                         flex: 1,
                                         overflow: "hidden",
                                         flexWrap: "nowrap",
-                                        minWidth: 'auto'
+                                        minWidth: 'auto',
+                                        fontFamily: "Poppins",
                                     }}>
-                                        <Typography sx={{ display: 'flex', fontSize: 13, fontWeight: "bold", flexWrap: 'nowrap' }}>Indicator: </Typography>
+                                        <Typography sx={{ display: 'flex', fontSize: 13, fontWeight: "500", flexWrap: 'nowrap', fontFamily:'Poppins' }}>Indicator: </Typography>
                                         <FormControl fullWidth>
                                             <Select
                                                 disableUnderline
@@ -2096,12 +2117,13 @@ const DataGlance = () => {
                                                 sx={(theme) => ({
                                                     fontSize: "12px",
                                                     height: "24px",
+                                                    fontFamily: "Poppins",
                                                     backgroundColor: theme.palette.mode === "dark" ? "rgba(60, 75, 60, 1)" : "rgba(235, 247, 233, 1)",
                                                 })}
                                                 disabled={isLoading || isOptionLoading || adaptationCropTabs.length === 0}
                                             >
                                                 {adaptationCropTabs.length === 0 ? (
-                                                    <MenuItem value="" sx={{ fontSize: "12px", paddingY: "2px" }}>
+                                                    <MenuItem value="" sx={{ fontSize: "12px", paddingY: "2px", fontFamily: "Poppins", }}>
                                                         No tabs available
                                                     </MenuItem>
                                                 ) : (
@@ -2110,7 +2132,7 @@ const DataGlance = () => {
                                                             key={tab.tab_id}
                                                             value={tab.tab_id}
                                                             disabled={!tab.status}
-                                                            sx={{ fontSize: "12px", paddingY: "2px" }}
+                                                            sx={{ fontSize: "12px", paddingY: "2px", fontFamily: "Poppins", }}
                                                         >
                                                             {tab.tab_name}
                                                         </MenuItem>
@@ -2141,6 +2163,7 @@ const DataGlance = () => {
                                         justifyContent: "center",
                                         backgroundColor: "rgba(255, 255, 255, 0.7)",
                                         zIndex: 1200,
+                                        fontFamily: "Poppins",
                                     }}
                                 >
                                     <CircularProgress />
@@ -2159,9 +2182,10 @@ const DataGlance = () => {
                                         justifyContent: "center",
                                         backgroundColor: "rgba(255, 255, 255, 0.7)",
                                         zIndex: 1100,
+                                        fontFamily: "Poppins",
                                     }}
                                 >
-                                    <Typography sx={{ fontSize: "16px", fontWeight: "bold", textAlign: "center" }}>
+                                    <Typography sx={{ fontSize: "16px", fontWeight: "500", textAlign: "center", fontFamily: "Poppins", }}>
                                         No GeoTIFF Available
                                     </Typography>
                                 </Box>
@@ -2196,9 +2220,9 @@ const DataGlance = () => {
                                         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "3px 8px" }}>
                                             <Typography
                                                 sx={{
-                                                    fontSize: 13,
-                                                    fontWeight: "800",
-                                                    fontFamily: "Jura",
+                                                    fontSize: 14,
+                                                    fontWeight: "500",
+                                                    fontFamily: "Poppins",
                                                 }}
                                             >
                                                 {grid?.grid_sequence_title || "Adaptation"}:&nbsp;
@@ -2220,12 +2244,13 @@ const DataGlance = () => {
                                                     sx={(theme) => ({
                                                         fontSize: "12px",
                                                         height: "24px",
+                                                        fontFamily: "Poppins",
                                                         backgroundColor: theme.palette.mode === "dark" ? "rgba(60, 75, 60, 1)" : "rgba(235, 247, 233, 1)",
                                                     })}
                                                     disabled={isLoading || isOptionLoading || adaptations.length === 0}
                                                 >
                                                     {adaptations.length === 0 ? (
-                                                        <MenuItem value="" sx={{ fontSize: "12px", paddingY: "2px" }}>
+                                                        <MenuItem value="" sx={{ fontSize: "12px", paddingY: "2px", fontFamily: "Poppins", }}>
                                                             No adaptations available
                                                         </MenuItem>
                                                     ) : (
@@ -2234,7 +2259,7 @@ const DataGlance = () => {
                                                                 key={adaptation.adaptation_id}
                                                                 value={adaptation.adaptation_id}
                                                                 disabled={!adaptation.status}
-                                                                sx={{ fontSize: "12px", paddingY: "2px" }}
+                                                                sx={{ fontSize: "12px", paddingY: "2px", fontFamily: "Poppins", }}
                                                             >
                                                                 {adaptation.adaptation}
                                                             </MenuItem>
@@ -2262,6 +2287,7 @@ const DataGlance = () => {
                                                         justifyContent: "center",
                                                         backgroundColor: "rgba(255, 255, 255, 0.7)",
                                                         zIndex: 1200,
+                                                        fontFamily: "Poppins",
                                                     }}
                                                 >
                                                     <CircularProgress />
@@ -2280,9 +2306,10 @@ const DataGlance = () => {
                                                         justifyContent: "center",
                                                         backgroundColor: "rgba(255, 255, 255, 0.7)",
                                                         zIndex: 1100,
+                                                        fontFamily: "Poppins",
                                                     }}
                                                 >
-                                                    <Typography sx={{ fontSize: "16px", fontWeight: "bold", textAlign: "center" }}>
+                                                    <Typography sx={{ fontSize: "16px", fontWeight: "500", textAlign: "center", fontFamily: "Poppins", }}>
                                                         No GeoTIFF Available
                                                     </Typography>
                                                 </Box>

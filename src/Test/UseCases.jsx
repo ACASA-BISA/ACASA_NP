@@ -379,7 +379,7 @@ function UseCases() {
                                                          fontFamily: "Poppins",
                                                         color: theme.palette.mode === "dark" ? "#fff" : "#000",
                                                         margin: theme.spacing(2, 0, 1),
-                                                        fontSize: "18px",
+                                                        fontSize: "24px",
                                                         textAlign: 'left',
                                                         fontWeight:'600',
                                                     },
