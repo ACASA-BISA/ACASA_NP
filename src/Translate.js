@@ -515,12 +515,13 @@ const Translate = () => {
             maxWidth: 140,
             overflow: "hidden",
             textOverflow: "ellipsis",
+            fontFamily:'Poppins',
           }}
         >
           Translation unavailable
         </Typography>
       )}
-      <Box id="google_translate_element" sx={{ mt: 1, zIndex: 1000 }} />
+      <Box id="google_translate_element" sx={{ mt: 1, zIndex: 1000, fontFamily:'Poppins', }} />
     </Box>
   );
 };

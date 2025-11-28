@@ -186,8 +186,8 @@ export default function Card_Posts() {
                 position: "absolute",
                 bottom: "1px",
                 right: "1px",
-                fontSize: "12px",
-                fontFamily: "revert",
+                fontSize: "18px",
+                fontFamily: "Poppins",
                 color: theme.palette.mode === "dark" ? "#e0e0e0" : "#1b1f23",
               })}
             >
@@ -202,7 +202,7 @@ export default function Card_Posts() {
                 color: theme.palette.mode === "dark" ? "#000" : "#fff",
                 fontSize: { xs: "28px", sm: "40px" },
                 fontWeight: "bold",
-                fontFamily: "revert",
+                fontFamily: "Poppins",
                 WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%)",
                 maskImage: "linear-gradient(to right, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%)",
                 paddingLeft: "10px",
@@ -234,7 +234,7 @@ export default function Card_Posts() {
               <motion.div className="slogan-text" style={{ transform: "translateY(-60px)" }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 1 }}>
                 <Typography
                   sx={(theme) => ({
-                    fontFamily: "revert",
+                    fontFamily: "Poppins",
                     fontSize: { xs: "32px", sm: "50px" },
                     fontWeight: "bold",
                     color: theme.palette.mode === "dark" ? "#e0e0e0" : "#222529", // Main text color
@@ -243,18 +243,18 @@ export default function Card_Posts() {
                 >
                   Insights
                 </Typography>
-                <Typography sx={(theme) => ({ fontFamily: "revert", fontSize: { xs: "16px", sm: "24px" }, fontWeight: "bold", color: theme.palette.mode === "dark" ? "#e0e0e0" : "#222529" })}>
+                <Typography sx={(theme) => ({ fontFamily: "Poppins", fontSize: { xs: "18px", sm: "24px" }, fontWeight: "bold", color: theme.palette.mode === "dark" ? "#e0e0e0" : "#222529" })}>
                   from our global experts on
                 </Typography>
                 <Typography
-                  sx={(theme) => ({ fontFamily: "revert", fontSize: { xs: "16px", sm: "24px" }, fontWeight: "bold", color: theme.palette.mode === "dark" ? "#00C853" : "#4d7553", display: "inline" })}
+                  sx={(theme) => ({ fontFamily: "Poppins", fontSize: { xs: "18px", sm: "24px" }, fontWeight: "bold", color: theme.palette.mode === "dark" ? "#00C853" : "#4d7553", display: "inline" })}
                 >
                   climate
                 </Typography>
                 <Typography
                   sx={(theme) => ({
-                    fontFamily: "revert",
-                    fontSize: { xs: "16px", sm: "24px" },
+                    fontFamily: "Poppins",
+                    fontSize: { xs: "18px", sm: "24px" },
                     fontWeight: "bold",
                     color: theme.palette.mode === "dark" ? "#e0e0e0" : "#222529",
                     display: "inline",
@@ -265,8 +265,8 @@ export default function Card_Posts() {
                 </Typography>
                 <Typography
                   sx={(theme) => ({
-                    fontFamily: "revert",
-                    fontSize: { xs: "16px", sm: "24px" },
+                    fontFamily: "Poppins",
+                    fontSize: { xs: "18px", sm: "24px" },
                     fontWeight: "bold",
                     color: theme.palette.mode === "dark" ? "#00C853" : "#4d7553",
                     display: "inline",

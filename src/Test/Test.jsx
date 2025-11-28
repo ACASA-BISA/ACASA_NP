@@ -652,7 +652,7 @@ function Test() {
                                             <img src={`${process.env.PUBLIC_URL}/images/location.svg`} alt="" />
                                         </ListItemIcon>
                                         <ListItemText
-                                            primary={<FormLabel style={{ textAlign: "left" }} className="formLabel">Region</FormLabel>}
+                                            primary={<FormLabel style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }} className="formLabel">Region</FormLabel>}
                                         />
                                         {isSidebarOpen.region ? <ExpandLess /> : <ExpandMore />}
                                     </ListItemButton>
@@ -660,10 +660,11 @@ function Test() {
                                         <Typography
                                             sx={{
                                                 textAlign: "center",
-                                                fontSize: "15px",
+                                                fontSize: "14px",
                                                 marginBottom: "10px",
                                                 color: "rgba(0, 0, 0, 0.54)",
-                                                fontWeight: "bold"
+                                                fontWeight: "bold",
+                                                 fontFamily:'Poppins',
                                             }}
                                         >
                                             Country: Sri Lanka
@@ -671,7 +672,7 @@ function Test() {
                                         <List component="div" disablePadding>
                                             <div className="card w-100 bg-transparent border-0 text-start">
                                                 <div className="card-body">
-                                                    <FormControl style={{ textAlign: "left" }}>
+                                                    <FormControl style={{ textAlign: "left",  fontFamily:'Poppins', fontWeight:'500',}}>
                                                         <Select
                                                             disableUnderline
                                                             variant="standard"
@@ -686,7 +687,8 @@ function Test() {
                                                                 PopperProps: { modifiers: [{ name: "flip", enabled: false }] },
                                                             }}
                                                             sx={(theme) => ({
-                                                                fontSize: "15px",
+                                                                fontSize: "14px",
+                                                                 fontFamily:'Poppins',
                                                                 height: "26px",
                                                                 backgroundColor:
                                                                     theme.palette.mode === "dark"
@@ -704,7 +706,7 @@ function Test() {
                                                         >
                                                             <MenuItem
                                                                 value={0}
-                                                                sx={{ fontSize: "15px", paddingY: "2px" }}
+                                                                sx={{ fontSize: "14px", paddingY: "2px",  fontFamily:'Poppins', }}
                                                             >
                                                                 Province
                                                             </MenuItem>
@@ -713,7 +715,8 @@ function Test() {
                                                                     key={a.state_id}
                                                                     value={a.state_id}
                                                                     sx={{
-                                                                        fontSize: "15px",
+                                                                        fontSize: "14px",
+                                                                         fontFamily:'Poppins',
                                                                         paddingY: "2px",
                                                                         overflow: "hidden",
                                                                         textOverflow: "ellipsis",
@@ -724,7 +727,7 @@ function Test() {
                                                                         <span>{a.state}</span>
                                                                         {a.description && (
                                                                             <Tooltip title={a.description} arrow>
-                                                                                <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)" }} />
+                                                                                <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)",  fontFamily:'Poppins', }} />
                                                                             </Tooltip>
                                                                         )}
                                                                     </Box>
@@ -744,7 +747,8 @@ function Test() {
                                                                 PaperProps: { sx: { maxHeight: 300 } },
                                                             }}
                                                             sx={(theme) => ({
-                                                                fontSize: "15px",
+                                                                fontSize: "14px",
+                                                                 fontFamily:'Poppins',
                                                                 height: "26px",
                                                                 backgroundColor:
                                                                     theme.palette.mode === "dark"
@@ -756,17 +760,18 @@ function Test() {
                                                                 margin: "0 20px 10px",
                                                                 textAlign: "left",
                                                                 padding: "15px 0 15px 15px",
-                                                                width: "220px"
+                                                                width: "220px",
+                                                                 fontFamily:'Poppins',
                                                             })}
                                                         >
-                                                            <MenuItem value={0} sx={{ fontSize: "15px", paddingY: "2px" }}>
+                                                            <MenuItem value={0} sx={{ fontSize: "14px", paddingY: "2px",  fontFamily:'Poppins', }}>
                                                                 District
                                                             </MenuItem>
                                                             {districts.map((d) => (
                                                                 <MenuItem
                                                                     key={d.district_id}
                                                                     value={d.district_id}
-                                                                    sx={{ fontSize: "15px", paddingY: "2px" }}
+                                                                    sx={{ fontSize: "14px", paddingY: "2px",  fontFamily:'Poppins', }}
                                                                 >
                                                                     {d.district}
                                                                 </MenuItem>
@@ -795,13 +800,15 @@ function Test() {
                                                 color: "rgba(0, 0, 0, 0.54)",
                                                 flexShrink: 0,
                                                 display: "inline-flex",
+                                                fontFamily:'Poppins',
+                                                fontWeight:'500',
                                             }}
                                         >
                                             <img src={`${process.env.PUBLIC_URL}/images/datatype.svg`} alt="Data Type" />
                                         </ListItemIcon>
                                         <ListItemText
                                             primary={
-                                                <FormLabel style={{ textAlign: "left" }} className="formLabel">
+                                                <FormLabel style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }} className="formLabel">
                                                     {selectedCommodityTypeId === 1
                                                         ? "Switch to Livestock"
                                                         : "Switch to Crops"}
@@ -831,12 +838,12 @@ function Test() {
                                                         }
                                                         label={
                                                             <Box display="flex" alignItems="center" gap={0.5}>
-                                                                <FormLabel className="label-list" style={{ textAlign: "left" }}>
+                                                                <FormLabel className="label-list" style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }}>
                                                                     {type.commodity_type}
                                                                 </FormLabel>
                                                                 {type.description && (
                                                                     <Tooltip title={type.description} arrow>
-                                                                        <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)" }} />
+                                                                        <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)",  fontFamily:'Poppins', }} />
                                                                     </Tooltip>
                                                                 )}
                                                             </Box>
@@ -869,13 +876,13 @@ function Test() {
                                             <img src={`${process.env.PUBLIC_URL}/images/analysis.svg`} alt="Analysis & Scale" />
                                         </ListItemIcon>
                                         <ListItemText
-                                            primary={<FormLabel style={{ textAlign: "left" }} className="formLabel">Analysis & Scale</FormLabel>}
+                                            primary={<FormLabel style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }} className="formLabel">Analysis & Scale</FormLabel>}
                                         />
                                         {isSidebarOpen.analysis ? <ExpandLess /> : <ExpandMore />}
                                     </ListItemButton>
                                     <Collapse in={isSidebarOpen.analysis} timeout="auto" unmountOnExit>
                                         <List component="div" disablePadding sx={{ px: 2 }}>
-                                            <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }} style={{ textAlign: "left" }}>
+                                            <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }} style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }}>
                                                 <FormLabel style={{ textAlign: "left!important" }} className="formLabel">Select analysis scope</FormLabel>
                                             </Typography>
                                             <FormGroup style={{ textAlign: "left!important" }}>
@@ -905,13 +912,14 @@ function Test() {
                                                                         fontWeight: 500,
                                                                         lineHeight: "normal",
                                                                         textAlign: "left",
+                                                                         fontFamily:'Poppins',
                                                                     }}
                                                                 >
                                                                     {scope.scope}
                                                                 </span>
                                                                 {scope.description && (
                                                                     <Tooltip title={scope.description} arrow>
-                                                                        <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)" }} />
+                                                                        <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)",  fontFamily:'Poppins', }} />
                                                                     </Tooltip>
                                                                 )}
                                                             </Box>
@@ -919,8 +927,8 @@ function Test() {
                                                     />
                                                 ))}
                                             </FormGroup>
-                                            <Typography variant="subtitle2" sx={{ mt: 3, mb: 1 }} style={{ textAlign: "left" }}>
-                                                <FormLabel style={{ textAlign: "left" }} className="formLabel">Select visualization scale</FormLabel>
+                                            <Typography variant="subtitle2" sx={{ mt: 3, mb: 1 }} style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }}>
+                                                <FormLabel style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }} className="formLabel">Select visualization scale</FormLabel>
                                             </Typography>
                                             <FormGroup>
                                                 {visualizationScales.map((scale) => (
@@ -936,7 +944,7 @@ function Test() {
                                                                 }
                                                                 disabled={!scale.status || isLoading || mapLoading}
                                                                 color="primary"
-                                                                style={{ textAlign: "left!important" }}
+                                                                style={{ textAlign: "left!important",  fontFamily:'Poppins', }}
                                                             />
                                                         }
                                                         label={
@@ -955,7 +963,7 @@ function Test() {
                                                                 </span>
                                                                 {scale.description && (
                                                                     <Tooltip title={scale.description} arrow>
-                                                                        <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)" }} />
+                                                                        <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)",  fontFamily:'Poppins', }} />
                                                                     </Tooltip>
                                                                 )}
                                                             </Box>
@@ -988,7 +996,7 @@ function Test() {
                                             <img src={`${process.env.PUBLIC_URL}/images/commodity.svg`} alt="Commodity" />
                                         </ListItemIcon>
                                         <ListItemText
-                                            primary={<FormLabel style={{ textAlign: "left" }} className="formLabel">Commodity</FormLabel>}
+                                            primary={<FormLabel style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }} className="formLabel">Commodity</FormLabel>}
                                         />
                                         {isSidebarOpen.commodity ? <ExpandLess /> : <ExpandMore />}
                                     </ListItemButton>
@@ -1014,8 +1022,8 @@ function Test() {
                                                     );
                                                     return filteredItems.length > 0 ? (
                                                         <div key={group.name}>
-                                                            <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }} style={{ textAlign: "left" }}>
-                                                                <FormLabel style={{ textAlign: "left" }} className="formLabel">{group.name}</FormLabel>
+                                                            <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }} style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500',  }}>
+                                                                <FormLabel style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }} className="formLabel">{group.name}</FormLabel>
                                                             </Typography>
                                                             <FormGroup>
                                                                 {filteredItems.map((commodity) => (
@@ -1050,7 +1058,7 @@ function Test() {
                                                                                 </span>
                                                                                 {commodity.description && (
                                                                                     <Tooltip title={commodity.description} arrow>
-                                                                                        <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)" }} />
+                                                                                        <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)",  fontFamily:'Poppins', }} />
                                                                                     </Tooltip>
                                                                                 )}
                                                                             </Box>
@@ -1088,7 +1096,7 @@ function Test() {
                                             <img src={`${process.env.PUBLIC_URL}/images/risk.svg`} alt="Risk" />
                                         </ListItemIcon>
                                         <ListItemText
-                                            primary={<FormLabel style={{ textAlign: "left" }} className="formLabel">Climate risk</FormLabel>}
+                                            primary={<FormLabel style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }} className="formLabel">Climate risk</FormLabel>}
                                         />
                                         {isSidebarOpen.risk ? <ExpandLess /> : <ExpandMore />}
                                     </ListItemButton>
@@ -1096,7 +1104,7 @@ function Test() {
                                         <List component="div" disablePadding sx={{ px: 2 }}>
                                             {Object.entries(sortedGroupedRisks).map(([groupId, group]) => (
                                                 <div key={groupId}>
-                                                    <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }} style={{ textAlign: "left" }}>
+                                                    <Typography variant="subtitle2" sx={{ mt: 2, mb: 1 }} style={{ textAlign: "left", fontFamily:'Poppins', fontWeight:'500', }}>
                                                         <FormLabel style={{ textAlign: "left!important" }} className="formLabel">{group.name}</FormLabel>
                                                     </Typography>
                                                     <FormGroup>
@@ -1128,7 +1136,7 @@ function Test() {
                                                                         </span>
                                                                         {risk.description && (
                                                                             <Tooltip title={risk.description} arrow>
-                                                                                <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)" }} />
+                                                                                <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)",  fontFamily:'Poppins', }} />
                                                                             </Tooltip>
                                                                         )}
                                                                     </Box>
@@ -1200,7 +1208,7 @@ function Test() {
                                                                     </span>
                                                                     {impact.description && (
                                                                         <Tooltip title={impact.description} arrow>
-                                                                            <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)" }} />
+                                                                            <InfoIcon fontSize="small" sx={{ color: "rgba(0, 0, 0, 0.54)",  fontFamily:'Poppins', }} />
                                                                         </Tooltip>
                                                                     )}
                                                                 </Box>

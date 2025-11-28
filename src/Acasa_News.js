@@ -46,7 +46,7 @@ export default function News() {
           <Typography
             sx={(theme) => ({
               display: "inline",
-              fontFamily: "revert",
+              fontFamily: "Poppins",
               fontSize: { xs: "16px", sm: "18px", md: "20px" },
               fontWeight: "bold",
               color: theme.palette.mode === "dark" ? "#66bb6a" : "#388e3c",
@@ -58,7 +58,7 @@ export default function News() {
             sx={(theme) => ({
               display: "inline",
               marginLeft: 1,
-              fontFamily: "revert",
+              fontFamily: "Poppins",
               fontStyle: "italic",
               fontSize: { xs: "16px", sm: "18px", md: "20px" },
               fontWeight: "bold",

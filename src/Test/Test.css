@@ -9,7 +9,7 @@ body {
 }
 
 .countryLogos {
-    background-color: transparent!important;
+    background-color: transparent !important;
 }
 
 .countryLogos img {
@@ -26,12 +26,12 @@ body {
 }
 
 .breadText {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
 }
 
 .breadTextFont nav {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     margin-top: 12px;
 }
@@ -113,7 +113,7 @@ body {
     border-radius: 20px !important;
     /* background: #F2F4F3 !important; */
     padding: 16px !important;
-    min-height: 400px;
+    min-height: 475px;
     box-shadow: none !important;
 }
 
@@ -121,7 +121,7 @@ body {
     border-radius: 20px !important;
     background: #fff !important;
     padding: 16px !important;
-    min-height: 400px;
+    min-height: 475px;
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.10);
     background: #FFF;
@@ -150,8 +150,8 @@ body {
     border-radius: 4px;
     background: #FECE2E;
     color: #000;
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     padding: 10px;
@@ -164,8 +164,8 @@ body {
     border-radius: 4px;
     background: #FECE2E;
     color: #000;
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     padding: 10px;
@@ -176,8 +176,8 @@ body {
 
 .resourceCard .ContentBox h4 {
     color: #4C9E46;
-    font-family: Poppins;
-    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -186,10 +186,10 @@ body {
 
 .resourceCard .ContentBox p {
     /* color: #000; */
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     line-height: normal;
     text-align: left;
 }
@@ -200,7 +200,7 @@ body {
 
 
 .breadTextFont nav p {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 500;
 }
 
@@ -268,9 +268,9 @@ span.searchIcon {
 } */
 .css-10hburv-MuiTypography-root {
     margin: 0;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 14px;
     line-height: 1.5;
     letter-spacing: 0.00938em;
     display: block;
@@ -406,7 +406,7 @@ body {
 }
 
 .label-list {
-    font-family: Poppins !important;
+    font-family: "Poppins" !important;
     font-size: 13px !important;
     font-style: normal;
     font-weight: 500 !important;
@@ -422,6 +422,7 @@ body {
     padding: 0 !important;
     position: relative !important;
     text-align: left !important;
+    font-family: 'Poppins';
 }
 
 .css-1criyxn-MuiList-root {
@@ -598,8 +599,8 @@ button.btnExplore {
 .AboutSectionCase p {
     color: #000;
     text-align: center;
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -616,7 +617,7 @@ button.btnExplore {
 .AboutSection h4 {
     /* color: #000; */
     text-align: center;
-    font-family: Poppins;
+    font-family: "Poppins", sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -626,8 +627,8 @@ button.btnExplore {
 .AboutSection p {
     /* color: #00000080; */
     text-align: center;
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -642,7 +643,7 @@ button.btnExplore {
 
 .card1 .cardBody {
     padding: 13px 33px !important;
-    min-height: 155px;
+    min-height: 200px;
 }
 
 .card1:hover {
@@ -654,28 +655,28 @@ button.btnExplore {
 
 .card1 p {
     color: #000;
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 16px;
+    line-height: normal;
 }
 
 .aboutSectionApproach h1 {
     /* color: #000; */
-    font-family: Poppins;
+    font-family: "Poppins", sans-serif;
     font-size: 60px;
     font-style: normal;
     text-align: left;
-    font-weight: 400;
+    font-weight: 500;
     line-height: normal;
     margin: 0px 0px 30px 0px;
 }
 
 .aboutSectionApproach p {
     /* color: #000; */
-    font-family: Poppins;
-    font-size: 14px !important;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px !important;
     font-style: normal;
     font-weight: 400;
     text-align: left !important;
@@ -691,8 +692,8 @@ button.btnExplore {
     border-radius: 4px;
     background: #FECE2E;
     color: #000;
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -705,8 +706,8 @@ button.btnExplore {
     border-radius: 4px;
     background: #FECE2E;
     color: #000;
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     padding: 10px;
@@ -717,10 +718,9 @@ button.btnExplore {
 
 /* Apply default tab styling */
 .tabBtn {
-    font-weight: 500;
     color: #555;
     text-transform: none;
-    font-size: 16px;
+    font-size: 18px;
     padding: 6px 16px;
     border-radius: 100px !important;
     background: rgba(76, 158, 70, 0.10) !important;
@@ -728,7 +728,7 @@ button.btnExplore {
     font-family: Poppins !important;
     font-size: 14px !important;
     font-style: normal;
-    font-weight: 400 !important;
+    font-weight: 500 !important;
     text-transform: capitalize !important;
 }
 
@@ -738,8 +738,8 @@ button.btnExplore {
     /* Your active color */
     font-weight: 600;
     background: #4C9E46 !important;
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -750,8 +750,8 @@ button.btnExplore {
     border-radius: 100px !important;
     background: #4C9E46 !important;
     color: #FFF !important;
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -762,8 +762,8 @@ button.btnExplore {
     border-radius: 100px !important;
     background: #4C9E46 !important;
     color: #FFF !important;
-    font-family: Poppins;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -810,17 +810,17 @@ button.btnExplore {
 
 .contentBox h1 {
     color: #000;
-    font-family: Poppins;
+    font-family: "Poppins", sans-serif;
     font-size: 32px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: normal;
     text-align: left;
 }
 
 .contentBox h5 {
     color: #000;
-    font-family: Poppins;
+    font-family: "Poppins", sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -832,7 +832,7 @@ button.btnExplore {
 
 .contentBox p {
     color: #000;
-    font-family: Poppins;
+    font-family: "Poppins", sans-serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -846,6 +846,9 @@ button.btnExplore {
 
 .cardImg {
     padding: 15px 0px 0px 15px;
+    border-radius: 20px;
+    background: #4C9E46;
+    backdrop-filter: blur(25px);
 }
 
 .cardImg p {
@@ -855,9 +858,9 @@ button.btnExplore {
     font-weight: 400 !important;
     letter-spacing: .01071em;
     line-height: normal;
-    margin-bottom: 13px;
+    margin-bottom: 10px;
     margin-left: 0px;
-    margin-top: 10px;
+    margin-top: 0px;
     text-align: left !important;
 }
 

@@ -561,7 +561,7 @@ const Home = (props) => {
                 color: "#4b9e44",
                 fontWeight: "normal",
                 fontSize: "40px",
-                fontFamily: "revert",
+                fontFamily: "Poppins",
               }}
             >
               How to use this Atlas?{" "}
@@ -573,7 +573,7 @@ const Home = (props) => {
               sx={{
                 color: mode === "dark" ? "#e0e0e0" : "#444444",
                 fontSize: "17px",
-                fontFamily: "revert",
+                fontFamily: "Poppins",
                 marginTop: 2,
               }}
             >
@@ -603,7 +603,7 @@ const Home = (props) => {
                 color: mode === "dark" ? "#e0e0e0" : "#111111",
                 fontWeight: "bold",
                 fontSize: "30px",
-                fontFamily: "revert",
+                fontFamily: "Poppins",
                 marginBottom: "4px",
               }}
             >

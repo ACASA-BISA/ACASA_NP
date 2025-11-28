@@ -18,7 +18,7 @@ const TabItem = styled(Tab)(({ theme }) => ({
   "maxHeight": 15,
   "minWidth": 80,
   "textTransform": "none",
-  "fontSize": "14px",
+  "fontSize": "18px",
   "fontWeight": 700,
   "color": theme.palette.mode === "dark" ? "#000" : "#fff", // Black text in dark mode, white in light mode
   "opacity": 1,
@@ -132,8 +132,8 @@ export default function ResTabsData() {
               sx={(theme) => ({
                 fontWeight: 600,
                 color: theme.palette.mode === "dark" ? "#000" : "#fff",
-                fontSize: "16px",
-                fontFamily: "revert",
+                fontSize: "18px",
+                fontFamily: "Poppines",
               })}
             >
               To be updated soon.
@@ -178,7 +178,7 @@ export default function ResTabsData() {
             disableRipple
             label="ACASA Posts"
             sx={{
-              fontSize: "12px !important",
+              fontSize: "18px !important",
               minWidth: "60px !important",
               padding: "4px 8px !important",
             }}
@@ -187,7 +187,7 @@ export default function ResTabsData() {
             disableRipple
             label="Newsletter-Strides"
             sx={{
-              fontSize: "12px !important",
+              fontSize: "18px !important",
               minWidth: "80px !important",
               padding: "4px 8px !important",
             }}
@@ -196,7 +196,7 @@ export default function ResTabsData() {
             disableRipple
             label="Glossary"
             sx={{
-              fontSize: "12px !important",
+              fontSize: "18px !important",
               minWidth: "60px !important",
               padding: "4px 8px !important",
             }}
@@ -205,7 +205,7 @@ export default function ResTabsData() {
             disableRipple
             label="Methodology"
             sx={{
-              fontSize: "12px !important",
+              fontSize: "18px !important",
               minWidth: "80px !important",
               padding: "4px 8px !important",
             }}

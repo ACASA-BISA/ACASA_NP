@@ -18,6 +18,7 @@ const DynamicColorTooltip = styled(({ bgColor, textColor, className, ...props })
     maxWidth: 240,
     lineHeight: 1.4,
     fontWeight: 400,
+    fontFamily: "Poppins",
   },
   [`& .${tooltipClasses.arrow}`]: {
     color: bgColor,
@@ -274,6 +275,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
               sx={{
                 fontSize: baseFontSize,
                 margin: "5px 0 2px 0",
+                fontFamily: "Poppins",
                 color: theme.palette.mode === "dark" ? "white" : "black",
               }}
             >
@@ -288,8 +290,9 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
               sx={{
                 fontSize: smallFontSize,
                 marginBottom: "2px",
+                fontFamily: "Poppins",
                 color: theme.palette.mode === "dark" ? "white" : "black",
-                "& span": { color: theme.palette.mode === "dark" ? theme.palette.text.secondary : "#111", fontStyle: "italic" },
+                "& span": { color: theme.palette.mode === "dark" ? theme.palette.text.secondary : "#111", fontStyle: "italic", fontFamily: "Poppins", },
               }}
             >
               <span>{localLegendData.population_text}</span>
@@ -325,6 +328,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
                       <Typography
                         sx={{
                           fontSize: tinyFontSize,
+                          fontFamily: "Poppins",
                           margin: glance ? "0" : "2px",
                           color: theme.palette.mode === "dark" ? theme.palette.text.secondary : "#111",
                         }}
@@ -353,6 +357,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
                           <Typography
                             sx={{
                               fontSize: tinyFontSize,
+                              fontFamily: "Poppins",
                               marginX: primaryText?.toLowerCase().includes("50-75 mm") ? "0px" : "3px",
                               color: textColor,
                             }}
@@ -366,6 +371,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
                                 textOverflow: "ellipsis",
                                 lineHeight: "1.3",
                                 fontWeight: "bold",
+                                fontFamily: "Poppins",
                                 fontSize: secondaryText ? tinyFontSize : tinyFontSize,
                               }}
                             >
@@ -373,7 +379,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
                               {secondaryText && (
                                 <>
                                   <br />
-                                  <span style={{ fontSize: tinyFontSize * 0.8, fontWeight: "normal", fontStyle: "italic" }}>{secondaryText}</span>
+                                  <span style={{ fontFamily: "Poppins", fontSize: tinyFontSize * 0.8, fontWeight: "normal", fontStyle: "italic" }}>{secondaryText}</span>
                                 </>
                               )}
                             </span>
@@ -383,6 +389,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
                         <Typography
                           sx={{
                             fontSize: tinyFontSize,
+                            fontFamily: "Poppins",
                             marginX: primaryText?.toLowerCase().includes("medium ") ? "0px" : "3px",
                             color: textColor,
                           }}
@@ -396,6 +403,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
                               textOverflow: "ellipsis",
                               lineHeight: "1.3",
                               fontWeight: "bold",
+                              fontFamily: "Poppins",
                               fontSize: secondaryText ? tinyFontSize : tinyFontSize,
                             }}
                           >
@@ -414,6 +422,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
                       <Typography
                         sx={{
                           fontSize: tinyFontSize,
+                          fontFamily: "Poppins",
                           margin: glance ? "0" : "2px",
                           marginTop: "0px",
                           color: theme.palette.mode === "dark" ? theme.palette.text.secondary : "#111",
@@ -434,6 +443,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
             <Typography
               sx={{
                 fontSize: smallFontSize,
+                fontFamily: "Poppins",
                 margin: glance ? "-2px 0" : "2px",
                 color: theme.palette.mode === "dark" ? "white" : "black",
                 "& span": { color: theme.palette.mode === "dark" ? theme.palette.text.secondary : "#111", fontStyle: "italic" },
@@ -449,6 +459,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
             <Typography
               sx={{
                 fontSize: tinyFontSize,
+                fontFamily: "Poppins",
                 margin: glance ? "-2px 0" : "2px",
                 color: theme.palette.mode === "dark" ? theme.palette.text.secondary : "#111",
                 fontStyle: "italic",
@@ -474,7 +485,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
           gap: 1
         }}
       >
-        <Typography sx={{ fontSize: 12, fontWeight: 600, whiteSpace: "nowrap" }} color="text.primary">
+        <Typography sx={{ fontSize: 12, fontWeight: 600, whiteSpace: "nowrap", fontFamily: "Poppins", }} color="text.primary">
           {checkcrop() ? `Area under ${breadcrumbData.commodityLabel.toLowerCase()}` : `${breadcrumbData.commodityLabel} population`}
         </Typography>
 
@@ -502,7 +513,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
             }}
           >
             {["Very Low", "Low", "Medium", "High", "Very High"].map((label) => (
-              <Typography key={label} sx={{ fontSize: 11, color: "text.secondary" }}>
+              <Typography key={label} sx={{ fontSize: 11, color: "text.secondary", fontFamily: "Poppins", }}>
                 {label}
               </Typography>
             ))}
@@ -516,7 +527,7 @@ const MapLegend = ({ tiff, breadcrumbData, layerType, apiUrl, legendType, showHe
   const renderErrorLegend = () => {
     return (
       <Box sx={{ maxWidth: maxLegendWidth, minWidth: minLegendWidth, textAlign: "center" }}>
-        <Typography sx={{ fontSize: baseFontSize, color: theme.palette.error.main }}>
+        <Typography sx={{ fontFamily: "Poppins", fontSize: baseFontSize, color: theme.palette.error.main }}>
           {error}
         </Typography>
       </Box>

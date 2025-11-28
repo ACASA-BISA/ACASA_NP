@@ -1,52 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=PT+Sans+Narrow:wght@400;700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;1,300&family=Mulish:ital,wght@0,300;1,300&family=Quicksand:wght@300..700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
   .pt-sans-narrow-regular {
-      font-family: "PT Sans Narrow", sans-serif;
+      /* font-family: "PT Sans Narrow", sans-serif; */
+      font-family: "Poppins", sans-serif;
       font-weight: 400;
       font-style: normal;
     }
     
   .pt-sans-narrow-bold {
-      font-family: "PT Sans Narrow", sans-serif;
+      /* font-family: "PT Sans Narrow", sans-serif; */
+      font-family: "Poppins", sans-serif;
       font-weight: 700;
       font-style: normal;
     }
   
   .noto-sans-kr-bhai {
-    font-family: "Noto Sans KR", sans-serif;
+    /* font-family: "Noto Sans KR", sans-serif; */
+    font-family: "Poppins", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
   }
 
   .roboto-condensed-xyz {
-    font-family: "Roboto Condensed", sans-serif;
+    /* font-family: "Roboto Condensed", sans-serif; */
+    font-family: "Poppins", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
   }
   .fira-sans-condensed-regular {
-    font-family: "Fira Sans Condensed", sans-serif;
+    /* font-family: "Fira Sans Condensed", sans-serif; */
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
   
   .fira-sans-condensed-medium {
-    font-family: "Fira Sans Condensed", sans-serif;
+    /* font-family: "Fira Sans Condensed", sans-serif; */
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
   }
 
   .fira-sans-condensed-semibold {
-    font-family: "Fira Sans Condensed", sans-serif;
+    /* font-family: "Fira Sans Condensed", sans-serif; */
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
   }
   
   .fira-sans-condensed-bold {
-    font-family: "Fira Sans Condensed", sans-serif;
+    /* font-family: "Fira Sans Condensed", sans-serif; */
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
   }

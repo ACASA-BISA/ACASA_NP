@@ -25,7 +25,7 @@ const IntroBox = styled(Box)(({ theme }) => ({
     marginBottom: theme.spacing(3),
     "& h1": {
         color: theme.palette.mode === "dark" ? "#61c258" : "#4ba046",
-        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', // Replaced "revert" with standard font stack
+        fontFamily: "Poppins",
         fontWeight: "bold",
         "& span": {
             color: theme.palette.mode === "dark" ? "#b0e3ae" : "#c4ecc2",
@@ -33,7 +33,7 @@ const IntroBox = styled(Box)(({ theme }) => ({
     },
     "& p": {
         color: theme.palette.text.primary,
-        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+        fontFamily: "Poppins",
         textAlign: "left",
         fontSize: "1rem",
         lineHeight: 1.6,
@@ -336,7 +336,7 @@ function UseCases() {
                                 <Typography
                                     sx={{
                                         fontSize: "18px",
-                                        fontFamily: '"Poppins", "Roboto", sans-serif',
+                                        fontFamily: "Poppins",
                                         fontWeight: 500,
                                         textAlign: 'left'
                                     }}
@@ -355,8 +355,8 @@ function UseCases() {
                                                     alt={title}
                                                     sx={{
                                                         width: "100%",
-                                                        height: "auto",
-                                                        objectFit: "contain",
+                                                        minHeight: "500px",
+                                                        objectFit: "cover",
                                                         display: "block",
                                                         borderRadius: "8px",
                                                     }}
@@ -370,17 +370,18 @@ function UseCases() {
                                                     pt: 0,
                                                     color: theme.palette.mode === "dark" ? "#fff" : "#000",
                                                     "& p": {
-                                                        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-                                                        fontSize: "12px",
+                                                        fontFamily: "Poppins",
+                                                        fontSize: "18px",
                                                         lineHeight: 1.6,
                                                         textAlign: 'left'
                                                     },
                                                     "& h5": {
-                                                        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                                                         fontFamily: "Poppins",
                                                         color: theme.palette.mode === "dark" ? "#fff" : "#000",
                                                         margin: theme.spacing(2, 0, 1),
-                                                        fontSize: "18px",
-                                                        textAlign: 'left'
+                                                        fontSize: "24px",
+                                                        textAlign: 'left',
+                                                        fontWeight:'600',
                                                     },
                                                 }}
                                             >
@@ -395,6 +396,7 @@ function UseCases() {
                 </AccordionContainer>
             </Container>
         </Box>
+
     );
 }
 

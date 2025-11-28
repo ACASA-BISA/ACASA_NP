@@ -209,6 +209,7 @@ const useCases = [
     {
         title: "Government",
         image: `${process.env.PUBLIC_URL}/images/govt.png`,
+
         content: (
             <>
                 <Typography component="p">
@@ -246,12 +247,15 @@ const useCases = [
     {
         title: "Research",
         image: `${process.env.PUBLIC_URL}/images/research1.jpg`,
+
         content: (
             <>
+
                 <Typography component="p">
                     Empowering researchers with high-resolution, multi-dimensional data for
                     robust climate agriculture analysis in South Asia.
                 </Typography>
+
                 <Typography variant="h5" component="h5">
                     Agricultural research
                 </Typography>
@@ -277,6 +281,7 @@ const useCases = [
     {
         title: "Civil Society",
         image: `${process.env.PUBLIC_URL}/images/civil.jpg`,
+
         content: (
             <>
                 <Typography component="p">
@@ -304,6 +309,7 @@ const useCases = [
     {
         title: "Credit and Finance",
         image: `${process.env.PUBLIC_URL}/images/credit.jpg`,
+
         content: (
             <>
                 <Typography component="p">
@@ -311,6 +317,7 @@ const useCases = [
                     climate-agriculture data for risk-informed lending and climate-smart
                     investment products.
                 </Typography>
+
                 <Typography variant="h5" component="h5">
                     Credit re-assessment
                 </Typography>
@@ -341,6 +348,7 @@ const useCases = [
     {
         title: "Multi-lateral Agencies",
         image: `${process.env.PUBLIC_URL}/images/multi.jpg`,
+
         content: (
             <>
                 <Typography component="p">
@@ -390,6 +398,7 @@ const useCases = [
     {
         title: "Insurance Industry",
         image: `${process.env.PUBLIC_URL}/images/insurance.png`,
+
         content: (
             <>
                 <Typography component="p">
@@ -420,6 +429,7 @@ const useCases = [
     {
         title: "Agri-food Industry",
         image: `${process.env.PUBLIC_URL}/images/agri.jpg`,
+
         content: (
             <>
                 <Typography component="p">
@@ -628,14 +638,15 @@ function TestHome(props) {
                         {/* Foreground content */}
                         <Box
                             sx={{
-                                position: "relative",
+                                position: "absolute",
                                 zIndex: 2,
                                 display: "flex",
                                 m: 1,
                                 ml: 7,
                                 mt: 5,
                                 p: 2,
-                                width: "35vw",
+                                bottom: 0,
+                                width: "55vw",
                                 flexDirection: "column",
                                 textAlign: { sm: "left", md: "left" },
                             }}
@@ -645,7 +656,9 @@ function TestHome(props) {
                                 sx={(theme) => ({
                                     color: theme.palette.mode === "dark" ? "#fff" : "#ffffff",
                                     fontWeight: "bold",
-                                    marginTop: '70px',
+                                    marginTop: '200px',
+                                    fontSize: '48px',
+                                    fontFamily: '"Poppins", sans-serif',
                                     textShadow: theme.palette.mode === "dark" ? "2px 2px 5px rgba(0, 0, 0, 0.6)" : "2px 2px 5px rgba(0, 0, 0, 0.25), -2px -2px 5px rgba(0, 0, 0, 0.25)",
                                 })}
                             >
@@ -656,6 +669,7 @@ function TestHome(props) {
                                 sx={(theme) => ({
                                     fontWeight: "bold",
                                     mt: 2,
+                                    fontFamily: '"Poppins", sans-serif',
                                     color: theme.palette.mode === "dark" ? "#fff" : "#ffffff",
                                 })}
                             >
@@ -709,7 +723,7 @@ function TestHome(props) {
                         <Box
                             sx={{
                                 position: "absolute",
-                                top: "350px",
+                                top: "300px",
                                 right: 20,
                                 transform: "translateY(-50%)",
                                 display: "flex",
@@ -720,12 +734,19 @@ function TestHome(props) {
                             }}
                         >
                             {rightCards.map((card, idx) => (
-                                <Card key={idx} className="cardImg" sx={{ backgroundColor: "rgba(255, 255, 255, 0.10)", borderRadius: "20px", backdropFilter: "blur(25px)" }}>
+                                <Card key={idx} className="cardImg"
+                                    sx={{
+                                        backgroundColor: theme.palette.mode === "dark" ? "#B88F1A" : "#4C9E46",
+                                        color: theme.palette.mode === "dark" ? "#fff" : "#ffffff",
+                                        borderRadius: "20px",
+                                        fontFamily: '"Poppins", sans-serif',
+                                        backdropFilter: "blur(25px)"
+                                    }}>
                                     {card.image && (
                                         <CardMedia component="img" height="50px" width="50px" image={card.image} alt={card.title} />
                                     )}
                                     <CardContent>
-                                        <Typography variant="body2" color="text.secondary">
+                                        <Typography variant="body2" color="text.secondary" sx={{ fontFamily: '"Poppins", sans-serif',}}>
                                             {card.description}
                                         </Typography>
                                     </CardContent>
@@ -766,7 +787,7 @@ function TestHome(props) {
                             variant="h2"
                             sx={{
                                 color: theme.palette.mode === "dark" ? "#F2F4F3" : "#1a1d21",
-                                fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                                fontFamily:'"Poppins", sans-serif',
                                 textAlign: "center",
                             }}
                         >
@@ -924,7 +945,7 @@ function TestHome(props) {
                         variant="h4"
                         sx={{
                             color: theme.palette.text.primary,
-                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                            fontFamily:'"Poppins", sans-serif',
                             mt: 2,
                         }}
                     >
@@ -955,7 +976,7 @@ function TestHome(props) {
                     />
                 </Box>
             </Container>
-            <Container maxWidth="sm">
+            <Container maxWidth="md">
                 <Box
                     className="AboutSection"
                     sx={{
@@ -979,14 +1000,16 @@ function TestHome(props) {
                             lineHeight: '70'
                         }}
                     >
-                        Explore <span sx={{ color: theme.palette.mode === "dark" ? "#fff" : "#c4ecc2" }}>Climate Risk</span> Like Never Before
+                        Explore <span sx={{ color: theme.palette.mode === "dark" ? "#fff" : "#c4ecc2" }}>Climate Risk</span> <br /> Like Never Before
                     </Typography>
                     <Typography
                         variant="h4"
                         sx={{
                             color: theme.palette.text.primary,
-                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                            fontFamily: '"Poppins", sans-serif',
                             mt: 2,
+                            fontSize:'24px!important',
+                            fontWeight:'500',
                         }}
                     >
                         Local-Level Maps to Inform the Real-World Action
@@ -994,9 +1017,9 @@ function TestHome(props) {
                     <Typography
                         sx={{
                             color: theme.palette.text.primary,
-                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                            fontFamily: '"Poppins", sans-serif',
                             mt: 2,
-                            fontSize: "1rem",
+                            fontSize: "18px",
                             lineHeight: 1.6,
                         }}
                     >
@@ -1025,14 +1048,14 @@ function TestHome(props) {
                                     <CardContent className="cardBody"
                                         sx={{
                                             color: theme.palette.text.primary,
-                                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                                            fontFamily: '"Poppins", sans-serif',
                                             textAlign: "center",
                                         }} >
                                         <Typography sx={{ fontSize: "1.5rem", mt: 1 }}>
                                             <div className="roundedBox">{item.emoji}</div>
                                         </Typography>
                                         <Typography
-                                            sx={{ fontSize: "1rem", lineHeight: 1.6, mt: 2 }}>
+                                            sx={{ fontSize: "18px", lineHeight: 1.6, mt: 2 }}>
                                             {item.text} </Typography>
                                     </CardContent>
                                 </Card> </Grid>))}
@@ -1050,7 +1073,7 @@ function TestHome(props) {
                         variant="h1"
                         sx={{
                             color: theme.palette.mode === "dark" ? "#F2F4F3" : "#1a1d21",
-                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                            fontFamily: '"Poppins", sans-serif',
                             textAlign: "center!important",
                         }}
                     >
@@ -1096,7 +1119,7 @@ function TestHome(props) {
                         variant="h1"
                         sx={{
                             color: theme.palette.mode === "dark" ? "#fff" : "#000",
-                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                            fontFamily: '"Poppins", sans-serif',
                             textAlign: "center!important",
                             mt: 5,
                             mb: 2
@@ -1113,8 +1136,9 @@ function TestHome(props) {
                             "& .MuiTab-root": {
                                 color:
                                     theme.palette.mode === "dark" ? "#cccccc" : "#00000080",
-                                fontFamily: '"Poppins", "Roboto", sans-serif',
+                                fontFamily: '"Poppins", sans-serif',
                                 fontWeight: 400,
+                                fontSize: '18px'
                             },
                             "& .Mui-selected": {
                                 color: "#ffffff",
@@ -1164,48 +1188,124 @@ function TestHome(props) {
                                 >
                                     <CardContent>
                                         <Grid container spacing={2} justifyContent="space-between">
-                                            <Grid item xs={12} md={5}>
-                                                <Box sx={{ width: "100%", height: "100%", p: 0 }}>
-                                                    <Box
-                                                        component="img"
-                                                        src={useCase.image}
-                                                        alt={useCase.title}
-                                                        sx={{
-                                                            width: "100%",
-                                                            height: "auto",
-                                                            objectFit: "contain",
-                                                            display: "block",
-                                                            borderRadius: "8px",
-                                                        }}
-                                                    />
-                                                </Box>
-                                            </Grid>
-                                            <Grid item xs={12} md={7}>
-                                                <Box
+                                            <Grid container spacing={2} justifyContent="space-between">
+                                                <Grid item xs={12} md={5}>
+                                                    <Box sx={{ width: "100%", height: "100%", p: 0 }}>
+                                                        <Box
+                                                            component="img"
+                                                            src={useCase.image}
+                                                            alt={useCase.title}
+                                                            sx={{
+                                                                width: "100%",
+                                                                height: "500px",
+                                                                objectFit: "cover",
+                                                                display: "block",
+                                                                borderRadius: "8px",
+                                                            }}
+                                                        />
+
+
+                                                    </Box>
+                                                </Grid>
+                                                <Grid item xs={12} md={7}
                                                     sx={{
                                                         p: 3,
                                                         pt: 0,
                                                         color: theme.palette.text.primary,
                                                         "& h1": {
-                                                            fontFamily:
-                                                                '"Roboto", "Helvetica", "Arial", sans-serif',
+                                                            fontFamily: '"Poppins", sans-serif',
                                                             color:
                                                                 theme.palette.mode === "dark"
                                                                     ? "#fff"
                                                                     : "#000",
                                                             fontSize: "32px",
-                                                            fontWeight: "400",
+                                                            fontWeight: "500",
+                                                            marginBottom:'0px',
+                                                            paddingLeft:'20px'
                                                         },
                                                         "& p": {
-                                                            fontFamily:
-                                                                '"Roboto", "Helvetica", "Arial", sans-serif',
-                                                            fontSize: "12px",
+                                                            fontFamily: '"Poppins", sans-serif',
+                                                            fontSize: "18px",
                                                             lineHeight: 1.6,
+                                                            fontWeight: "400",
+                                                            paddingLeft: "0px",
                                                         },
                                                         "& h5": {
-                                                            fontFamily:
-                                                                '"Roboto", "Helvetica", "Arial", sans-serif',
+                                                            fontFamily: '"Poppins", sans-serif',
+                                                            fontSize: "22px",
+                                                            fontWeight: "600",
+                                                            color:
+                                                                theme.palette.mode === "dark"
+                                                                    ? "#fff"
+                                                                    : "#000",
+                                                            margin: theme.spacing(2, 0, 1),
+                                                        },
+                                                    }}>
+                                                    <Typography variant="h1">{useCase.title}</Typography>
+
+                                                    <Box
+                                                        sx={{
+                                                            pt: 1,
+                                                            p: 3,
+                                                            color: theme.palette.text.primary,
+                                                            "& h1": {
+                                                                fontFamily: '"Poppins", sans-serif',
+                                                                color:
+                                                                    theme.palette.mode === "dark"
+                                                                        ? "#fff"
+                                                                        : "#000",
+                                                                fontSize: "32px",
+                                                                fontWeight: "500",
+                                                                paddingLeft:'20px',
+                                                            },
+                                                            "& p": {
+                                                                fontFamily: '"Poppins", sans-serif',
+                                                                fontSize: "18px",
+                                                                lineHeight: 1.6,
+                                                                fontWeight: "400",
+                                                                paddingLeft:'0px',
+                                                            },
+                                                            "& h5": {
+                                                                fontFamily: '"Poppins", sans-serif',
+                                                                fontSize: "22px",
+                                                                fontWeight: "600",
+                                                                color:
+                                                                    theme.palette.mode === "dark"
+                                                                        ? "#fff"
+                                                                        : "#000",
+                                                                margin: theme.spacing(2, 0, 1),
+                                                            },
+                                                        }}
+                                                    >
+
+                                                        {useCase.content}
+                                                    </Box>
+                                                </Grid>
+                                            </Grid>
+                                            {/* <Grid item xs={12} md={12}>
+                                                <Box
+                                                    sx={{
+                                                        pt: 1,
+                                                        color: theme.palette.text.primary,
+                                                        "& h1": {
+                                                            fontFamily: '"Poppins", sans-serif',
+                                                            color:
+                                                                theme.palette.mode === "dark"
+                                                                    ? "#fff"
+                                                                    : "#000",
+                                                            fontSize: "32px",
+                                                            fontWeight: "500",
+                                                        },
+                                                        "& p": {
+                                                            fontFamily: '"Poppins", sans-serif',
                                                             fontSize: "18px",
+                                                            lineHeight: 1.6,
+                                                            fontWeight: "400",
+                                                        },
+                                                        "& h5": {
+                                                            fontFamily: '"Poppins", sans-serif',
+                                                            fontSize: "24px",
+                                                            fontWeight: "500",
                                                             color:
                                                                 theme.palette.mode === "dark"
                                                                     ? "#fff"
@@ -1214,10 +1314,10 @@ function TestHome(props) {
                                                         },
                                                     }}
                                                 >
-                                                    <Typography variant="h1">{useCase.title}</Typography>
+
                                                     {useCase.content}
                                                 </Box>
-                                            </Grid>
+                                            </Grid> */}
                                         </Grid>
                                     </CardContent>
                                 </Card>
@@ -1253,7 +1353,7 @@ function TestHome(props) {
                         variant="h1"
                         sx={{
                             color: theme.palette.mode === "dark" ? "#fff" : "#000",
-                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                            fontFamily:'"Poppins", sans-serif',
                             textAlign: "center!important",
                         }}
                     >
@@ -1310,8 +1410,7 @@ function TestHome(props) {
                                                             theme.palette.mode === "dark"
                                                                 ? "#b0e3ae"
                                                                 : "#4ba046",
-                                                        fontFamily:
-                                                            '"Roboto", "Helvetica", "Arial", sans-serif',
+                                                         fontFamily: '"Poppins", sans-serif',
                                                         mt: 2,
                                                     }}
                                                 >
@@ -1360,7 +1459,7 @@ function TestHome(props) {
                         variant="h1"
                         sx={{
                             color: theme.palette.mode === "dark" ? "#fff" : "#000",
-                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                            fontFamily: '"Poppins", sans-serif',
                             textAlign: "center!important",
                         }}
                     >
@@ -1465,7 +1564,7 @@ function TestHome(props) {
                             className="paraOne"
                             sx={{
                                 color: theme.palette.text.primary,
-                                fontSize: "12px",
+                                fontSize: "18px",
                                 lineHeight: 1.6,
                                 marginBottom: '30px',
                                 px: 5,
