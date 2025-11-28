@@ -25,11 +25,11 @@ function App() {
   const [validCountries, setValidCountries] = useState([]);
   const apiUrl = process.env.REACT_APP_API_URL;
   // Redirect if not in the subdirectory
-  // useEffect(() => {
-  //   if (!window.location.pathname.startsWith('/srilanka')) {
-  //     window.location.href = '/srilanka' + window.location.hash;
-  //   }
-  // }, []);
+  useEffect(() => { //this needs to be commented if we want to push live 
+    if (!window.location.pathname.startsWith('/srilanka')) {
+      window.location.href = '/srilanka' + window.location.hash;
+    }
+  }, []);
   // Fetch valid countries from API
   useEffect(() => {
     const fetchCountries = async () => {
