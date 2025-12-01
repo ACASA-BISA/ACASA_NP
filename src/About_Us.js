@@ -655,7 +655,7 @@ export default function AboutUs() {
             <Typography
               sx={(theme) => ({
                 color: theme.palette.mode === "dark" ? "#c4c4c4" : "#111111",
-                fontSize: "15px",
+                fontSize: "18px",
                 fontFamily: "Poppins",
                 marginTop: 2,
                 marginBottom: 2,
@@ -692,8 +692,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
-                      fontWeight: "500",
+                      fontSize: "18px",
+                      fontWeight: "600",
                       fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
@@ -736,8 +736,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
-                      fontWeight: "500",
+                      fontSize: "18px",
+                      fontWeight: "600",
                       fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
@@ -780,8 +780,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
-                      fontWeight: "500",
+                      fontSize: "18px",
+                      fontWeight: "600",
                       fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
@@ -824,8 +824,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
-                      fontWeight: "500",
+                      fontSize: "18px",
+                      fontWeight: "600",
                       fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
@@ -877,7 +877,7 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
+                      fontSize: "18px",
                       fontWeight: "500",
                       fontFamily: "Poppins",
                       margin: 2,
@@ -921,8 +921,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
-                      fontWeight: "500",
+                      fontSize: "18px",
+                      fontWeight: "600",
                       fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
@@ -965,8 +965,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
-                      fontWeight: "500",
+                      fontSize: "18px",
+                      fontWeight: "600",
                       fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
@@ -1009,8 +1009,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
-                      fontWeight: "500",
+                      fontSize: "18px",
+                      fontWeight: "600",
                       fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,
@@ -1074,7 +1074,7 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
+                      fontSize: "18px",
                       fontWeight: "500",
                       fontFamily: "Poppins",
                       margin: 2,
@@ -1118,7 +1118,7 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
+                      fontSize: "18px",
                       fontWeight: "500",
                       fontFamily: "Poppins",
                       margin: 2,
@@ -1162,7 +1162,7 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
+                      fontSize: "18px",
                       fontWeight: "500",
                       fontFamily: "Poppins",
                       margin: 2,
@@ -1206,7 +1206,7 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
+                      fontSize: "18px",
                       fontWeight: "500",
                       fontFamily: "Poppins",
                       margin: 2,
@@ -1250,8 +1250,8 @@ export default function AboutUs() {
                   <Typography
                     sx={(theme) => ({
                       color: theme.palette.mode === "dark" ? "#e0e0e0" : "#333333",
-                      fontSize: "15px",
-                      fontWeight: "500",
+                      fontSize: "18px",
+                      fontWeight: "600",
                       fontFamily: "Poppins",
                       margin: 2,
                       mb: 1,

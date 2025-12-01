@@ -136,6 +136,7 @@ export default function News() {
                   sx={(theme) => ({
                     color: theme.palette.mode === "dark" ? "#81c784" : "#52911f",
                     fontWeight: "bold",
+                    fontFamily:'Poppins',
                     fontSize: { xs: "16px", sm: "18px", md: "20px" },
                   })}
                 >

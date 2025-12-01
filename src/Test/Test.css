@@ -883,6 +883,7 @@ button.btnExplore {
     padding: 4px 8px;
     border: 1px solid black;
     font-size: 15px;
+    font-family:'Poppins';
 }
 
 /* .card::-webkit-scrollbar {

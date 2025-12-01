@@ -1641,7 +1641,7 @@ const DataGlance = () => {
                                 minWidth: 'auto',
                                 fontFamily: "Poppins",
                             }}>
-                                <Typography sx={{ fontSize: 13, fontWeight: "bold" }}>Location: </Typography>
+                                <Typography sx={{ fontSize: 13, fontWeight: "500", fontFamily: "Poppins", }}>Location: </Typography>
                                 <FormControl fullWidth>
                                     {showCountrySelect ? (
                                         <Select

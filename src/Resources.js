@@ -19,7 +19,8 @@ const TabItem = styled(Tab)(({ theme }) => ({
   "minWidth": 80,
   "textTransform": "none",
   "fontSize": "18px",
-  "fontWeight": 700,
+  "fontWeight": "500!important",
+  "fontFamily":"Poppins",
   "color": theme.palette.mode === "dark" ? "#000" : "#fff", // Black text in dark mode, white in light mode
   "opacity": 1,
   "backgroundColor": theme.palette.mode === "dark" ? "#61c258" : "#4ba046", // Green background for inactive buttons
@@ -28,6 +29,8 @@ const TabItem = styled(Tab)(({ theme }) => ({
   "&:hover": {
     backgroundColor: theme.palette.mode === "dark" ? "rgba(97, 194, 88, 0.5)" : "rgba(232, 245, 213, 0.4)",
     color: theme.palette.mode === "dark" ? "#1b1f23" : "#4ba046",
+    fontFamily:"Poppins",
+    fontWeight: "500!important",
   },
   [theme.breakpoints.up("md")]: {
     minWidth: 120,
@@ -37,6 +40,8 @@ const TabItem = styled(Tab)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "rgba(210, 235, 200, 1)" : "rgba(232, 245, 213, 1)", // Lighter green background for active button in dark mode
     borderRadius: "10px",
     marginBottom: "5px",
+    fontFamily:"Poppins",
+    fontWeight: "600!important",
   },
 }));
 
@@ -135,7 +140,7 @@ export default function ResTabsData() {
                 fontWeight: 600,
                 color: theme.palette.mode === "dark" ? "#000" : "#fff",
                 fontSize: "18px",
-                fontFamily: "Poppines",
+                fontFamily: "Poppins",
               })}
             >
               To be updated soon.
@@ -158,7 +163,7 @@ export default function ResTabsData() {
           alignItems: "center",
           backgroundColor: theme.palette.mode === "dark" ? "#25292e" : "#ffffff",
           paddingTop: "100px",
-          fontFamily:'Poppins',
+          fontFamily:'Poppins!important',
         })}
       >
         <Tabs
@@ -171,6 +176,7 @@ export default function ResTabsData() {
           sx={(theme) => ({
             width: "100%",
             maxWidth: "95vw",
+            fontFamily:'Poppins!important',
             [`& .${tabsClasses.indicator}`]: {
               backgroundColor: theme.palette.mode === "dark" ? "#387530" : "#4ba046",
             },
@@ -181,7 +187,7 @@ export default function ResTabsData() {
             disableRipple
             label="ACASA Posts"
             sx={{
-              fontSize: "18px !important",
+              fontSize: "12px !important",
               minWidth: "60px !important",
               padding: "4px 8px !important",
              fontFamily:'Poppins !important',
