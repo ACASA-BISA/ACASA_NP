@@ -642,10 +642,10 @@ function TestHome(props) {
                                 zIndex: 2,
                                 display: "flex",
                                 m: 1,
-                                ml: 7,
+                                ml: 3,
                                 mt: 5,
                                 p: 2,
-                                bottom: 0,
+                                bottom: 50,
                                 width: "55vw",
                                 flexDirection: "column",
                                 textAlign: { sm: "left", md: "left" },
@@ -708,8 +708,9 @@ function TestHome(props) {
                                     "mb": 2,
                                     "fontSize": "18px",
                                     "flexShrink": 0,
+                                    "fontFamily":'Poppins',
                                     "color": theme.palette.mode === "dark" ? "#ffffff" : "#000000",
-                                    "fontWeight": "bold",
+                                    "fontWeight": "600",
                                     "backgroundColor": theme.palette.mode === "dark" ? "#B88F1A" : "#fece2f",
                                     "&:hover": {
                                         backgroundColor: theme.palette.mode === "dark" ? "#B88F1A" : "#fece2f",
@@ -997,7 +998,7 @@ function TestHome(props) {
                             fontWeight: "500",
                             fontSize: '60px',
                             textAlign: 'center',
-                            lineHeight: '70'
+                            lineHeight: '70',
                         }}
                     >
                         Explore <span sx={{ color: theme.palette.mode === "dark" ? "#fff" : "#c4ecc2" }}>Climate Risk</span> <br /> Like Never Before
@@ -1333,6 +1334,7 @@ function TestHome(props) {
                             color: "#ffffff",
                             mt: 2,
                             mb: 4,
+                            fontFamily:'Poppins',
                             "&:hover": {
                                 bgcolor: theme.palette.mode === "dark" ? "#4ba046" : "#3d8b3a",
                             },
@@ -1535,6 +1537,7 @@ function TestHome(props) {
                         color: "#ffffff",
                         mt: 2,
                         mb: 5,
+                        fontFamily:'Poppins',
                         "&:hover": {
                             bgcolor: theme.palette.mode === "dark" ? "#4ba046" : "#3d8b3a",
                         },

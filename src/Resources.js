@@ -90,6 +90,7 @@ export default function ResTabsData() {
           display: { xs: "none", md: "block" },
           backgroundColor: theme.palette.mode === "dark" ? "#25292e" : "#ffffff",
           paddingTop: "100px",
+          fontFamily:'Poppins',
         })}
       >
         <Tabs
@@ -99,6 +100,7 @@ export default function ResTabsData() {
           sx={(theme) => ({
             marginRight: "70px",
             marginLeft: "70px",
+            fontFamily:'Poppins',
             width: "calc(100vw - 140px)",
             backgroundColor: "inherit",
             boxShadow: theme.palette.mode === "dark" ? "inset 0 0 0 0 #1b1f23" : "inset 0 0 0 0 #E6ECF0", // Adjusted shadow for dark mode
@@ -156,6 +158,7 @@ export default function ResTabsData() {
           alignItems: "center",
           backgroundColor: theme.palette.mode === "dark" ? "#25292e" : "#ffffff",
           paddingTop: "100px",
+          fontFamily:'Poppins',
         })}
       >
         <Tabs
@@ -181,6 +184,7 @@ export default function ResTabsData() {
               fontSize: "18px !important",
               minWidth: "60px !important",
               padding: "4px 8px !important",
+             fontFamily:'Poppins !important',
             }}
           />
           <TabItem
@@ -190,6 +194,7 @@ export default function ResTabsData() {
               fontSize: "18px !important",
               minWidth: "80px !important",
               padding: "4px 8px !important",
+              fontFamily:'Poppins !important',
             }}
           />
           <TabItem
@@ -199,6 +204,7 @@ export default function ResTabsData() {
               fontSize: "18px !important",
               minWidth: "60px !important",
               padding: "4px 8px !important",
+              fontFamily:'Poppins !important',
             }}
           />
           <TabItem
@@ -208,12 +214,13 @@ export default function ResTabsData() {
               fontSize: "18px !important",
               minWidth: "80px !important",
               padding: "4px 8px !important",
+             fontFamily:'Poppins !important',
             }}
           />
         </Tabs>
 
         {/* Tab content */}
-        <Box sx={{ width: "100%", mt: 2 }} >
+        <Box sx={{ width: "100%", mt: 2, fontFamily:'Poppins !important', }} >
           {tabIndex === 0 && <Card_Posts />}
           {tabIndex === 1 && <News />}
           {tabIndex === 2 && <Glossary />}

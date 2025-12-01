@@ -599,7 +599,7 @@ export default function Glossary() {
             zIndex: 1000,
           }}
         >
-          <Typography variant="h5" sx={{ marginBottom: 2, fontFamily: "revert" }}>
+          <Typography variant="h5" sx={{ marginBottom: 2, fontFamily: "Poppins", fontSize:'18px' }}>
             Some definitions are still being updated. This is a work in progress and subject to refinement.
           </Typography>
           <Button
@@ -611,7 +611,7 @@ export default function Glossary() {
               "fontWeight": "bold",
               "textTransform": "none",
               "paddingX": 3,
-              "fontFamily": "revert",
+              "fontFamily": "Poppins",
               "&:hover": {
                 backgroundColor: theme.palette.mode === "dark" ? "#57ad4f" : "#43953e",
               },
@@ -642,11 +642,13 @@ export default function Glossary() {
           fullWidth
           sx={(theme) => ({
             "marginBottom": 2,
+            "fontFamily": "Poppins",
             "& .MuiOutlinedInput-root": {
               "backgroundColor": theme.palette.mode === "dark" ? theme.palette.background.paper : "white",
               "borderRadius": 1,
               "& fieldset": {
                 borderColor: theme.palette.mode === "dark" ? "#666" : "#ccc",
+                fontFamily: "Poppins",
               },
               "&:hover fieldset": {
                 borderColor: theme.palette.mode === "dark" ? "#81c784" : "#4ba046",
@@ -654,6 +656,7 @@ export default function Glossary() {
               "&.Mui-focused fieldset": {
                 borderColor: theme.palette.mode === "dark" ? "#81c784" : "#4ba046",
                 borderWidth: 2,
+                fontFamily: "Poppins",
               },
             },
           })}
@@ -668,6 +671,7 @@ export default function Glossary() {
             gap: 1,
             marginBottom: 2,
             justifyContent: "center",
+            fontFamily: "Poppins",
           }}
         >
           {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
@@ -686,6 +690,7 @@ export default function Glossary() {
                 "alignItems": "center",
                 "justifyContent": "center",
                 "transition": "0.2s",
+                "fontFamily": "Poppins",
 
                 "color": selectedLetter === letter ? (theme.palette.mode === "dark" ? theme.palette.text.primary : "white") : theme.palette.mode === "dark" ? "#aaa" : "#666",
 
@@ -715,6 +720,7 @@ export default function Glossary() {
             "borderRadius": 2,
             "boxShadow": "0 4px 10px rgba(0, 0, 0, 0.1)",
             "scrollPaddingBottom": "60px",
+            "fontFamily": "Poppins",
 
             "backgroundColor":
               theme.palette.mode === "dark"
@@ -760,10 +766,11 @@ export default function Glossary() {
                   variant="h6"
                   align="left"
                   sx={(theme) => ({
-                    fontWeight: "bold",
+                    fontWeight: "600",
+                    fontFamily: "Poppins",
                     color: theme.palette.mode === "dark" ? theme.palette.primary.main : "#4ba046",
                     marginBottom: 1,
-                    fontSize: "1rem", // Set to a smaller font size for a cleaner look
+                    fontSize: "24px", // Set to a smaller font size for a cleaner look
                   })}
                 >
                   {letter}
@@ -775,6 +782,7 @@ export default function Glossary() {
                     align="left"
                     sx={(theme) => ({
                       marginLeft: 2,
+                      fontFamily: "Poppins",
                       color: theme.palette.mode === "dark" ? theme.palette.text.primary : "#333",
                       fontSize: "0.95rem",
                     })}
@@ -790,7 +798,7 @@ export default function Glossary() {
           {Object.values(glossaryData)
             .flat()
             .filter((item) => item.term.toLowerCase().includes(searchTerm.toLowerCase())).length === 0 && (
-              <Typography sx={(theme) => ({ textAlign: "center", color: theme.palette.mode === "dark" ? theme.palette.text.secondary : "#777" })}>No results found.</Typography>
+              <Typography sx={(theme) => ({ fontFamily: "Poppins", textAlign: "center", color: theme.palette.mode === "dark" ? theme.palette.text.secondary : "#777" })}>No results found.</Typography>
             )}
         </Paper>
       </Box>
@@ -802,6 +810,7 @@ export default function Glossary() {
           marginLeft: { xs: 0, md: "1%" },
           width: { xs: "100%", md: "67%" }, // full width on mobile
           paddingBottom: "100px",
+          fontFamily: "Poppins",
           marginTop: { xs: 3, md: 0 }, // add spacing on mobile
         }}
       >
@@ -812,6 +821,7 @@ export default function Glossary() {
               key={index}
               sx={(theme) => ({
                 padding: 2,
+                fontFamily: "Poppins",
                 borderLeft: `4px solid ${theme.palette.mode === "dark" ? theme.palette.primary.main : "#4ba046"}`,
                 backgroundColor: theme.palette.mode === "dark" ? theme.palette.background.paper : "white",
                 borderRadius: 1,
@@ -820,7 +830,7 @@ export default function Glossary() {
               })}
               data-term={item.term.toLowerCase()}
             >
-              <Typography variant="h6" align="left" sx={(theme) => ({ fontWeight: "bold", color: theme.palette.mode === "dark" ? theme.palette.text.primary : "#333" })}>
+              <Typography variant="h6" align="left" sx={(theme) => ({ fontFamily: "Poppins", fontWeight: "600", color: theme.palette.mode === "dark" ? theme.palette.text.primary : "#333" })}>
                 {item.term}
               </Typography>
               <Typography
@@ -829,11 +839,12 @@ export default function Glossary() {
                 sx={(theme) => ({
                   color: theme.palette.mode === "dark" ? theme.palette.text.secondary : "#555",
                   marginTop: 1,
+                  fontFamily:'Poppins',
                 })}
               >
                 {(item.definition || "").split(" ").map((word, i) =>
                   word.startsWith("http") ? (
-                    <Link key={i} href={word} target="_blank" rel="noopener noreferrer" sx={(theme) => ({ color: theme.palette.text.secondary, textDecoration: "underline" })}>
+                    <Link key={i} href={word} target="_blank" rel="noopener noreferrer" sx={(theme) => ({ fontSize:'18px', fontFamily:'Poppins', color: theme.palette.text.secondary, textDecoration: "underline" })}>
                       {word}
                     </Link>
                   ) : (
@@ -846,7 +857,7 @@ export default function Glossary() {
             </Box>
           ))
         ) : (
-          <Typography variant="body1" sx={(theme) => ({ color: theme.palette.mode === "dark" ? theme.palette.text.disabled : "#777" })}>
+          <Typography variant="body1" sx={(theme) => ({ fontFamily: "Poppins", color: theme.palette.mode === "dark" ? theme.palette.text.disabled : "#777" })}>
             No definitions found.
           </Typography>
         )}

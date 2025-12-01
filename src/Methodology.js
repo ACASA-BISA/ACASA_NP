@@ -22,14 +22,14 @@ const renderFormattedText = (text) => {
     } else {
       if (listItems.length > 0) {
         elements.push(
-          <List key={`list-${index}`} sx={{ pl: 3, pb: 1, listStyleType: "disc", color: "#aaa" }}>
+          <List key={`list-${index}`} sx={{ pl: 3, pb: 1, listStyleType: "disc", color: "#aaa", fontSize:'18px' }}>
             {listItems.splice(0)}
           </List>
         );
       }
       if (line.trim()) {
         elements.push(
-          <Typography key={index} variant="body2" sx={{ mb: 1.2, color: "#aaa", textAlign: "left", fontFamily: "revert" }}>
+          <Typography key={index} variant="body2" sx={{ mb: 1.2, color: "#aaa", textAlign: "left", fontFamily: "Poppins", fontSize:'18px' }}>
             {linkify(line)}
           </Typography>
         );
@@ -40,7 +40,7 @@ const renderFormattedText = (text) => {
   // Push remaining list items
   if (listItems.length > 0) {
     elements.push(
-      <List key={`list-final`} sx={{ pl: 3, pb: 1, listStyleType: "disc", color: "#aaa" }}>
+      <List key={`list-final`} sx={{ pl: 3, pb: 1, listStyleType: "disc", color: "#aaa", fontSize:"18px" }}>
         {listItems}
       </List>
     );
@@ -240,10 +240,10 @@ const MethodologyPage = () => {
     <Box sx={{ backgroundColor, minHeight: "100vh", px: 2, py: 3 }}>
       <Box sx={{ textAlign: "left", mb: 10 }}>
         <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <Typography variant="h3" sx={{ fontWeight: 700, color: accent, letterSpacing: 1.2, mb: 2, fontFamily: "revert" }}>
+          <Typography variant="h3" sx={{ fontWeight: 600, color: accent, letterSpacing: 1.2, mb: 2, fontFamily: "Poppins", fontSize:'50px' }}>
             Methodology
           </Typography>
-          <Typography variant="h6" sx={{ textAlign: "left", mx: "auto", color: subtitleColor, fontFamily: "revert" }}>
+          <Typography variant="h6" sx={{ textAlign: "left", mx: "auto", color: subtitleColor, fontFamily: "Poppins", fontSize:'18px' }}>
             This section provides a detailed explanation of the concepts of risk, impact, and adaptation as used in ACASA, outlining how each has been tailored and applied across crop and livestock in
             South Asian agricultural systems.
           </Typography>
@@ -257,6 +257,7 @@ const MethodologyPage = () => {
           mx: "auto",
           px: isMobile ? 1 : 4,
           pb: 10,
+          fontFamily: "Poppins",
         }}
       >
         {!isMobile && (
@@ -270,6 +271,8 @@ const MethodologyPage = () => {
               background: `${accent}33`,
               transform: "translateX(-50%)",
               borderRadius: 2,
+              fontFamily: "Poppins",
+              fontSize:'18px',
             }}
           />
         )}
@@ -288,6 +291,7 @@ const MethodologyPage = () => {
                     alignItems: "center",
                     justifyContent: "space-between",
                     position: "relative",
+                    fontFamily: "Poppins",
                   }}
                 >
                   {!isMobile && <Box sx={{ flex: 1 }} />}
@@ -297,6 +301,7 @@ const MethodologyPage = () => {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
+                      fontFamily: "Poppins",
                       mx: isMobile ? "auto" : 3,
                     }}
                   >
@@ -307,8 +312,10 @@ const MethodologyPage = () => {
                         borderRadius: "50%",
                         backgroundColor: accent,
                         display: "flex",
+                         fontSize:'18px',
                         alignItems: "center",
                         justifyContent: "center",
+                        fontFamily: "Poppins",
                         boxShadow: `0 0 0 6px ${accent}33`,
                       }}
                     >
@@ -319,6 +326,8 @@ const MethodologyPage = () => {
                         sx={{
                           width: "4px",
                           height: 60,
+                           fontSize:'18px',
+                          fontFamily: "Poppins",
                           background: `${accent}33`,
                           mt: 1,
                           borderRadius: 2,
@@ -338,6 +347,8 @@ const MethodologyPage = () => {
                       "mt": isMobile ? 2 : 0,
                       "width": "100%",
                       "maxWidth": "750px",
+                      "fontFamily": "Poppins",
+                       "fontSize":'18px',
                       "transition": "transform 0.3s ease, box-shadow 0.3s ease",
                       "&:hover": {
                         transform: "translateY(-6px)",
@@ -352,16 +363,17 @@ const MethodologyPage = () => {
                         "alignItems": "center",
                         "justifyContent": "space-between",
                         "cursor": "pointer",
+                        "fontFamily": "Poppins",
                         "&:hover": {
                           borderRadius: 2,
                           transition: "background 0.2s ease",
                         },
                       }}
                     >
-                      <Typography variant="h6" sx={{ textAlign: "left", color: textColor, fontWeight: 600, fontFamily: "revert" }}>
+                      <Typography variant="h6" sx={{ textAlign: "left", color: textColor, fontWeight: 600, fontFamily: "Poppins" }}>
                         {step.title}
                       </Typography>
-                      {expandedStep === i ? <ExpandLess sx={{ color: subtitleColor }} /> : <ExpandMore sx={{ color: subtitleColor }} />}
+                      {expandedStep === i ? <ExpandLess sx={{ color: subtitleColor, fontFamily:'Poppins', fontSize:'18px' }} /> : <ExpandMore sx={{ color: subtitleColor, fontFamily:'Poppins', fontSize:'18px' }} />}
                     </Box>
                     {expandedStep !== i && step.subsections && (
                       <Box sx={{ mt: 1.5, display: "flex", flexWrap: "wrap", gap: 0.5 }}>
@@ -371,11 +383,11 @@ const MethodologyPage = () => {
                             label={sub.title}
                             size="small"
                             sx={{
-                              fontSize: "0.75rem",
+                               fontSize:'18px',
                               backgroundColor: `${accent}22`,
                               color: accent,
                               borderRadius: 1,
-                              fontFamily: "revert",
+                              fontFamily: "Poppins",
                             }}
                           />
                         ))}
@@ -384,10 +396,11 @@ const MethodologyPage = () => {
                             label={`+${step.subsections.length - 3} more`}
                             size="small"
                             sx={{
-                              fontSize: "0.7rem",
+                              fontSize: "18px",
                               backgroundColor: `${accent}11`,
                               color: subtitleColor,
                               borderRadius: 1,
+                              fontFamily:'Poppins'
                             }}
                           />
                         )}
@@ -396,7 +409,7 @@ const MethodologyPage = () => {
 
                     <Collapse in={expandedStep === i}>
                       <Box sx={{ mt: 1 }}>
-                        <Typography variant="body2" sx={{ textAlign: "left", color: subtitleColor, fontFamily: "revert" }}>
+                        <Typography variant="body2" sx={{ textAlign: "left", color: subtitleColor, fontFamily: "Poppins", fontSize:'18px' }}>
                           {step.desc}
                         </Typography>
 
@@ -421,15 +434,15 @@ const MethodologyPage = () => {
                               >
                                 <Box sx={{ display: "flex", alignItems: "center" }}>
                                   <SubdirectoryArrowRight sx={{ color: accent, mr: 1 }} />
-                                  <Typography variant="subtitle2" sx={{ color: textColor, fontWeight: 600, fontFamily: "revert" }}>
+                                  <Typography variant="subtitle2" sx={{ color: textColor, fontWeight: 600, fontFamily: "Poppins", fontSize:'20px' }}>
                                     {sub.title}
                                   </Typography>
                                 </Box>
-                                {isOpen ? <ExpandLess sx={{ color: subtitleColor }} /> : <ExpandMore sx={{ color: subtitleColor }} />}
+                                {isOpen ? <ExpandLess sx={{ color: subtitleColor, fontSize:'18px', fontFamily:'Poppins' }} /> : <ExpandMore sx={{ color: subtitleColor, fontFamily:'18px' }} />}
                               </Box>
 
                               <Collapse in={isOpen}>
-                                <Box sx={{ mt: 1 }}>{renderFormattedText(sub.desc)}</Box>
+                                <Box sx={{ mt: 1, fontSize:'18px', fontFamily:'Poppins' }}>{renderFormattedText(sub.desc)}</Box>
                               </Collapse>
                             </Box>
                           );

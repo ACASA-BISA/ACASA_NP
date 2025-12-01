@@ -142,7 +142,7 @@ export default function News() {
                   Issue 04
                 </Typography>
 
-                <Typography sx={(theme) => ({ color: theme.palette.text.primary, fontSize: { xs: "14px", sm: "15px" } })}>
+                <Typography sx={(theme) => ({ color: theme.palette.text.primary, fontFamily:"Poppins", fontSize: { xs: "14px", sm: "15px" } })}>
                   Dive into ACASA version 1.0, Atlas launch, events, publications, oilseed crops data brief...
                   <Typography
                     component="a"
@@ -152,6 +152,7 @@ export default function News() {
                       fontWeight: "bold",
                       fontSize: { xs: "14px", sm: "15px" },
                       color: "grey",
+                      fontFamily:'Poppins',
                       textDecoration: "none",
                       "&:hover": { textDecoration: "underline" },
                     }}
@@ -164,6 +165,7 @@ export default function News() {
                   sx={(theme) => ({
                     color: theme.palette.mode === "dark" ? "text.secondary" : "#444444",
                     marginTop: "20px",
+                    fontFamily:'Poppins',
                     fontSize: { xs: "13px", sm: "14px" },
                   })}
                 >
@@ -183,6 +185,7 @@ export default function News() {
                 flexDirection: "column",
                 padding: "16px",
                 alignItems: "center",
+                fontFamily:'Poppins',
                 transition: "background-color 0.3s ease",
                 "&:hover": {
                   backgroundColor: theme.palette.mode === "dark" ? "#2a2f36" : "#e8f5e9",
@@ -205,6 +208,7 @@ export default function News() {
                       height: "auto",
                       padding: "1.5rem",
                       cursor: "pointer",
+                      fontFamily:'Poppins',
                       transition: "transform 0.3s ease, opacity 0.3s ease",
                     }}
                     onMouseOver={(e) => {
@@ -228,6 +232,7 @@ export default function News() {
                   marginX: { xs: "10px", sm: "30px", md: "50px" },
                   marginY: "20px",
                   gap: "10px",
+                  fontFamily:'Poppins',
                 }}
               >
                 <Typography
@@ -235,13 +240,14 @@ export default function News() {
                   sx={(theme) => ({
                     color: theme.palette.mode === "dark" ? "#81c784" : "#52911f",
                     fontWeight: "bold",
+                    fontFamily:'Poppins',
                     fontSize: { xs: "16px", sm: "18px", md: "20px" },
                   })}
                 >
                   Issue 03
                 </Typography>
 
-                <Typography sx={(theme) => ({ color: theme.palette.text.primary, fontSize: { xs: "14px", sm: "15px" } })}>
+                <Typography sx={(theme) => ({ color: theme.palette.text.primary, fontFamily:'Poppins', fontSize: { xs: "14px", sm: "15px" } })}>
                   Dive into ACASA beta version, updated brochure, events, expert blogs, cattle data brief...
                   <Typography
                     component="a"
@@ -251,6 +257,7 @@ export default function News() {
                       fontWeight: "bold",
                       fontSize: { xs: "14px", sm: "15px" },
                       color: "grey",
+                      fontFamily:'Poppins',
                       textDecoration: "none",
                       "&:hover": { textDecoration: "underline" },
                     }}
@@ -263,6 +270,7 @@ export default function News() {
                   sx={(theme) => ({
                     color: theme.palette.mode === "dark" ? "text.secondary" : "#444444",
                     marginTop: "20px",
+                    fontFamily:'Poppins',
                     fontSize: { xs: "13px", sm: "14px" },
                   })}
                 >
@@ -282,6 +290,7 @@ export default function News() {
                 flexDirection: "column",
                 padding: "16px",
                 alignItems: "center",
+                fontFamily:'Poppins',
                 transition: "background-color 0.3s ease",
                 "&:hover": {
                   backgroundColor: theme.palette.mode === "dark" ? "#2a2f36" : "#e8f5e9",
@@ -304,6 +313,7 @@ export default function News() {
                       height: "auto",
                       padding: "1.5rem",
                       cursor: "pointer",
+                      fontFamily:'Poppins',
                       transition: "transform 0.3s ease, opacity 0.3s ease",
                     }}
                     onMouseOver={(e) => {
@@ -327,6 +337,7 @@ export default function News() {
                   marginX: { xs: "10px", sm: "30px", md: "50px" },
                   marginY: "20px",
                   gap: "10px",
+                  fontFamily:'Poppins',
                 }}
               >
                 <Typography
@@ -334,13 +345,14 @@ export default function News() {
                   sx={(theme) => ({
                     color: theme.palette.mode === "dark" ? "#81c784" : "#52911f",
                     fontWeight: "bold",
+                    fontFamily:'Poppins',
                     fontSize: { xs: "16px", sm: "18px", md: "20px" },
                   })}
                 >
                   Issue 02
                 </Typography>
 
-                <Typography sx={(theme) => ({ color: theme.palette.text.primary, fontSize: { xs: "14px", sm: "15px" } })}>
+                <Typography sx={(theme) => ({ fontFamily:'Poppins', color: theme.palette.text.primary, fontSize: { xs: "14px", sm: "15px" } })}>
                   Test version of ACASA to be launched, new partnerships, events, expert blogs, rice data brief, media presence...
                   <Typography
                     component="a"
@@ -348,6 +360,7 @@ export default function News() {
                     target="_blank"
                     sx={{
                       fontWeight: "bold",
+                      fontFamily:'Poppins',
                       fontSize: { xs: "14px", sm: "15px" },
                       color: "grey",
                       textDecoration: "none",
@@ -362,6 +375,7 @@ export default function News() {
                   sx={(theme) => ({
                     color: theme.palette.mode === "dark" ? "text.secondary" : "#444444",
                     marginTop: "20px",
+                    fontFamily:'Poppins',
                     fontSize: { xs: "13px", sm: "14px" },
                   })}
                 >
@@ -381,6 +395,7 @@ export default function News() {
                 flexDirection: "column",
                 padding: "16px",
                 alignItems: "center",
+                fontFamily:'Poppins',
                 transition: "background-color 0.3s ease",
                 "&:hover": {
                   backgroundColor: theme.palette.mode === "dark" ? "#2a2f36" : "#e8f5e9",
@@ -403,6 +418,7 @@ export default function News() {
                       height: "auto",
                       padding: "1.5rem",
                       cursor: "pointer",
+                      fontFamily:'Poppins',
                       transition: "transform 0.3s ease, opacity 0.3s ease",
                     }}
                     onMouseOver={(e) => {
@@ -425,6 +441,7 @@ export default function News() {
                   padding: "10px",
                   marginX: { xs: "10px", sm: "30px", md: "50px" },
                   marginY: "20px",
+                  fontFamily:'Poppins',
                   
                 }}
               >
@@ -433,13 +450,14 @@ export default function News() {
                   sx={(theme) => ({
                     color: theme.palette.mode === "dark" ? "#81c784" : "#52911f",
                     fontWeight: "bold",
+                    fontFamily:'Poppins',
                     fontSize: { xs: "16px", sm: "18px", md: "20px" },
                   })}
                 >
                   Issue 01
                 </Typography>
 
-                <Typography sx={(theme) => ({ color: theme.palette.text.primary, fontSize: { xs: "14px", sm: "15px" } })}>
+                <Typography sx={(theme) => ({ fontFamily:'Poppins', color: theme.palette.text.primary, fontSize: { xs: "14px", sm: "15px" } })}>
                   ACASA inaugural newsletter – our mission, vision, approach, events, partner expectations, advisory panel, data & methods, media presence...
                   <Typography
                     component="a"
@@ -450,6 +468,7 @@ export default function News() {
                       fontSize: { xs: "14px", sm: "15px" },
                       color: "grey",
                       textDecoration: "none",
+                      fontFamily:'Poppins',
                       "&:hover": { textDecoration: "underline" },
                     }}
                   >
@@ -461,6 +480,7 @@ export default function News() {
                   sx={(theme) => ({
                     color: theme.palette.mode === "dark" ? "text.secondary" : "#444444",
                     marginTop: "20px",
+                    fontFamily:'Poppins',
                     fontSize: { xs: "13px", sm: "14px" },
                   })}
                 >

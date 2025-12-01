@@ -16,7 +16,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 function Copyright() {
   return (
-    <Typography sx={{ fontSize: 12, color: "#aaaaaa" }}>
+    <Typography sx={{ fontSize: 14, color: "#aaaaaa", fontFamily: "Poppins", }}>
       {"Copyright © ACASA-BISA, 2025. All rights reserved."}
       {/* <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -37,6 +37,7 @@ export default function StickyFooter() {
       sx={{
         display: { xs: "none", md: "flex" },
         flexDirection: "column",
+        fontFamily: "Poppins",
         textAlign: { sm: "center", md: "left" },
       }}
     >
@@ -48,6 +49,7 @@ export default function StickyFooter() {
           px: 2,
           mt: 0,
           backgroundColor: "#111111",
+          fontFamily: "Poppins",
         }}
       >
         <Box sx={{ width: { xs: "100%", sm: "100%" }, mb: 2 }}>
@@ -57,10 +59,11 @@ export default function StickyFooter() {
               display: "flex",
               flexDirection: "row",
               margin: 6,
+              fontFamily: "Poppins",
             }}
           >
             <img src={`${process.env.PUBLIC_URL}/acasa-white.svg`} style={logoStyle} alt="logo of acasa" loading="lazy" />
-            <Divider textAlign="center" orientation="vertical" flexItem="true" sx={{ bgcolor: "#555555", borderRightWidth: 2, margin: 2 }} />
+            <Divider textAlign="center" orientation="vertical" flexItem="true" sx={{ bgcolor: "#555555", borderRightWidth: 2, margin: 2, fontFamily: "Poppins", }} />
             <Box sx={{ width: "100%" }}>
               <Typography
                 gutterBottom
@@ -70,7 +73,7 @@ export default function StickyFooter() {
                   marginLeft: "5px",
                   marginTop: "8px",
                   fontSize: "18px",
-                  fontFamily: "revert",
+                  fontFamily: "Poppins",
                 }}
               >
                 To address the vulnerability of South Asian countries to climatic risks, the Borlaug Institute for South Asia (BISA) with support from Gates Foundation is working with national agriculture research systems of the region
@@ -86,9 +89,10 @@ export default function StickyFooter() {
                   "padding": 0,
                   "fontWeight": "bold",
                   "fontSize": "16px",
-                  "fontFamily": "inherit",
+                  "fontFamily": "Poppins",
                   "&:hover": { backgroundColor: "#111111" },
                   "marginLeft": "5px",
+                  
                 }}
               >
                 Read More
@@ -101,15 +105,16 @@ export default function StickyFooter() {
               borderBottomWidth: 2,
               marginLeft: 6,
               marginRight: 6,
+              fontFamily: "Poppins",
             }}
           />
         </Box>
         <Box sx={{ display: "flex", flexDirection: "row" }}>
           <Box sx={{ width: { xs: "100%", sm: "40%" }, margin: 6 }}>
-            <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: "#ffffff" }}>
+            <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: "#ffffff", fontFamily: "Poppins", }}>
               Newsletter
             </Typography>
-            <Typography variant="subtitle1" sx={{ color: "#ffffff" }} mb={2}>
+            <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", fontSize:'16px'}} mb={2}>
               Subscribe for regular newsletter and stay upto date with our latest news and updates.
             </Typography>
             <Stack direction="row" spacing={1} useFlexGap>
@@ -126,6 +131,7 @@ export default function StickyFooter() {
                   ariaLabel: "Enter your email address",
                 }}
                 sx={{
+                  fontFamily: "Poppins",
                   backgroundColor: (theme) => (theme.palette.mode === "dark" ? "#2c2f33" : "#ffffff"),
                 }}
               />
@@ -133,6 +139,7 @@ export default function StickyFooter() {
                 variant="contained"
                 sx={{
                   "flexShrink": 0,
+                  "fontFamily": "Poppins",
                   "backgroundColor": "#fece2f",
                   "&:hover": { backgroundColor: "#aaaaaa" },
                 }}
@@ -141,33 +148,33 @@ export default function StickyFooter() {
               </Button>
             </Stack>
           </Box>
-          <Box sx={{ display: "flex", flexDirection: "row" }}>
-            <Box sx={{ width: { xs: "100%", sm: "40%" }, margin: 6 }}>
-              <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: "#ffffff" }}>
+          <Box sx={{ display: "flex", flexDirection: "row", fontFamily: "Poppins", }}>
+            <Box sx={{ width: { xs: "100%", sm: "40%" }, margin: 6, fontFamily: "Poppins", }}>
+              <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: "#ffffff", fontFamily: "Poppins", }}>
                 Contact NRMC
               </Typography>
               <Table size="small" aria-label="a dense table" padding="none">
                 <TableBody>
                   <TableRow key="1" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left" sx={{ width: "70px" }}>
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }}>
                         Name:
                       </Typography>
                     </TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontWeight: "bold" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontWeight: "600", fontFamily: "Poppins", }} ml={2}>
                         A.G.Chandrapala
                       </Typography>
                     </TableCell>
                   </TableRow>
                   <TableRow key="1" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left" sx={{ width: "70px" }}>
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }}>
                         Address:
                       </Typography>
                     </TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontWeight: "bold" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontWeight: "600", fontFamily: "Poppins", }} ml={2}>
                         National Resources Management Centre (NRMC)
                       </Typography>
                     </TableCell>
@@ -175,7 +182,7 @@ export default function StickyFooter() {
                   <TableRow key="2" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left"></TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", fontSize:'16px' }} ml={2}>
                         Department of Agriculture
                       </Typography>
                     </TableCell>
@@ -186,7 +193,7 @@ export default function StickyFooter() {
                   <TableRow key="4" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left"></TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }} ml={2}>
                         Peradeniya - 20400, Sri Lanka
                       </Typography>
                     </TableCell>
@@ -231,18 +238,19 @@ export default function StickyFooter() {
                   borderBottomWidth: 2,
                   marginTop: 2,
                   marginBottom: 2,
+                  fontFamily: "Poppins",
                 }}
               />
               <Table size="small" aria-label="a dense table" padding="none">
                 <TableBody>
                   <TableRow key="1" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left" sx={{ width: "70px" }}>
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }}>
                         Email:
                       </Typography>
                     </TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#fece2f" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#fece2f", fontFamily: "Poppins", }} ml={2}>
                         <Link color="inherit" href="mailto:nrmcperadeniyadoa@gmail.com">
                           nrmcperadeniyadoa@gmail.com
                         </Link>
@@ -253,31 +261,31 @@ export default function StickyFooter() {
               </Table>
             </Box>
             <Box sx={{ width: { xs: "100%", sm: "40%" }, margin: 6 }}>
-              <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: "#ffffff" }}>
+              <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: "#ffffff", fontFamily: "Poppins", }}>
                 Contact BISA
               </Typography>
               <Table size="small" aria-label="a dense table" padding="none">
                 <TableBody>
                   <TableRow key="1" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left" sx={{ width: "70px" }}>
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }}>
                         Name:
                       </Typography>
                     </TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontWeight: "bold" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontWeight: "600", fontFamily: "Poppins", }} ml={2}>
                         Dr Pramod Aggarwal
                       </Typography>
                     </TableCell>
                   </TableRow>
                   <TableRow key="1" sx={{ "& td": { border: 0 } }}>
-                    <TableCell align="left" sx={{ width: "70px" }}>
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }}>
+                    <TableCell align="left" sx={{ width: "70px", fontFamily: "Poppins", }}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins",}}>
                         Address:
                       </Typography>
                     </TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontWeight: "bold" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontWeight: "600",fontFamily: "Poppins", }} ml={2}>
                         Borlaug Institute for South Asia (BISA)
                       </Typography>
                     </TableCell>
@@ -285,7 +293,7 @@ export default function StickyFooter() {
                   <TableRow key="2" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left"></TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }} ml={2}>
                         International Maize and Wheat Improvement Center
                       </Typography>
                     </TableCell>
@@ -293,7 +301,7 @@ export default function StickyFooter() {
                   <TableRow key="3" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left"></TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }} ml={2}>
                         CIMMYT, CG Block B, NASC, DPS Marg, Pusa,
                       </Typography>
                     </TableCell>
@@ -301,7 +309,7 @@ export default function StickyFooter() {
                   <TableRow key="4" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left"></TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }} ml={2}>
                         New Delhi - 110012, India
                       </Typography>
                     </TableCell>
@@ -314,18 +322,19 @@ export default function StickyFooter() {
                   borderBottomWidth: 2,
                   marginTop: 2,
                   marginBottom: 2,
+                  fontFamily: "Poppins",
                 }}
               />
               <Table size="small" aria-label="a dense table" padding="none">
                 <TableBody>
                   <TableRow key="1" sx={{ "& td": { border: 0 } }}>
-                    <TableCell align="left" sx={{ width: "70px" }}>
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }}>
+                    <TableCell align="left" sx={{ width: "70px", fontFamily: "Poppins", }}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }}>
                         Phone:
                       </Typography>
                     </TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }} ml={2}>
                         +91-11-25842940
                       </Typography>
                     </TableCell>
@@ -333,7 +342,7 @@ export default function StickyFooter() {
                   <TableRow key="2" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left"></TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }} ml={2}>
                         +91-11-2584 2938
                       </Typography>
                     </TableCell>
@@ -346,18 +355,19 @@ export default function StickyFooter() {
                   borderBottomWidth: 2,
                   marginTop: 2,
                   marginBottom: 2,
+                  fontFamily: "Poppins",
                 }}
               />
               <Table size="small" aria-label="a dense table" padding="none">
                 <TableBody>
                   <TableRow key="1" sx={{ "& td": { border: 0 } }}>
                     <TableCell align="left" sx={{ width: "70px" }}>
-                      <Typography variant="subtitle1" sx={{ color: "#ffffff" }}>
+                      <Typography variant="subtitle1" sx={{ color: "#ffffff", fontFamily: "Poppins", }}>
                         Email:
                       </Typography>
                     </TableCell>
                     <TableCell align="left">
-                      <Typography variant="subtitle1" sx={{ color: "#fece2f" }} ml={2}>
+                      <Typography variant="subtitle1" sx={{ color: "#fece2f", fontFamily: "Poppins", }} ml={2}>
                         <Link color="inherit" href="mailto:acasa@cgiar.org">
                           acasa@cgiar.org
                         </Link>
@@ -376,6 +386,7 @@ export default function StickyFooter() {
             marginTop: -4,
             marginLeft: 6,
             marginRight: 6,
+            fontFamily: "Poppins",
           }}
         />
         <Box
@@ -384,6 +395,7 @@ export default function StickyFooter() {
             flexDirection: "row",
             width: "100%",
             justifyContent: "center",
+            fontFamily: "Poppins",
           }}
         >
           <Box
@@ -392,16 +404,18 @@ export default function StickyFooter() {
               flexDirection: "row",
               margin: 1,
               marginTop: 0,
+              fontFamily: "Poppins",
             }}
           >
             <ListItemButton sx={{ marginRight: -2 }} href="/">
-              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px" }}>&#9670;</ListItemIcon>
+              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px", fontFamily: "Poppins", }}>&#9670;</ListItemIcon>
               <ListItemText
                 primary="Home"
                 primaryTypographyProps={{
                   color: "#aaaaaa",
-                  fontSize: "13px",
+                  fontSize: "14px",
                   fontWeight: "normal",
+                  fontFamily: "Poppins",
                 }}
                 sx={{ marginLeft: -5, marginRight: -1 }}
               />
@@ -419,25 +433,27 @@ export default function StickyFooter() {
               />
             </ListItemButton> */}
             <ListItemButton sx={{ marginRight: -2 }} href="/#/exploredata">
-              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px" }}>&#9670;</ListItemIcon>
+              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px", fontFamily: "Poppins", }}>&#9670;</ListItemIcon>
               <ListItemText
                 primary="Explore Data"
                 primaryTypographyProps={{
                   color: "#aaaaaa",
-                  fontSize: "12px",
+                  fontSize: "14px",
                   fontWeight: "normal",
+                  fontFamily: "Poppins",
                 }}
                 sx={{ marginLeft: -5, marginRight: -1 }}
               />
             </ListItemButton>
             <ListItemButton sx={{ marginRight: -2 }} href="/#/hazardataglance">
-              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px" }}>&#9670;</ListItemIcon>
+              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px", fontFamily: "Poppins", }}>&#9670;</ListItemIcon>
               <ListItemText
                 primary="Data at a glance"
                 primaryTypographyProps={{
                   color: "#aaaaaa",
-                  fontSize: "12px",
+                  fontSize: "14px",
                   fontWeight: "normal",
+                  fontFamily: "Poppins",
                 }}
                 sx={{ marginLeft: -5, marginRight: -1 }}
               />
@@ -454,38 +470,41 @@ export default function StickyFooter() {
                 sx={{ marginLeft: -5, marginRight: -1 }}
               />
             </ListItemButton>*/}
-            <ListItemButton sx={{ marginRight: -2 }} href="/#/usecase">
-              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px" }}>&#9670;</ListItemIcon>
+            <ListItemButton sx={{ marginRight: -2, fontFamily: "Poppins",}} href="/#/usecase">
+              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px", fontFamily: "Poppins", }}>&#9670;</ListItemIcon>
               <ListItemText
                 primary="Use Cases"
                 primaryTypographyProps={{
                   color: "#aaaaaa",
-                  fontSize: "12px",
+                  fontSize: "14px",
                   fontWeight: "normal",
+                  fontFamily: "Poppins",
                 }}
                 sx={{ marginLeft: -5, marginRight: -1 }}
               />
             </ListItemButton>
             <ListItemButton sx={{ marginRight: -2 }} href="/#/resources">
-              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px" }}>&#9670;</ListItemIcon>
+              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px", fontFamily: "Poppins", }}>&#9670;</ListItemIcon>
               <ListItemText
                 primary="Resources"
                 primaryTypographyProps={{
                   color: "#aaaaaa",
-                  fontSize: "12px",
+                  fontSize: "14px",
                   fontWeight: "normal",
+                  fontFamily: "Poppins",
                 }}
                 sx={{ marginLeft: -5, marginRight: -1 }}
               />
             </ListItemButton>
             <ListItemButton sx={{ marginRight: -2 }} href="/#/about">
-              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px" }}>&#9670;</ListItemIcon>
+              <ListItemIcon sx={{ color: "#fece2f", fontSize: "15px", fontFamily: "Poppins", }}>&#9670;</ListItemIcon>
               <ListItemText
                 primary="About Us"
                 primaryTypographyProps={{
                   color: "#aaaaaa",
-                  fontSize: "12px",
+                  fontSize: "14px",
                   fontWeight: "normal",
+                  fontFamily: "Poppins",
                 }}
                 sx={{ marginLeft: -5, marginRight: -1 }}
               />
@@ -498,6 +517,7 @@ export default function StickyFooter() {
             width: "100%",
             justifyContent: "center",
             marginBottom: "5x",
+            fontFamily: "Poppins",
           }}
         >
           <Copyright />

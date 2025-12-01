@@ -183,10 +183,10 @@ const Publications = () => {
               onChange={(e) => setSortBy(e.target.value)}
               startAdornment={
                 <InputAdornment position="start">
-                  <FilterListIcon fontSize="small" />
+                  <FilterListIcon fontSize="small" sx={{fontFamily:'Poppins'}} />
                 </InputAdornment>
               }
-            >
+            sx={{fontFamily:'Poppins',}}>
               <MenuItem value="date">Date</MenuItem>
               <MenuItem value="title">Title</MenuItem>
             </Select>
@@ -214,6 +214,7 @@ const Publications = () => {
               backgroundColor: "#f9d857",
               color: "#000",
               fontWeight: 600,
+              fontFamily:'Poppins',
               "&:hover": { backgroundColor: "#f5cf4f" },
             }}
           >
@@ -243,11 +244,11 @@ const Publications = () => {
                   </Typography>
                   <Typography
                     variant="h6"
-                    sx={{ fontWeight: 600, mb: 0.5, color: theme.palette.text.primary }}
+                    sx={{ fontWeight: 600, fontFamily:'Poppins', mb: 0.5, color: theme.palette.text.primary }}
                   >
                     {pub.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ fontStyle: "italic" }}>
+                  <Typography variant="body2" sx={{ fontStyle: "italic" , fontFamily:'Poppins',}}>
                     {pub.year} | {pub.institute}
                   </Typography>
                   <Button
@@ -259,6 +260,7 @@ const Publications = () => {
                       backgroundColor: "#f9d857",
                       color: "#000",
                       fontWeight: 600,
+                      fontFamily:'Poppins',
                       "&:hover": { backgroundColor: "#f5cf4f" },
                     }}
                   >

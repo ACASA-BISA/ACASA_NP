@@ -311,9 +311,9 @@ function ResponsiveAppBar({ validCountries }) {
                                 textAlign="center"
                                 sx={{
                                   fontSize: "14px",
-                                  fontWeight: 700,
+                                  fontWeight: 500,
                                   color: (theme) => (theme.palette.mode === "dark" ? "#fff" : "#000"),
-                                  fontFamily: "Karla",
+                                  fontFamily: "Poppins",
                                 }}
                               >
                                 {page}
@@ -339,8 +339,8 @@ function ResponsiveAppBar({ validCountries }) {
                                   textAlign="center"
                                   fontSize={13}
                                   sx={{
-                                    fontFamily: "Karla",
-                                    fontWeight: 350,
+                                    fontFamily: "Poppins",
+                                    fontWeight: 500,
                                     color: (theme) => (theme.palette.mode === "dark" ? "#dddddd" : "#222222"),
                                   }}
                                 >
@@ -352,8 +352,8 @@ function ResponsiveAppBar({ validCountries }) {
                                   textAlign="center"
                                   fontSize={13}
                                   sx={{
-                                    fontFamily: "Karla",
-                                    fontWeight: 350,
+                                    fontFamily: "Poppins",
+                                    fontWeight: 500,
                                     color: (theme) => (theme.palette.mode === "dark" ? "#dddddd" : "#222222"),
                                   }}
                                 >
@@ -380,7 +380,7 @@ function ResponsiveAppBar({ validCountries }) {
                             }}
                             disabled={page === "Guide"}
                           >
-                            <Typography sx={{ fontSize: "14px", fontWeight: 700, fontFamily: "Karla" }}>
+                            <Typography sx={{ fontSize: "14px", fontWeight: "500", fontFamily: "Poppins" }}>
                               {page}
                             </Typography>
                           </MyButton>
