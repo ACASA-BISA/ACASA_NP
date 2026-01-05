@@ -15,7 +15,7 @@ function Test() {
     const { country } = useParams();
     const [open, setOpen] = useState(true);
     const [countries, setCountries] = useState([]);
-    const [selectedCountryId, setSelectedCountryId] = useState(5); // Sri Lanka
+    const [selectedCountryId, setSelectedCountryId] = useState(7); // Nepal
     const [showCountrySelect, setShowCountrySelect] = useState(true);
     const [states, setStates] = useState([]);
     const [selectedStateId, setSelectedStateId] = useState(0);
@@ -205,13 +205,13 @@ function Test() {
     }, [selectedScopeId]);
     useEffect(() => {
         if (countries.length > 0) {
-            const sriLanka = countries.find(c => c.country_id === 5);
-            if (sriLanka) {
-                setSelectedCountryId(5);
-                getStates(5);
+            const nepal = countries.find(c => c.country_id === 7);
+            if (nepal) {
+                setSelectedCountryId(7);
+                getStates(7);
                 setDisableStateFilter(false);
                 setShowCountrySelect(false);
-                fetchGeojson("country", 5);
+                fetchGeojson("country", 7);
             }
         }
     }, [countries]);
@@ -454,7 +454,7 @@ function Test() {
     };
     const fetchDistricts = async (stateId) => {
         try {
-            const response = await fetch(`${apiUrl}/lkp/locations/districts?country_id=5&state_id=${stateId}`);
+            const response = await fetch(`${apiUrl}/lkp/locations/districts?country_id=7&state_id=${stateId}`);
             const { success, data } = await response.json();
             return success ? data : [];
         } catch (err) {
@@ -668,7 +668,7 @@ function Test() {
                                                 fontFamily: 'Poppins',
                                             }}
                                         >
-                                            Country: Sri Lanka
+                                            Country: Nepal
                                         </Typography>
                                         <List component="div" disablePadding>
                                             <div className="card w-100 bg-transparent border-0 text-start">

@@ -86,64 +86,44 @@ const resources = [
 ];
 var items = [
     {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/2264406732_3cecc0db1d_o.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/2264406732_3cecc0db1d_o.jpg`,
+        video: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/GOPR0223.jpg`,
+        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/GOPR0223.jpg`,
         id: 1,
     },
     {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/BUDD 051.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/BUDD 051.jpg`,
+        video: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/GOPR0226.jpg`,
+        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/GOPR0226.jpg`,
         id: 2,
     },
     {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/BUDD 074.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/BUDD 074.jpg`,
+        video: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231215_094857471_HDR.jpg`,
+        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231215_094857471_HDR.jpg`,
         id: 3,
     },
     {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/DSC_0011.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/DSC_0011.jpg`,
+        video: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231215_133320159_HDR.jpg`,
+        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231215_133320159_HDR.jpg`,
         id: 4,
     },
     {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/DSC_0028.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/DSC_0028.jpg`,
+        video: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231215_135236457.jpg`,
+        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231215_135236457.jpg`,
         id: 5,
     },
     {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/DSC_0064.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/DSC_0064.jpg`,
+        video: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231215_142544145.jpg`,
+        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231215_142544145.jpg`,
         id: 6,
     },
     {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/Farmer and lady.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/Farmer and lady.jpg`,
+        video: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231216_110411631.jpg`,
+        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231216_110411631.jpg`,
         id: 7,
     },
     {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/IMG_3379.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/IMG_3379.jpg`,
+        video: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231216_112409385.jpg`,
+        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Nepal/IMG_20231216_112409385.jpg`,
         id: 8,
-    },
-    {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/IMG_3391.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/IMG_3391.jpg`,
-        id: 9,
-    },
-    {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/pexels-dinukagunawardana-17903073.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/pexels-dinukagunawardana-17903073.jpg`,
-        id: 10,
-    },
-    {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/pexels-ramesh-nimsara-kariyawasam-623579687-17396316.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/pexels-ramesh-nimsara-kariyawasam-623579687-17396316.jpg`,
-        id: 11,
-    },
-    {
-        video: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/Sri Lanka.jpg`,
-        videothumb: `${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka/Sri Lanka.jpg`,
-        id: 12,
     },
 ];
 // const types = [
@@ -523,8 +503,8 @@ function TestHome(props) {
         autoplaySpeed: 8000,
         arrows: false,
     };
-    const partnerLogos = [3];
-    const contryLogos = [8];
+    const partnerLogos = [2];
+    const contryLogos = [6];
     const { mode } = useContext(ThemeContext);
     if (loading) {
         return <LoadingPage />; // Show loading screen while loading is true
@@ -662,7 +642,7 @@ function TestHome(props) {
                                     textShadow: theme.palette.mode === "dark" ? "2px 2px 5px rgba(0, 0, 0, 0.6)" : "2px 2px 5px rgba(0, 0, 0, 0.25), -2px -2px 5px rgba(0, 0, 0, 0.25)",
                                 })}
                             >
-                                Atlas of Climate Adaptation in South Asian Agriculture
+                                Atlas of Climate Adaptation in Nepalese Agriculture
                             </Typography>
                             <Typography
                                 variant="subtitle1"
@@ -1083,7 +1063,7 @@ function TestHome(props) {
                     <Container maxWidth="lg">
                         <img
                             className="w-100"
-                            src={`${process.env.PUBLIC_URL}/ACASA_Approach_SL.svg`}
+                            src={`${process.env.PUBLIC_URL}/ACASA_Approach_NP.svg`}
                             style={{
                                 filter: theme.palette.mode === "dark" ? "invert(93%) sepia(5%) saturate(166%) hue-rotate(180deg) brightness(100%) contrast(85%)" : "none",
                             }}

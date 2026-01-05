@@ -205,7 +205,7 @@ const DataGlance = () => {
     const [climateScenarios, setClimateScenarios] = useState([]);
     const [visualizationScales, setVisualizationScales] = useState([]);
     const [geojsonData, setGeojsonData] = useState(null);
-    const [selectedCountryId, setSelectedCountryId] = useState(5); // Sri Lanka
+    const [selectedCountryId, setSelectedCountryId] = useState(7); // Nepal
     const [selectedCommodityId, setSelectedCommodityId] = useState("");
     const [selectedScenarioId, setSelectedScenarioId] = useState("");
     const [selectedVisualizationScaleId, setSelectedVisualizationScaleId] = useState("");
@@ -798,9 +798,9 @@ const DataGlance = () => {
             return;
         }
 
-        let countryId = 5;                    // DEFAULT = Sri Lanka
+        let countryId = 7;                    // DEFAULT = Nepal
         let admin_level = "country";          // Always start at country level
-        let admin_level_id = 5;
+        let admin_level_id = 7;
         let showSelect = true;
 
         // If country comes from URL, override with that
@@ -915,7 +915,7 @@ const DataGlance = () => {
                 }
 
                 if (!country) {
-                    fetchGeojson("country", 5);
+                    fetchGeojson("country", 7);
                 }
             } catch (err) {
                 console.error("Initialization error:", err);

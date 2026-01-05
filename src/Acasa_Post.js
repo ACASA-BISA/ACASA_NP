@@ -25,8 +25,24 @@ function createData(imgSrc, imgAlt, title, author, link, keywords = [], date) {
 
 const data = [
   createData(
-    `${process.env.PUBLIC_URL}/Blog-14.jpeg`,
+    `${process.env.PUBLIC_URL}/np_resource_1.png`,
     "Blog 1",
+    "An initiative to address climate change impacts on agriculture in Nepal",
+    "Amar Bahadur Pun, Chief, National Agricultural Environment Research Centre, Nepal Agricultural Research Council (NARC), Nepal",
+    `${process.env.PUBLIC_URL}/Resource1.docx`,
+    [""]
+  ),
+  createData(
+    `${process.env.PUBLIC_URL}/np_resource_2.jpg`,
+    "Blog 2",
+    "Nepal's Resilient Response: Adapting Agriculture to Climate Challenges",
+    "Sunita Sanjyal, PhD, Scientist, National Pasture and Fodder Research Program, Nepal Agricultural Research Council (NARC), Nepal",
+    `${process.env.PUBLIC_URL}/Resource2.docx`,
+    [""]
+  ),
+  createData(
+    `${process.env.PUBLIC_URL}/Blog-14.jpeg`,
+    "Blog 3",
     "Finding resilience in the rains of Nawalapitiya, Kandy",
     "Riya Gupta, Communications Officer, BISA",
     "https://bisa.org/finding-resilience-in-the-rains-of-nawalapitiya-kandy/",
@@ -34,7 +50,7 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-15.jpg`,
-    "Blog 2",
+    "Blog 4",
     "Driving agricultural transformation through digital innovation",
     "Prasun Gangopadhyay, Borlaug Institute for South Asia (BISA)",
     "https://bisa.org/driving-agricultural-transformation-through-digital-innovation/",
@@ -42,7 +58,7 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-10.jpg`,
-    "Blog 3",
+    "Blog 5",
     "Building capabilities of medium and large-scale Sri Lankan maize growers in agricultural risk management",
     "ASM Roshan, Agribusiness Development Centre, Department of Agriculture, Sri Lanka, and WMUK Rathnayake, Natural Resources Management Centre (NRMC), Department of Agriculture, Sri Lanka",
     "https://bisa.org/building-capabilities-of-medium-and-large-scale-sri-lankan-maize-growers-in-agricultural-risk-management/",
@@ -50,7 +66,7 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-11.jpg`,
-    "Blog 4",
+    "Blog 6",
     "ACASA for empowering women-led social entrepreneurs in Nepal: Building climate-resilient forage for a sustainable livestock ecosystem",
     "Bhola Shrestha, Heifer International, Nepal, and Sunita Sanjyal, Nepal Agricultural Research Council, Nepal",
     "https://bisa.org/acasa-for-empowering-women-led-social-entrepreneurs-in-nepal-building-climate-resilient-forage-for-a-sustainable-livestock-ecosystem/",
@@ -58,13 +74,13 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-13.jpg`,
-    "Blog 5",
+    "Blog 7",
     "Strengthening the model of “Adaptation Clinic” through data-driven local level adaptation planning in Bangladesh",
     "Tausif Ahmed Qurashi, BRAC, Bangladesh, and Md. Abdus Salam, Bangladesh Agricultural Research Council (BARC), Bangladesh",
     "https://bisa.org/strengthening-the-model-of-adaptation-clinic-through-data-driven-local-level-adaptation-planning-in-bangladesh/",
     ["Adaptation,", "local-level planning"]
   ),
-  createData(`${process.env.PUBLIC_URL}/blognew1.png`, "Blog 6", "Greater successes through NARS partnerships", "Tess Russo, BMGF, Seattle, USA", "https://bisa.org/greater-successes-through-nars-partnerships/", [
+  createData(`${process.env.PUBLIC_URL}/blognew1.png`, "Blog 8", "Greater successes through NARS partnerships", "Tess Russo, BMGF, Seattle, USA", "https://bisa.org/greater-successes-through-nars-partnerships/", [
     "Partnership,",
     "NARS,",
     "ACASA,",
@@ -72,7 +88,7 @@ const data = [
   ]),
   createData(
     `${process.env.PUBLIC_URL}/blognew2.jpeg`,
-    "Blog 7",
+    "Blog 9",
     "Gridded crop modelling to simulate impacts of climate change and adaptation benefits in ACASA",
     "Anooja Thomas, University of Florida, USA; Apurbo K Chaki, BARI, Bangladesh; Gerrit Hoogenboom, University of Florida, USA; and S Naresh Kumar, ICAR-IARI, India",
     "https://bisa.org/gridded-crop-modelling-to-simulate-impacts-of-climate-change-and-adaptation-benefits-in-acasa/",
@@ -80,7 +96,7 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/blognew3.png`,
-    "Blog 8",
+    "Blog 10",
     "Harnessing econometric and statistical tools to support climate-resilient agriculture",
     "Kaushik Bora, BISA-CIMMYT, India and Prem Chand, ICAR-NIAP, India",
     "https://bisa.org/harnessing-econometric-and-statistical-tools-to-support-climate-resilient-agriculture/",
@@ -88,7 +104,7 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/blognew4.png`,
-    "Blog 9",
+    "Blog 11",
     "Unlocking insights from literature: Exploring adaptation options in ACASA",
     "Aniket Deo, BISA-CIMMYT, India; Niveta Jain, ICAR-IARI, India; Roshan B Ojha, NARC, Nepal; and Sayla Khandoker, Bangladesh",
     "https://bisa.org/unlocking-insights-from-literature-exploring-adaptation-options-in-acasa/",
@@ -96,7 +112,7 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-5.jpg`,
-    "Blog 10",
+    "Blog 12",
     "A new Climate Adaptation Atlas to safeguard South Asian agriculture",
     "Bram Govaerts, DG, CIMMYT & BISA and Arun Kumar Joshi, CIMMYT Asia Regional Representative and MD BISA",
     "https://www.cimmyt.org/blogs/a-new-climate-adaptation-atlas-to-safeguard-south-asian-agriculture/",
@@ -104,7 +120,7 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-1.jpg`,
-    "Blog 11",
+    "Blog 13",
     "Adaptation Atlas is a positive step towards climate resilient agriculture",
     "Himanshu Pathak, Secretary (DARE) and Director General - ICAR, India",
     "https://www.cimmyt.org/blogs/adaptation-atlas-is-a-positive-step-towards-climate-resilient-agriculture/",
@@ -112,7 +128,7 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-2.jpg`,
-    "Blog 12",
+    "Blog 14",
     "Bangladesh to improve risk characterization at a granular level with Atlas",
     "Shaikh Mohammad Bokhtiar, Executive Chairman, BARC, Bangladesh",
     "https://www.cimmyt.org/blogs/bangladesh-to-improve-risk-characterization-at-a-granular-level-with-atlas/",
@@ -120,7 +136,7 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-3.jpg`,
-    "Blog 13",
+    "Blog 15",
     "Atlas crucial to strengthen Nepal’s capacity to cope with climate change",
     "Dhruba Raj Bhattarai, Executive Director, NARC, Nepal",
     "https://www.cimmyt.org/blogs/atlas-crucial-to-strengthen-nepals-capacity-to-cope-with-climate-change/",
@@ -128,7 +144,7 @@ const data = [
   ),
   createData(
     `${process.env.PUBLIC_URL}/Blog-4.jpg`,
-    "Blog 14",
+    "Blog 16",
     "Climate Adaptation Atlas will support evidence-based solutions in Sri Lanka",
     "P. Malathy, DG-Agriculture, Sri Lanka",
     "https://www.cimmyt.org/news/climate-adaptation-atlas-will-support-evidence-based-solutions-in-sri-lanka/",

@@ -100,7 +100,7 @@ export default function AboutUs() {
                   marginTop: 2,
                 })}
               >
-                There is an urgent need to identify strategies to manage increasing climate risks in agriculture. The Atlas of Climate Adaptation in South Asian Agriculture (ACASA) is a digital platform that comprehensively consolidates spatially explicit data on climate hazards, assessing their impact on smallholder populations, farms, crops, and livestock systems for the South Asian region. By evaluating the vulnerability of these populations, impact on region’s critical commodities, and the evidence around the effectiveness of gender informed adaptation options, ACASA-Sri Lanka empowers decision-makers with valuable insights through a comprehensive adaptation portfolio to guide strategic investments and policy formulations.
+                There is an urgent need to identify strategies to manage increasing climate risks in agriculture. The Atlas of Climate Adaptation in South Asian Agriculture (ACASA) is a digital platform that comprehensively consolidates spatially explicit data on climate hazards, assessing their impact on smallholder populations, farms, crops, and livestock systems for the South Asian region. By evaluating the vulnerability of these populations, impact on region’s critical commodities, and the evidence around the effectiveness of gender informed adaptation options, ACASA-Nepal empowers decision-makers with valuable insights through a comprehensive adaptation portfolio to guide strategic investments and policy formulations.
               </Typography>
               {/*<Typography
                 sx={(theme) => ({
@@ -147,7 +147,7 @@ export default function AboutUs() {
                 })}
               >
                 <Link href={`${process.env.PUBLIC_URL}/SL-ACASA Brochure_03112025.pdf`} underline="none" color="#4b9e44" target="_blank">
-                  ACASA, Sri Lanka Brochure
+                  ACASA, Nepal Brochure
                 </Link>
               </Typography>
             </Box>
@@ -301,7 +301,7 @@ export default function AboutUs() {
                 marginBottom: 2,
               })}
             >
-              Partners and Contributors in Sri Lanka
+              Partners and Contributors in Nepal
             </Typography>
 
             <Box
@@ -389,7 +389,7 @@ export default function AboutUs() {
               </Box>*/}
 
               {/* Row 3 */}
-              {/*<Box sx={{ display: "flex", flexDirection: "column", gap: "1vw" }}>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: "1vw" }}>
                 <Link href="https://narc.gov.np/" underline="none" target="_blank">
                   <Paper
                     sx={(theme) => ({
@@ -424,10 +424,10 @@ export default function AboutUs() {
                 </Link>
 
                 <PartnersContributors country="nepal" />
-              </Box>*/}
+              </Box>
 
               {/* Row 4 */}
-              <Box sx={{ display: "flex", flexDirection: "column", gap: "1vw" }}>
+              {/*<Box sx={{ display: "flex", flexDirection: "column", gap: "1vw" }}>
                 <Link href="https://doa.gov.lk/NRMC/" underline="none" target="_blank">
                   <Paper
                     sx={(theme) => ({
@@ -462,7 +462,8 @@ export default function AboutUs() {
                 </Link>
 
                 <PartnersContributors country="sriLanka" />
-              </Box>
+              </Box>*/}
+
             </Box>
 
             <Typography
@@ -1141,7 +1142,7 @@ export default function AboutUs() {
                     Principal Scientist, ICAR-Central Research Institute for Dryland Agriculture (CRIDA), India
                   </Typography>
                 </Box>
-              </Paper>
+              </Paper>*/}
               <Paper
                 sx={(theme) => ({
                   m: 1,
@@ -1185,8 +1186,8 @@ export default function AboutUs() {
                     Soil Scientist, National Agricultural Environment Research Centre, NARC, Nepal
                   </Typography>
                 </Box>
-              </Paper>*/}
-              <Paper
+              </Paper>
+              {/*<Paper
                 sx={(theme) => ({
                   m: 1,
                   ml: 0,
@@ -1273,7 +1274,7 @@ export default function AboutUs() {
                     Director, NRMC, Department of Agriculture, Sri Lanka
                   </Typography>
                 </Box>
-              </Paper>
+              </Paper>*/}
             </Box>
             <Typography
               sx={(theme) => ({

@@ -213,15 +213,15 @@ function ResponsiveAppBar({ validCountries }) {
           <Toolbar disableGutters sx={{ width: "100%", alignItems: "center" }}>
             <Box sx={{ display: "flex", flexGrow: 0, flexDirection: "column" }}>
               <Button
-                size="small"
+                size="large"
                 color="inherit"
-                key="DeptAgri"
+                key="AANA"
                 component="a"
-                href="https://doa.gov.lk/home-page/"
-                target="_blank"
+                href="#home"
+                target="_self"
                 sx={{ padding: 0 }}
               >
-                <Avatar variant="square" alt="Remy Sharp" src={`${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka Logos/Agri Logo_New copy.png`} sx={{ width: "auto", height: "60px" }} />
+                <Avatar variant="square" alt="Remy Sharp" src={`${process.env.PUBLIC_URL}/Home_imgs/Nepal Logos/AANA logo.png`} sx={{ width: "auto", height: "60px" }} />
 
               </Button>
             </Box>
@@ -233,48 +233,19 @@ function ResponsiveAppBar({ validCountries }) {
                 flexDirection: "column",
               }}
             >
-              <ImgButton size="small" color="inherit" key="Agriplus">
-                <Avatar variant="square" alt="Remy Sharp" src={`${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka Logos/Agri Plus-01-2-2.png`} sx={{ width: "auto", height: "50px" }} />
-              </ImgButton>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexGrow: 0,
-                display: { xs: "none", md: "flex" },
-                flexDirection: "column",
-              }}
-            >
               <Button
                 size="small"
                 color="inherit"
-                key="NRMC"
+                key="NARC"
                 component="a"
-                href="https://doa.gov.lk/nrmc-home/"
+                href="https://narc.gov.np/"
                 target="_blank"
                 sx={{ padding: 0 }}
               >
-                <Avatar variant="square" alt="Remy Sharp" src={`${process.env.PUBLIC_URL}/Home_imgs/Sri Lanka Logos/NRMC.png`} sx={{ width: "auto", height: "50px" }} />
+                <Avatar variant="square" alt="Remy Sharp" src={`${process.env.PUBLIC_URL}/Home_imgs/Nepal Logos/NARC logo.jpeg`} sx={{ width: "auto", height: "50px" }} />
               </Button>
             </Box>
-            <Box sx={{ display: "flex", flexGrow: 0, flexDirection: "column" }}>
-              <Button
-                size="small"
-                color="inherit"
-                key="Acasa"
-                component="a"
-                href="https://acasa-bisa.org/#/home"
-                target="_blank"
-                sx={{ padding: 0 }}
-              >
-                <Avatar
-                  variant="square"
-                  alt="Remy Sharp"
-                  src={mode === "dark" ? `${process.env.PUBLIC_URL}/Home_imgs/Acasa Logo white1.png` : `${process.env.PUBLIC_URL}/Home_imgs/Acasa1.png`}
-                  sx={{ width: "auto", height: "60px" }}
-                />
-              </Button>
-            </Box>
+           
             <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
               <ToggleButtonGroup value={flag} exclusive onChange={(e, newValue) => handleNavigation(newValue)}>
                 {pages.map((page, index) => (
@@ -425,7 +396,25 @@ function ResponsiveAppBar({ validCountries }) {
                 </ToggleContainer>
               </StyledTooltip>
 
-              <Translate />
+              {/*<Translate />*/}
+               <Box sx={{ display: "flex", flexGrow: 0, flexDirection: "column" }}>
+              <Button
+                size="small"
+                color="inherit"
+                key="Acasa"
+                component="a"
+                href="https://acasa-bisa.org/#/home"
+                target="_blank"
+                sx={{ padding: 0 }}
+              >
+                <Avatar
+                  variant="square"
+                  alt="Remy Sharp"
+                  src={mode === "dark" ? `${process.env.PUBLIC_URL}/Home_imgs/Acasa Logo white1.png` : `${process.env.PUBLIC_URL}/Home_imgs/Acasa1.png`}
+                  sx={{ width: "auto", height: "60px" }}
+                />
+              </Button>
+            </Box>
               <ImgButton size="small" href="https://bisa.org/" target="_blank" color="inherit" key="Bisa">
                 <Avatar variant="square" alt="Remy Sharp" src={mode === "dark" ? `${process.env.PUBLIC_URL}/BISA Logo in white color.png` : `${process.env.PUBLIC_URL}/BISA Logo in color.png`} sx={{ width: "auto", height: "50px" }} />
               </ImgButton>
